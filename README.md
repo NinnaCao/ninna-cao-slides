@@ -42,6 +42,6 @@ Or just ask Claude: *"Use Ninna Cao Slides to make a 15-slide talk on … — a 
 tools/package.sh   # → dist/Ninna_Cao_Slides_v<version>.zip
 ```
 
-## Credits
+## Licence
 
-Built on [Frontend Slides](https://github.com/zarazhangrui/frontend-slides) by Zara Zhang (MIT). Fonts under the SIL Open Font License. Full provenance in [references/credits.md](ninna-cao-slides/references/credits.md).
+[MIT](LICENSE), copyright 2026 Ninna Cao. Third-party parts keep their own licences: [Frontend Slides](https://github.com/zarazhangrui/frontend-slides) by Zara Zhang (MIT), the bundled fonts (SIL Open Font License) and the example photographs (CC0 / CC BY / CC BY-SA). Full provenance in [references/credits.md](ninna-cao-slides/references/credits.md).

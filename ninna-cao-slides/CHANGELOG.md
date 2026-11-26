@@ -1,5 +1,9 @@
 # Changelog — Ninna Cao Slides
 
+## 3.0.1 — open licence (26 Nov 2026)
+
+- Released under the MIT License (`LICENSE.txt`, repo `LICENSE`), copyright 2026 Ninna Cao. Frontend Slides, the bundled fonts and the example photographs keep their own licences, listed in the licence file and `references/credits.md`.
+
 ## 3.0.0 — visual-first (26 Nov 2026)
 
 Ninna's direction: every slide needs a visual, found on the web when her material runs out, and photographs should fade into the background. The look of an approved dark editorial deck (AI for Marketing, Nov 2026) is recorded as a reusable style.

@@ -2,6 +2,10 @@
 
 **Ninna Cao Slides** records Ninna Cao's presentation preferences: a meaningful visual on every slide, photographs that fade into the stage, explanatory diagrams, useful context, automatic motion and closely matched speaking notes. Each brief defines the visual direction. Cinematic Night records one design direction Ninna approved in November 2026.
 
+## Licence
+
+The Ninna Cao Slides layer (instructions, references, scripts, styles and examples written for this skill) is released under the MIT License, copyright 2026 Ninna Cao: see `LICENSE.txt`. The components below keep their own licences.
+
 ## Foundation
 
 The fixed 1920 × 1080 browser stage and zero-dependency HTML foundation derive from **Frontend Slides by Zara Zhang**:
