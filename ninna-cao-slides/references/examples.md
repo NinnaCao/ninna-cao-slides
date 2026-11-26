@@ -27,3 +27,18 @@ A quiet photo-led treatment can work well for a small-room readout. Blend a scen
 | Give the group its next action | Put the instruction, time and expected output on the same slide. Keep optional prompts in the appendix. |
 
 A bright, high-contrast palette with strong sans-serif type works in a well-lit room. Use an alternative direction if the brand, references or space point to one.
+
+## Product or marketing talk in a dim room
+
+**Purpose.** Explain how a team turns observation into a product decision, with energy, for an audience watching a projector. See `assets/example-cinematic-deck.json` (Cinematic Night).
+
+| Slide idea | Visual and context |
+| --- | --- |
+| Cover | A huge condensed title on the left; a dark product or scene photo on the right fading into the stage. Presenter and date in mono below. |
+| Agenda | Three image tiles, one per part, with big accent numerals and one line each. |
+| Section divider | Outlined numeral, a short title, a photograph fading in from the right and four marks along the bottom. |
+| Steps | Photo plate fading from the top right; four cards with mono labels such as "01 · ARRIVE". |
+| Chain or framework | An SVG diagram that traces in, with the final stage in the accent colour, and one rule-of-thumb line. |
+| Targets | A paper slide: big numbers beside a white-background product shot blended with `multiply`. |
+| Close | A statement title over a picture fading from the right, three takeaways. |
+| Sources | Generated from the credits ledger. |

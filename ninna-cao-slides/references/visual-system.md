@@ -24,7 +24,25 @@ Keep strong alignment through a section. Use open space to show relationships. L
 
 ## Treat photographs according to their job
 
-Use edge-to-edge photography for an opening or a scene when the words remain readable. Use a crisp frame, diptych or sequence when the audience needs to inspect the action. A directional gradient can blend a photograph into the stage while reserving an easy reading area. Match any masking to the brief and preserve the sharpness of the face, hands, object or activity that matters.
+Every slide has a visual ([web-visuals.md](web-visuals.md)). Decide each one's job:
+
+- **Atmosphere, subject or hero picture: fade it into the stage.** This is Ninna's preferred treatment for covers, dividers, concept slides and closings. Place the picture on one side and let the edges that face the text dissolve into the slide background, so there is no hard photo edge and the glow of the slide shows through. See *Image fades* below.
+- **Evidence the audience must inspect** (a screenshot, a research photo, a prototype): a crisp frame, diptych or sequence with a caption.
+- **Several parts or options:** image tiles whose lower edge fades into the label below.
+
+Preserve the sharpness of the face, hands, object or activity that matters, and keep it clear of the fade.
+
+## Image fades
+
+The recipe, implemented as `backdrop.place` and `.fade-plate` in `assets/deck-layout.css` for every preset:
+
+1. Put the picture in a box on one side (`right`, `left`, `top-right`, `top`, `bottom`) or full-bleed.
+2. Mask the box with a linear gradient from transparent to opaque over roughly the first third facing the text (`mask-image`). The slide's own background and glows show through the transparent part.
+3. Add a scrim in the slide's background colour on the text side and along the bottom, inside the masked box, to deepen shadows.
+4. Lift dark photos slightly (`brightness` 1.1–1.3) so the subject reads after the fade.
+5. Let the picture settle once (scale 1.035 → 1) when the slide opens.
+
+Pictures that fade well have a dark or plain background and the subject on the far side from the text. Check at full size that the fade never cuts through a face or the subject's key detail, that body text sits on the quiet part of the slide, and that the picture edge is invisible. A full-bleed picture needs a stronger scrim behind the text.
 
 Place dense diagram labels on a quiet, high-contrast surface. Preserve the photo's proportions and choose a crop for the action. Show a screenshot at a size that lets the audience inspect the relevant controls, text or interface state.
 
@@ -39,6 +57,16 @@ Place dense diagram labels on a quiet, high-contrast surface. Preserve the photo
 | Compare prototype forms | Tangibly different forms and a learning question for each |
 | Explain a rollout | Small-group learning, the decision it informs and a visible feedback route |
 | Supply detail for discussion | Appendix divider and supporting material after the main sequence |
+
+## Chinese and mixed-language decks
+
+- Headlines: a serif CJK face such as Noto Serif SC (600) or a heavy sans such as Noto Sans SC (700–900) to match the Latin display face. Body: the Latin body face followed by Noto Sans SC (`"Manrope", "Noto Sans SC"`), so Latin and numerals keep the deck's character.
+- Keep large numerals and prices in the Latin display face.
+- Do not use `font-feature-settings: "palt"` on Chinese text: it compresses full-width punctuation. Keep punctuation full-width.
+- No full stop at the end of titles. Emphasise with the accent colour, never with fake italics.
+- Allow 1.6–1.75 line-height for Chinese body text, `line-break: strict`, `text-wrap: balance` on titles, and hand-break a line that would leave one character alone.
+- CJK font files are large. Supply them in `style.fonts` with `"subset": true`; the builder keeps only the characters the deck uses (needs `fontTools` and `brotli`).
+- Write the Chinese version natively rather than translating line by line, and check each slide again: Chinese runs about 1.6 characters per English word of space.
 
 ## Motion
 

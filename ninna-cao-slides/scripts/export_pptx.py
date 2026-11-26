@@ -14,7 +14,11 @@ def make_powerpoint(pdf, output, model=None):
     presentation = Presentation()
     presentation.slide_width = Inches(13.333333)
     presentation.slide_height = Inches(7.5)
-    notes = [] if model is None else model["slides"]
+    notes = [] if model is None else list(model["slides"])
+    if model is not None:
+        # The builder appends generated sources-and-credits slides; they carry no notes.
+        from build_deck import credit_slides
+        notes += credit_slides(model, model["slides"])
     with fitz.open(pdf) as source:
         if not len(source):
             raise ValueError("The source PDF has no pages.")

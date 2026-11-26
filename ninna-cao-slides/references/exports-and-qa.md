@@ -8,6 +8,21 @@ Use the user's latest approved deck as the visual reference. Preserve locked sec
 
 For a new deck, check the typography, color, image treatment and compositions against its brief. Check that each requested format carries that direction through.
 
+## Visual checks (v3)
+
+Run both checks on every HTML deck before delivery, then look at the contact sheet yourself:
+
+```bash
+python3 scripts/check_deck.py presentation.html     # structure, visuals per slide, credits ledger
+python3 scripts/qa_render.py presentation.html qa  # renders each slide; overlaps, overflow, clipping, image resolution
+```
+
+- Every main slide has a visible picture, diagram, chart or video. Fix a failure by adding one, not by exempting the slide.
+- No text overlaps other text, leaves the stage or is clipped. Treat each `qa_render` error as a real defect.
+- Fades: no visible photo edge, the subject is not cut by the fade, body text sits on the quiet side, contrast is comfortable.
+- Images are not shown larger than their pixels on hero placements.
+- The sources and image credits slide lists every image found online, with creator, license and source.
+
 ## HTML
 
 - Deliver one HTML file with embedded fonts, CSS, JavaScript and local images where practical.
@@ -31,7 +46,7 @@ If a file is image-only, say so. Do not describe it as fully editable. Check the
 
 Render the final complete HTML or the corresponding final PowerPoint into a static PDF. Use the final-state print styling when exporting HTML. Wait for images and fonts to load, and include every main and appendix slide.
 
-Prefer a browser print engine that supports the design's masks, gradients and SVG. If that is unavailable, use an available fallback renderer, inspect its output, and describe a material limitation. Do not keep retrying a blocked browser or silently substitute an outdated PDF.
+Use `scripts/export_pdf.py` (default `--engine screens`): it renders each slide's final state in Chrome and builds a pixel-exact PDF with web links kept clickable. Browser print ignores CSS masks, so the `browser` engine shows hard edges on faded photos; use it only when selectable text matters more than fades, and inspect it. If no browser is available, use the `static` fallback, inspect its output, and describe the limitation. Do not keep retrying a blocked browser or silently substitute an outdated PDF.
 
 Check one slide per page, correct 16:9 dimensions, text clarity, photographs, diagrams and appendix boundary. Check the whole export, not just the first page. A PDF correctly loses animation and interactivity; its content must remain complete.
 
@@ -44,7 +59,7 @@ Use the final slide numbers and current speaker split. Keep colored headings and
 1. Read the deck as an audience member. Can someone understand the topic without the conversation that created it?
 2. Trace the required source concepts, processes and examples to their locations.
 3. Inspect image and diagram mappings. Is each claimed activity visible or explained accurately?
-4. Render the whole deck. Use a contact sheet for sequence and individual full-size views for fit and clarity.
+4. Render the whole deck (`qa_render.py`). Use the contact sheet for sequence and visual rhythm, and individual full-size views for fit, fades and clarity.
 5. Compare changed slides to the approved reference and inspect protected sections for drift.
 6. Test interaction and print behavior where supported. Keep structural checks separate from native-app execution claims.
 7. Compare formats for the current revision and deliver only requested final files with working links.

@@ -20,7 +20,7 @@ Use context already available. If an important choice is missing, ask once about
 
 Review the actual images, tables, clips and sketches. Identify the subject, action, quality, aspect ratio, usable crop, and which concept it proves. Plan story and visual evidence together. Use permissioned local files where available. Keep important faces, hands, artifacts and numbers in frame. Check every stage has purposeful material.
 
-If a meaningful image is missing, use the available image tools when relevant. Draw exact diagrams and charts from the source data. For a typographic or text-led brief, an intentional grid, shapes and graphic rhythm can carry a slide. Never use illustrative media to imply an undocumented event.
+Every slide needs a visual. If a meaningful image is missing, find one on the web ([web-visuals.md](web-visuals.md)) or use the available image tools, and record its source. Draw exact diagrams and charts from the source data. Even a typographic brief gives each slide a picture, diagram, chart or large graphic figure. Never use illustrative media to imply an undocumented event.
 
 ## Discover the design visually
 

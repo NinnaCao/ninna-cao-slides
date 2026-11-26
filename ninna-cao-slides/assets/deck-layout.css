@@ -116,3 +116,99 @@ body { font-family: var(--body-font); }
 .source-list { display: grid; grid-template-columns: 340px 1fr; gap: 22px 40px; font-size: 28px; line-height: 1.25; }
 .source-list dt { color: var(--accent); font-weight: 700; }
 .source-list dd { margin: 0; color: var(--muted); }
+
+/* ===========================================
+   IMAGE FADES (v3) — photographs dissolve into the slide background.
+   Works with every preset. `place-*` says where the picture sits; the edges that face
+   the text fade to transparent, so the slide's own background (glows included) shows
+   through instead of a hard photo edge. The ::after scrim deepens the shadow side in
+   the slide colour. Tune per slide with --fade-len, --plate-start, --plate-height,
+   --img-brightness and object-position (manifest: backdrop.focus).
+   =========================================== */
+.slide .backdrop.fade { inset: 0; z-index: 0; }
+.slide .backdrop.fade img {
+  position: absolute; inset: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover; opacity: 1;
+  filter: brightness(var(--img-brightness, 1.04)) saturate(var(--img-saturate, 1));
+}
+.slide .backdrop.fade::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+}
+.slide .backdrop.fade.place-right { inset: 0 0 0 var(--plate-start, 36%); }
+.slide .backdrop.fade.place-left { inset: 0 var(--plate-start, 36%) 0 0; }
+.slide .backdrop.fade.place-top { inset: 0 0 auto 0; height: var(--plate-height, 64%); }
+.slide .backdrop.fade.place-top-right { inset: 0 0 auto var(--plate-start, 52%); height: var(--plate-height, 58%); }
+.slide .backdrop.fade.place-bottom { inset: auto 0 0 0; height: var(--plate-height, 60%); }
+.slide .backdrop.fade.place-full { inset: 0; }
+.slide .backdrop.fade.place-right, .fade-plate.place-right {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 var(--fade-len, 34%));
+  mask-image: linear-gradient(90deg, transparent 0%, #000 var(--fade-len, 34%));
+}
+.slide .backdrop.fade.place-left, .fade-plate.place-left {
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 var(--fade-len, 34%));
+  mask-image: linear-gradient(270deg, transparent 0%, #000 var(--fade-len, 34%));
+}
+.slide .backdrop.fade.place-top, .fade-plate.place-top {
+  -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 var(--fade-len, 42%));
+  mask-image: linear-gradient(0deg, transparent 0%, #000 var(--fade-len, 42%));
+}
+.slide .backdrop.fade.place-bottom, .fade-plate.place-bottom {
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 var(--fade-len, 42%));
+  mask-image: linear-gradient(180deg, transparent 0%, #000 var(--fade-len, 42%));
+}
+.slide .backdrop.fade.place-top-right, .fade-plate.place-top-right {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 var(--fade-len, 32%)), linear-gradient(0deg, transparent 0%, #000 36%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 var(--fade-len, 32%)), linear-gradient(0deg, transparent 0%, #000 36%);
+  mask-composite: intersect;
+}
+/* Scrims: a little extra shadow on the side that faces the text, in the slide colour. */
+.slide .backdrop.fade.place-right::after, .fade-plate.place-right::after {
+  background:
+    linear-gradient(90deg, var(--slide-bg) 0%, color-mix(in srgb, var(--slide-bg) 45%, transparent) 14%, transparent 46%),
+    linear-gradient(0deg, var(--slide-bg) 0%, color-mix(in srgb, var(--slide-bg) 12%, transparent) 28%, transparent 70%);
+}
+.slide .backdrop.fade.place-left::after, .fade-plate.place-left::after {
+  background:
+    linear-gradient(270deg, var(--slide-bg) 0%, color-mix(in srgb, var(--slide-bg) 45%, transparent) 14%, transparent 46%),
+    linear-gradient(0deg, var(--slide-bg) 0%, transparent 30%);
+}
+.slide .backdrop.fade.place-top::after, .fade-plate.place-top::after {
+  background: linear-gradient(0deg, var(--slide-bg) 0%, transparent 38%), linear-gradient(90deg, color-mix(in srgb, var(--slide-bg) 55%, transparent) 0%, transparent 55%);
+}
+.slide .backdrop.fade.place-top-right::after, .fade-plate.place-top-right::after {
+  background: linear-gradient(90deg, var(--slide-bg) 0%, transparent 40%), linear-gradient(0deg, var(--slide-bg) 0%, transparent 34%);
+}
+.slide .backdrop.fade.place-bottom::after, .fade-plate.place-bottom::after {
+  background: linear-gradient(180deg, var(--slide-bg) 0%, transparent 40%);
+}
+.slide .backdrop.fade.place-full::after {
+  background:
+    linear-gradient(90deg, var(--slide-bg) 0%, color-mix(in srgb, var(--slide-bg) 82%, transparent) 30%, color-mix(in srgb, var(--slide-bg) 20%, transparent) 62%, transparent 100%),
+    linear-gradient(0deg, var(--slide-bg) 0%, color-mix(in srgb, var(--slide-bg) 50%, transparent) 26%, transparent 60%);
+}
+.slide .backdrop.fade.place-full.scrim-bottom::after {
+  background: linear-gradient(0deg, var(--slide-bg) 0%, color-mix(in srgb, var(--slide-bg) 88%, transparent) 30%, color-mix(in srgb, var(--slide-bg) 30%, transparent) 62%, transparent 100%);
+}
+.slide .backdrop.fade ~ :is(.slide-header, .slide-body, .slide-footer) { z-index: 1; }
+
+/* The same treatment inside slide bodies: <figure class="fade-plate place-right" style="left:…;top:…;width:…;height:…"> */
+.fade-plate { position: absolute; overflow: hidden; margin: 0; }
+.fade-plate img { display: block; width: 100%; height: 100%; object-fit: cover; filter: brightness(var(--img-brightness, 1.04)); }
+.fade-plate::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+
+/* Gentle settle when the slide opens; the settled state is what prints. */
+@keyframes ninna-settle { from { transform: scale(1.035); } to { transform: scale(1); } }
+.slide.entered .backdrop.fade img, .slide.entered .fade-plate.settle img {
+  animation: ninna-settle 1.24s cubic-bezier(.19, 1, .22, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .slide.entered .backdrop.fade img, .slide.entered .fade-plate.settle img { animation: none !important; }
+}
+@media print {
+  .slide .backdrop.fade img, .fade-plate img { animation: none !important; transform: none !important; }
+}
+
+/* Optional numbered kicker and section-divider numeral, styled further by presets. */
+.kicker-num { display: inline-block; margin-right: 18px; }
+.divider-num { display: block; }

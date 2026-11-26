@@ -4,6 +4,14 @@ Choose using the audience, content, venue and brand. The 46 designs are starting
 
 When pursuing visual discovery, make three previews with the same real opening content. Pick a readable standard direction, a more expressive direction and a custom exploration with a meaningful difference. Preview them using the palette, type and cover composition below. Load the recipe for the selected design to extend its rhythm throughout the deck.
 
+## Ninna presets
+
+| Direction | Content fit | Cover composition |
+| --- | --- | --- |
+| [Cinematic Night](cinematic-night.md) (`cinematic`) | Product, marketing, technology and strategy talks in a dim room. Recorded from an approved November 2026 deck. | A huge condensed title on the left; a product or scene photo on the right fading into a warm charcoal stage. |
+| Dark editorial (`editorial`) | Reflective research talks with an atmospheric photo. | Serif title over a softly blended photograph. |
+| Light (`light`) | Bright rooms and reading-first teaching decks. | Clear sans title beside a framed image. |
+
 ## [12 adaptable presets](styles-standard.md)
 
 | Direction | Content fit | Cover composition |

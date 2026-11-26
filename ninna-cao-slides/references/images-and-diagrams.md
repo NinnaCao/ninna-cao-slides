@@ -11,9 +11,9 @@ Prefer:
 3. Original sketches, whiteboards, wireframes and different prototype forms.
 4. Genuine user test situations, physical fit checks or observable task behavior.
 5. Product and interface artifacts when the artifact itself is the subject.
-6. Relevant sourced public images when the supplied material does not support the point.
+6. Official product, place or event imagery, and openly licensed photographs found on the web, when the supplied material does not cover a slide. Every slide needs a visual; see [web-visuals.md](web-visuals.md) for searching, licenses and the credits ledger.
 
-Use as many relevant supplied images as the narrative benefits from. Do not add a photo simply to increase the count. Do not invent people or pass a stock workshop photo off as the user's project.
+Use as many relevant images as the narrative benefits from, and at least one picture, diagram or chart per slide. Choose each for what it explains. Do not invent people or pass a stock workshop photo off as the user's project.
 
 For public media, prefer primary or clearly licensed sources. Keep creator, source URL, license and the reason for using the image in a source ledger. Do not distribute the user's internal research photos as general-purpose stock assets inside future skills or templates unless requested.
 

@@ -68,7 +68,8 @@
       "source_credit": "Visuals in this example are illustrations prepared for the skill.",
       "notes_en": "Use these questions to coach a group as they prepare an experiment.",
       "notes_zh": "讨论时可以回到这几个提示",
-      "duration_seconds": 30
+      "duration_seconds": 30,
+      "visual_exempt": "Prompt list in the appendix"
     }
   ]
 }

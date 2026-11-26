@@ -18,6 +18,7 @@ def previews(manifest, output, selection):
     for i, direction in enumerate(selection, 1):
         draft = deepcopy(model)
         draft["editable"] = False
+        draft["credits_slide"] = False
         opening = draft["slides"][0]
         opening.pop("id", None)
         opening.pop("notes_en", None)
@@ -27,6 +28,8 @@ def previews(manifest, output, selection):
         if direction != "custom":
             original_style = draft.get("style") or {}
             draft["style"] = {"preset": direction, "fonts": original_style.get("fonts", [])}
+            if original_style.get("accent"):
+                draft["style"]["accent"] = original_style["accent"]
         with NamedTemporaryFile(mode="w", encoding="utf-8", suffix=".json", dir=manifest.parent) as payload:
             json.dump(draft, payload, ensure_ascii=False)
             payload.flush()
@@ -37,7 +40,7 @@ def main():
     parser = ArgumentParser(description=__doc__)
     parser.add_argument("manifest", type=Path)
     parser.add_argument("output", type=Path)
-    choices = tuple(styles()) + ("editorial", "light", "custom")
+    choices = tuple(styles()) + ("cinematic", "editorial", "light", "custom")
     parser.add_argument("directions", nargs="+", choices=choices)
     args = parser.parse_args()
     if len(args.directions) != 3 or len(set(args.directions)) != 3:
