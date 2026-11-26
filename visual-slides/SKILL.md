@@ -1,11 +1,11 @@
 ---
-name: ninna-cao-slides
+name: visual-slides
 description: Create image-rich presentations where every slide has an excellent real image (in the foreground, or in the background behind diagrams and text), photos fade softly into the stage, and the visual direction fits each brief. Reads the whole content first, then sources images to match it - the brand's own website for company and product decks (e.g. SteelSeries, Dyson), web and open-library search for topics - and credits them. Includes the Cinematic Night style (condensed headlines, typewriter labels, glowing dark stage), clear diagrams, automatic motion, render QA, and HTML, PowerPoint, PDF and speaking-note outputs.
 ---
 
-# Ninna Cao Slides
+# Visual Slides
 
-Create presentations that help an audience understand an idea and how it is applied. Ninna's preferences carry across projects: a meaningful visual on every slide, photographs that fade into the stage, clear explanations and measured motion. Choose the typography, palette and composition from the specific content, audience, brand and setting. Apply the same standard of visual evidence and export quality to every style.
+Create presentations that help an audience understand an idea and how it is applied. These standards carry across projects: a meaningful visual on every slide, photographs that fade into the stage, clear explanations and measured motion. Choose the typography, palette and composition from the specific content, audience, brand and setting. Apply the same standard of visual evidence and export quality to every style.
 
 Read [visual-system.md](references/visual-system.md), [web-visuals.md](references/web-visuals.md) and [content-and-evidence.md](references/content-and-evidence.md) before building. Read [images-and-diagrams.md](references/images-and-diagrams.md) when choosing visuals and [cinematic-night.md](references/cinematic-night.md) when that direction fits. The complete original Frontend Slides library is available through [original-workflow.md](references/original-workflow.md). Follow the user's instructions for the current deck above these defaults.
 
@@ -80,9 +80,9 @@ Follow [web-visuals.md](references/web-visuals.md) and the image plan from step 
 
 ## 5 Choose and apply the visual direction
 
-Use the topic, audience, brand, delivery setting and applicable references to choose typography, palette, image treatment and slide compositions. Follow the supplied brand or approved direction when it applies. Explore the [Ninna presets and style catalog](references/style-index.md), the [complete source library](references/original-workflow.md) or a project-specific direction. When the style is open, show three authentic title-slide previews using the user's real content, then continue the chosen direction through the whole deck.
+Use the topic, audience, brand, delivery setting and applicable references to choose typography, palette, image treatment and slide compositions. Follow the supplied brand or approved direction when it applies. Explore the [built-in presets and style catalog](references/style-index.md), the [complete source library](references/original-workflow.md) or a project-specific direction. When the style is open, show three authentic title-slide previews using the user's real content, then continue the chosen direction through the whole deck.
 
-- **Cinematic Night** (`style.preset: "cinematic"`) records the dark editorial look Ninna approved in November 2026: Barlow Condensed headlines, Manrope body, Courier Prime labels, a warm charcoal stage with soft light pools, one accent (`style.accent`) and photos fading into the dark. It is a strong first candidate for product, marketing and technology talks in a dim room. See [cinematic-night.md](references/cinematic-night.md).
+- **Cinematic Night** (`style.preset: "cinematic"`) records a dark editorial look approved in November 2026: Barlow Condensed headlines, Manrope body, Courier Prime labels, a warm charcoal stage with soft light pools, one accent (`style.accent`) and photos fading into the dark. It is a strong first candidate for product, marketing and technology talks in a dim room. See [cinematic-night.md](references/cinematic-night.md).
 - Author HTML at **1920 × 1080** and scale the entire stage uniformly, including on phones.
 - Choose typefaces suited to the brief. Embed bundled or supplied fonts with redistribution permission. For Chinese decks follow the CJK rules in [visual-system.md](references/visual-system.md) and subset CJK fonts.
 - Start with approximately **55–100 visible words** on an explanatory slide; around 110–125 where a framework needs context.
@@ -139,7 +139,7 @@ python3 scripts/qa_render.py presentation.html qa
 - [visual-system.md](references/visual-system.md): direction, scale, photo treatments, image fades, Chinese typography, motion.
 - [images-and-diagrams.md](references/images-and-diagrams.md): photo evidence, accurate mapping and diagram patterns.
 - [content-and-evidence.md](references/content-and-evidence.md): source coverage, context, workplace application and scope control.
-- [style-index.md](references/style-index.md): Ninna presets and 46 further visual directions.
+- [style-index.md](references/style-index.md): built-in presets and 46 further visual directions.
 - [workflow.md](references/workflow.md): creation, PowerPoint conversion, enhancement and visual discovery.
 - [implementation.md](references/implementation.md): content plan, manifest fields, HTML stage and exports.
 - [motion.md](references/motion.md), [notes-and-engagement.md](references/notes-and-engagement.md), [exports-and-qa.md](references/exports-and-qa.md), [examples.md](references/examples.md), [publishing.md](references/publishing.md).

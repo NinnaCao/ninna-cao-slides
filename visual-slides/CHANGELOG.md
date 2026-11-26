@@ -1,8 +1,17 @@
-# Changelog — Ninna Cao Slides
+# Changelog — Visual Slides
+
+## 4.0.0 — renamed to Visual Slides (26 Nov 2026)
+
+- **New name:** the skill is now **Visual Slides** (`visual-slides`), formerly "Ninna Cao Slides". The skill folder, ZIP name, GitHub repository (`NinnaCao/visual-slides`; the old URL redirects) and all documentation use the new name. Created by Ninna Cao; copyright unchanged.
+- **Breaking for installs:** replace `~/.claude/skills/ninna-cao-slides` with `~/.claude/skills/visual-slides`.
+- Preset stylesheets renamed `cinematic.css`, `editorial.css`, `light.css`; animation names use a neutral `vs-` prefix.
+- The deck controller exposes `window.slideDeck`; `window.ninnaDeck` stays as an alias, so v3 decks still work with the QA and PDF scripts.
+- Docs written in a neutral, product voice; new README for first-time users.
+- Frontend Slides by Zara Zhang is still included in full: the original repository as a ZIP (all 163 files, byte-identical to upstream) and the unpacked guides, presets and templates in `references/frontend-slides/`.
 
 ## 3.1.0 — content-first images (26 Nov 2026)
 
-Ninna's direction: understand the whole deck before choosing images; take brand images from the brand's own website (SteelSeries from steelseries.com, Dyson from dyson.com) and topic images from the web; every slide needs an excellent real image, in the background if it is not needed in front.
+Direction: understand the whole deck before choosing images; take brand images from the brand's own website (SteelSeries from steelseries.com, Dyson from dyson.com) and topic images from the web; every slide needs an excellent real image, in the background if it is not needed in front.
 
 - **New step 1 in SKILL.md:** read the whole content, write a content brief and an image plan (brand site / web search / user's own work / official sources, per section).
 - **Real image on every main slide:** diagrams and illustrations no longer count on their own. `check_deck.py` and `qa_render.py` fail a main slide without a photo, render or screenshot.
@@ -19,7 +28,7 @@ Ninna's direction: understand the whole deck before choosing images; take brand 
 
 ## 3.0.0 — visual-first (26 Nov 2026)
 
-Ninna's direction: every slide needs a visual, found on the web when her material runs out, and photographs should fade into the background. The look of an approved dark editorial deck (AI for Marketing, Nov 2026) is recorded as a reusable style.
+Direction: every slide needs a visual, found on the web when her material runs out, and photographs should fade into the background. The look of an approved dark editorial deck (AI for Marketing, Nov 2026) is recorded as a reusable style.
 
 **New rules (SKILL.md)**
 - A visual on every main slide: photo, product image, screenshot, diagram, chart or video. Text-only slides only in the appendix, with a stated reason.

@@ -6,7 +6,7 @@
     for (let i = 0; i < manifest.length; i++) {
       hash = Math.imul(hash ^ manifest.charCodeAt(i), 16777619);
     }
-    return "ninna-cao-slides:draft:" + path + ":" + (hash >>> 0).toString(16);
+    return "visual-slides:draft:" + path + ":" + (hash >>> 0).toString(16);
   }
 
   function createDraftStore(key, getStorage) {
@@ -82,7 +82,7 @@
   }
 
   function setEditing(value) {
-    const deck = window.ninnaDeck;
+    const deck = (window.slideDeck || window.ninnaDeck);
     if (!deck) return;
     editing = value;
     if (editing) deck.playback.pause();

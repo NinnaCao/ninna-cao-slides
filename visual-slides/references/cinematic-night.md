@@ -1,6 +1,6 @@
 # Cinematic Night
 
-A dark editorial direction recorded from a deck Ninna approved in November 2026: photographs and product renders dissolve into a warm charcoal stage, condensed headlines hit hard, typewriter labels keep order, and one hot accent carries attention. It is a strong first candidate for product, marketing, technology and strategy talks in a dim room, and for any brief that asks for this look. Choose another direction when the brand, room or tone points elsewhere; the fade and visual rules still apply.
+A dark editorial direction recorded from an approved product-marketing deck (November 2026): photographs and product renders dissolve into a warm charcoal stage, condensed headlines hit hard, typewriter labels keep order, and one hot accent carries attention. It is a strong first candidate for product, marketing, technology and strategy talks in a dim room, and for any brief that asks for this look. Choose another direction when the brand, room or tone points elsewhere; the fade and visual rules still apply.
 
 `style.preset: "cinematic"` in a manifest applies it, with the fonts embedded automatically. See `assets/example-cinematic-deck.json` for every layout below.
 

@@ -1,6 +1,6 @@
 # Notice
 
-Ninna Cao Slides is released under the MIT License (see `LICENSE.txt`), copyright 2026 Ninna Cao.
+Visual Slides is released under the MIT License (see `LICENSE.txt`), copyright 2026 Ninna Cao.
 
 Third-party components keep their own licences and are not covered by that licence:
 

@@ -1,20 +1,20 @@
 /* Presentation behavior shared by every visual direction. */
 .slide { transition: opacity 220ms ease; }
-@keyframes ninna-enter {
+@keyframes vs-enter {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
-@keyframes ninna-photo {
+@keyframes vs-photo {
   from { opacity: 0; transform: scale(1.025); }
   to { opacity: 1; transform: scale(1); }
 }
 /* 1.1, not 1: Chrome normalises curved paths imprecisely, and a dash of exactly 1 can leave the end undrawn. */
-@keyframes ninna-trace { from { stroke-dashoffset: 1.1; } to { stroke-dashoffset: 0; } }
+@keyframes vs-trace { from { stroke-dashoffset: 1.1; } to { stroke-dashoffset: 0; } }
 .js .slide .reveal { opacity: 0; }
-.slide.entered .reveal { animation: ninna-enter var(--motion-duration, 560ms) cubic-bezier(.2, .7, .3, 1) var(--delay, 120ms) both; }
-.slide.entered .photo-frame.reveal { animation-name: ninna-photo; }
+.slide.entered .reveal { animation: vs-enter var(--motion-duration, 560ms) cubic-bezier(.2, .7, .3, 1) var(--delay, 120ms) both; }
+.slide.entered .photo-frame.reveal { animation-name: vs-photo; }
 .trace { stroke-dasharray: 1.1 1.1; stroke-dashoffset: 0; }
-.slide.entered .trace { animation: ninna-trace 820ms ease var(--delay, 180ms) both; }
+.slide.entered .trace { animation: vs-trace 820ms ease var(--delay, 180ms) both; }
 .deck-controls {
   position: fixed;
   inset: auto 0 22px;

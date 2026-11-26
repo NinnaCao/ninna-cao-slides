@@ -217,9 +217,9 @@ body { font-family: var(--body-font); }
 .fade-plate::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
 
 /* Gentle settle when the slide opens; the settled state is what prints. */
-@keyframes ninna-settle { from { transform: scale(1.035); } to { transform: scale(1); } }
+@keyframes vs-settle { from { transform: scale(1.035); } to { transform: scale(1); } }
 .slide.entered .backdrop.fade img, .slide.entered .fade-plate.settle img {
-  animation: ninna-settle 1.24s cubic-bezier(.19, 1, .22, 1) both;
+  animation: vs-settle 1.24s cubic-bezier(.19, 1, .22, 1) both;
 }
 @media (prefers-reduced-motion: reduce) {
   .slide.entered .backdrop.fade img, .slide.entered .fade-plate.settle img { animation: none !important; }

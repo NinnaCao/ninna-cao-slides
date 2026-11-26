@@ -1,4 +1,0 @@
-interface:
-  display_name: "Ninna Cao Slides"
-  short_description: "Image-rich slides with a visual on every page and photos that fade into the stage"
-  default_prompt: "Use $ninna-cao-slides to build this presentation: a meaningful visual on every slide (find and credit openly licensed images when needed), photos fading into the background, clear context and automatic motion."

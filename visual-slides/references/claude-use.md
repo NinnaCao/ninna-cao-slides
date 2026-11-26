@@ -2,7 +2,7 @@
 
 ## Claude Code
 
-Put the `ninna-cao-slides` folder in `~/.claude/skills/` (all projects) or a project's `.claude/skills/`. Keep the whole folder, including `assets`, `references` and `scripts`. Claude Code loads it the next session; ask for "Ninna Cao Slides" or describe a presentation.
+Put the `visual-slides` folder in `~/.claude/skills/` (all projects) or a project's `.claude/skills/`. Keep the whole folder, including `assets`, `references` and `scripts`. Claude Code loads it the next session; ask for "Visual Slides" or describe a presentation.
 
 Optional tools for the scripts:
 
@@ -18,7 +18,7 @@ The builder, `check_deck.py`, `find_images.py` and `fetch_image.py` run on the P
 
 ## Claude apps (claude.ai, desktop)
 
-Upload the ZIP that contains the single `ninna-cao-slides` folder as a custom skill, then enable it:
+Upload the ZIP that contains the single `visual-slides` folder as a custom skill, then enable it:
 
 1. Enable code execution and file creation in the capabilities settings if needed.
 2. Open **Customize > Skills**.
@@ -30,6 +30,6 @@ Web image search needs network access in the environment. Where it is not availa
 
 ## Starting a deck
 
-> Use Ninna Cao Slides for this presentation. Put a meaningful visual on every slide and find openly licensed images when my material runs out. Fade photos into the background. Choose the visual direction from the audience, topic and room. Deliver HTML and PDF with matching notes.
+> Use Visual Slides for this presentation. Put a meaningful visual on every slide and find openly licensed images when my material runs out. Fade photos into the background. Choose the visual direction from the audience, topic and room. Deliver HTML and PDF with matching notes.
 
 Attach the actual reading, images and meeting notes for each project.

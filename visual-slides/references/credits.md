@@ -1,10 +1,10 @@
 # Credits and provenance
 
-**Ninna Cao Slides** records Ninna Cao's presentation preferences: a meaningful visual on every slide, photographs that fade into the stage, explanatory diagrams, useful context, automatic motion and closely matched speaking notes. Each brief defines the visual direction. Cinematic Night records one design direction Ninna approved in November 2026.
+**Visual Slides**, created by Ninna Cao, encodes a presentation practice: a meaningful visual on every slide, photographs that fade into the stage, explanatory diagrams, useful context, automatic motion and closely matched speaking notes. Each brief defines the visual direction. Cinematic Night records one design direction approved in November 2026.
 
 ## Licence
 
-The Ninna Cao Slides layer (instructions, references, scripts, styles and examples written for this skill) is released under the MIT License, copyright 2026 Ninna Cao: see `LICENSE.txt` and `NOTICE.md`. The components below keep their own licences.
+The Visual Slides layer (instructions, references, scripts, styles and examples written for this skill) is released under the MIT License, copyright 2026 Ninna Cao: see `LICENSE.txt` and `NOTICE.md`. The components below keep their own licences.
 
 ## Foundation
 

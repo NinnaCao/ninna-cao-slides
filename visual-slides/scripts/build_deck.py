@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a portable, single-file Ninna Cao Slides deck from authored JSON."""
+"""Build a portable, single-file Visual Slides deck from authored JSON."""
 
 import argparse
 import base64
@@ -13,9 +13,9 @@ from theme_catalog import css_for, styles
 
 ASSETS = Path(__file__).resolve().parents[1] / "assets"
 PRESETS = {
-    "cinematic": "ninna-cinematic.css",
-    "editorial": "ninna-editorial.css",
-    "light": "ninna-light.css",
+    "cinematic": "cinematic.css",
+    "editorial": "editorial.css",
+    "light": "light.css",
     "custom": None,
 }
 # Fonts bundled with a preset (OFL, in assets/fonts) and embedded automatically.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export a local Ninna deck to PDF.
+"""Export a local Visual Slides deck to PDF.
 
 Engines
   screens (default)  Pixel-exact: renders each slide's final state in Chrome and places one
@@ -65,7 +65,7 @@ def render_screens(source, target, chromium, scale, quality):
             count = page.evaluate("document.querySelectorAll('.slide').length")
             with fitz.open() as pdf:
                 for index in range(count):
-                    page.evaluate("i => window.ninnaDeck.goTo(i)", index)
+                    page.evaluate("i => (window.slideDeck || window.ninnaDeck).goTo(i)", index)
                     page.locator(f".slide >> nth={index}").locator("img").evaluate_all(
                         "images => Promise.all(images.map(img => img.decode().catch(() => {})))")
                     page.wait_for_timeout(350)
@@ -80,7 +80,7 @@ def render_screens(source, target, chromium, scale, quality):
                         rect = fitz.Rect(link["x"] * ratio, link["y"] * ratio,
                                          (link["x"] + link["w"]) * ratio, (link["y"] + link["h"]) * ratio)
                         sheet.insert_link({"kind": fitz.LINK_URI, "from": rect, "uri": link["href"]})
-                pdf.set_metadata({"title": page.title(), "creator": "Ninna Cao Slides"})
+                pdf.set_metadata({"title": page.title(), "creator": "Visual Slides"})
                 pdf.save(target, deflate=True, garbage=4)
         finally:
             browser.close()

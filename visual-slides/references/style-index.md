@@ -4,7 +4,7 @@ Choose using the audience, content, venue and brand. The 46 designs are starting
 
 When pursuing visual discovery, make three previews with the same real opening content. Pick a readable standard direction, a more expressive direction and a custom exploration with a meaningful difference. Preview them using the palette, type and cover composition below. Load the recipe for the selected design to extend its rhythm throughout the deck.
 
-## Ninna presets
+## Built-in presets
 
 | Direction | Content fit | Cover composition |
 | --- | --- | --- |

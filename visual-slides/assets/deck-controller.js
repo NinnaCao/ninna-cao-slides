@@ -1,7 +1,7 @@
-/* Standalone Ninna Cao Slides controller. No network or library dependency. */
+/* Standalone Visual Slides controller. No network or library dependency. */
 (() => {
   'use strict';
-  class NinnaPlayback {
+  class DeckPlayback {
     constructor(durations, mainCount, hooks = {}) {
       this.durations = durations.map(n => Math.max(1, Number(n) || 45) * 1000);
       this.mainCount = mainCount;
@@ -71,9 +71,9 @@
       return Math.sign(total);
     };
   }
-  if (typeof module === 'object' && module.exports) module.exports = { NinnaPlayback, createWheelNavigation };
+  if (typeof module === 'object' && module.exports) module.exports = { DeckPlayback, createWheelNavigation };
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
-  window.NinnaPlayback = NinnaPlayback;
+  window.DeckPlayback = DeckPlayback;
   function start() {
     const slides = [...document.querySelectorAll('.slide')];
     const stage = document.getElementById('deck-stage');
@@ -91,7 +91,7 @@
     let idleTimer = null;
     let touchX = null;
     let touchY = null;
-    const playback = new NinnaPlayback(slides.map(s => Number(s.dataset.durationSeconds)), mainCount, {
+    const playback = new DeckPlayback(slides.map(s => Number(s.dataset.durationSeconds)), mainCount, {
       onAdvance: n => activate(n, true), onState: () => updateControls()
     });
     function scale() {
@@ -203,7 +203,8 @@
     window.addEventListener('resize', scale);
     const initial = Number((location.hash.match(/^#slide-(\d+)$/) || [])[1]) - 1;
     scale(); activate(Number.isInteger(initial) && initial >= 0 ? initial : 0); showControls();
-    window.ninnaDeck = {goTo: n => activate(n), playback, mainCount, get index() {return index;}};
+    window.slideDeck = {goTo: n => activate(n), playback, mainCount, get index() {return index;}};
+    window.ninnaDeck = window.slideDeck;  // alias kept for decks and scripts made with v3
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();

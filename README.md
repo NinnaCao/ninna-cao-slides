@@ -1,48 +1,86 @@
-# Ninna Cao Slides
+# Visual Slides
 
-An Agent Skill for Claude (and other assistants that load Agent Skills) that builds image-rich presentations: a meaningful visual on every slide, photographs that fade softly into the background, a visual direction chosen for each brief, clear diagrams, automatic motion, and matching HTML, PDF, PowerPoint and speaking notes.
+**Presentations that look designed, not generated.** An open-source Agent Skill for Claude that turns a brief, a document or an old deck into a polished presentation, with a strong real image on every slide.
 
-![Cinematic Night example deck](docs/cinematic-example.jpg)
+[![License: MIT](https://img.shields.io/badge/license-MIT-black)](LICENSE)
+[![Agent Skill](https://img.shields.io/badge/Agent%20Skill-Claude%20%7C%20Claude%20Code-black)](https://code.claude.com/docs/en/skills)
+[![Release](https://img.shields.io/github/v/release/NinnaCao/visual-slides?color=black)](https://github.com/NinnaCao/visual-slides/releases/latest)
 
-*The bundled Cinematic Night example (`ninna-cao-slides/assets/example-cinematic-deck.json`). Photos: Wikimedia Commons contributors, CC0 / CC BY / CC BY-SA; see the deck's credits slide.*
+![A deck made with Visual Slides: one large slide and three more](docs/example-deck.jpg)
 
-## What's in v3
+## Why
 
-- **Content first.** Before designing, the skill reads the whole deck or brief and plans where every image comes from: the brand's own website for company and product decks (`collect_page_images.py`), web and open-library search for topics (`find_images.py`), your own photos for your own work.
-- **An excellent real image on every slide.** Photos, renders or screenshots; behind diagrams and text as an ambient background. Creator, license and source are recorded, and a sources-and-credits slide is generated automatically.
-- **Image fades.** Pictures sit on one side and dissolve into the stage (`backdrop.place`: right, left, top, top-right, bottom, full). Works with every style.
-- **Cinematic Night.** Condensed headlines, typewriter labels, a warm charcoal stage with soft light pools and one brand accent. Fonts bundled.
-- **Checks that look at the render.** `qa_render.py` flags overlapping or clipped text, broken or upscaled images and slides with no visual, and makes a contact sheet. The PDF exporter is pixel-exact by default, so fades survive.
-- **Chinese decks.** CJK font subsetting and typography rules.
+Most AI-made decks look the same: walls of bullets, generic stock photos, text overflowing its box. Visual Slides works the way a designer does:
 
-See [CHANGELOG](ninna-cao-slides/CHANGELOG.md) for details.
+1. **It reads everything first.** Before choosing a single image, it reads the whole deck or brief and decides where the pictures should come from.
+2. **It finds the right images.** A brand or product deck uses the brand's own website imagery. A topic deck gets real, documentary photos from the web. Your own work uses your own photos. Every image is credited automatically.
+3. **Every slide gets an excellent visual.** Photos fade softly into the background instead of sitting in hard boxes. Diagrams and text-heavy slides still get a photo, dimmed behind the content.
+4. **It checks its own work.** Every slide is rendered in a real browser and checked for overlapping or clipped text, broken or blurry images, and slides without a visual, before you ever see it.
 
-## Install
+## Made with Visual Slides
 
-**Claude Code:** copy the `ninna-cao-slides` folder into `~/.claude/skills/` (or a project's `.claude/skills/`).
+![Every Story: a business update for an AI memoir service for older adults](docs/every-story.jpg)
 
-**Claude apps:** download the release ZIP (or run `tools/package.sh`) and upload it under **Customize > Skills > Upload a skill**.
+## Get started
 
-Optional Python packages for the scripts: `pip install pillow playwright fonttools brotli` (the builder itself needs only Python 3.10+).
+**Claude Code:** copy the `visual-slides` folder into `~/.claude/skills/` (or your project's `.claude/skills/`).
 
-## Quick start
+**Claude (web and desktop apps):** download the ZIP from the [latest release](https://github.com/NinnaCao/visual-slides/releases/latest), then go to **Customize > Skills > Upload a skill**.
 
-```bash
-cd ninna-cao-slides
-python3 scripts/build_deck.py assets/example-cinematic-deck.json /tmp/cinematic.html
-python3 scripts/check_deck.py /tmp/cinematic.html
-python3 scripts/qa_render.py /tmp/cinematic.html /tmp/qa
-python3 scripts/export_pdf.py /tmp/cinematic.html /tmp/cinematic.pdf
+Then just ask:
+
+> Use Visual Slides to turn this report into a 12-slide talk for our leadership team. HTML and PDF.
+
+> Make a 15-slide deck about AI in elderly care. Find real photos for every slide.
+
+> Redesign this deck (attached) for a product launch. Use our brand's website imagery.
+
+## What you get
+
+| | |
+| --- | --- |
+| **Outputs** | Single-file HTML deck (works offline, scales to any screen), pixel-exact PDF, PowerPoint, speaker notes |
+| **Styles** | Chosen for each brief: Cinematic Night (dark, condensed, glowing), editorial, light, plus 46 more directions, or your brand |
+| **Images** | Brand websites, Openverse, Wikimedia Commons, Unsplash and Pexels (with a key); licenses checked, credits slide generated |
+| **Motion** | Staged entrances, traced diagrams, photos that settle in; optional autoplay; respects reduced motion |
+| **Languages** | English and Chinese, with proper CJK typography and font subsetting |
+| **Quality checks** | Static checks plus a rendered pass over every slide, with a contact sheet |
+
+## How it works
+
+```
+read the whole content → content brief + image plan → find & credit images
+→ build the deck (fades, diagrams, motion) → render & check every slide → export HTML / PDF / PPTX
 ```
 
-Or just ask Claude: *"Use Ninna Cao Slides to make a 15-slide talk on … — a visual on every slide, photos fading into the background, HTML and PDF."*
-
-## Package a release
+Under the hood it is a set of instructions plus small, dependency-light Python scripts you can also run yourself:
 
 ```bash
-tools/package.sh   # → dist/Ninna_Cao_Slides_v<version>.zip
+cd visual-slides
+python3 scripts/build_deck.py assets/example-cinematic-deck.json /tmp/deck.html   # build
+python3 scripts/check_deck.py /tmp/deck.html                                      # static checks
+python3 scripts/qa_render.py /tmp/deck.html /tmp/qa                               # render + check every slide
+python3 scripts/export_pdf.py /tmp/deck.html /tmp/deck.pdf                        # pixel-exact PDF
+python3 scripts/find_images.py "night train" --out media/candidates/train         # open-licence image search
+python3 scripts/collect_page_images.py https://brand.example/product --out media/candidates/brand
 ```
 
-## Licence
+The builder needs only Python 3.10+. Optional: `pip install pillow playwright fonttools brotli` for image conversion, rendering checks, PDF export and font subsetting.
 
-[MIT](LICENSE), copyright 2026 Ninna Cao. Third-party parts keep their own licences: [Frontend Slides](https://github.com/zarazhangrui/frontend-slides) by Zara Zhang (MIT), the bundled fonts (SIL Open Font License) and the example photographs (CC0 / CC BY / CC BY-SA). See [NOTICE](ninna-cao-slides/NOTICE.md) and [references/credits.md](ninna-cao-slides/references/credits.md).
+## FAQ
+
+**Can I use the images in my deck?** The skill keeps only images whose license fits (CC0, CC BY, CC BY-SA, Unsplash, Pexels, or brand imagery for presentations about that brand) and lists every source on a generated credits slide. Brand website imagery is for presentations about that company; check the brand's terms before publishing such a deck.
+
+**Does it work without Claude?** The scripts run on their own, and the instructions work in other assistants that load Agent Skills.
+
+**Is it free?** Yes. MIT licensed.
+
+## Credits
+
+Created by [Ninna Cao](https://github.com/NinnaCao). The fixed 16:9 browser stage builds on [Frontend Slides](https://github.com/zarazhangrui/frontend-slides) by Zara Zhang (MIT). The complete original is included in `visual-slides/assets/source/` and `visual-slides/references/frontend-slides/`. Fonts: Barlow Condensed, Manrope and Courier Prime (SIL Open Font License). Example photos: Wikimedia Commons contributors (CC0, CC BY, CC BY-SA). See [NOTICE](visual-slides/NOTICE.md) and [credits](visual-slides/references/credits.md).
+
+## License
+
+[MIT](LICENSE) © 2026 Ninna Cao. Third-party parts keep their own licenses (see NOTICE).
+
+Release notes: [CHANGELOG](visual-slides/CHANGELOG.md). To build a release ZIP: `tools/package.sh`.

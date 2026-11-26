@@ -162,7 +162,7 @@ def main():
         page.add_style_tag(content=".deck-controls{display:none!important}")
         count = page.evaluate("document.querySelectorAll('.slide').length")
         for index in range(count):
-            page.evaluate("i => window.ninnaDeck ? window.ninnaDeck.goTo(i) : null", index)
+            page.evaluate("i => { const d = window.slideDeck || window.ninnaDeck; return d ? d.goTo(i) : null; }", index)
             page.wait_for_timeout(args.settle)
             shot = args.out / f"slide-{index + 1:02d}.png"
             page.screenshot(path=str(shot))

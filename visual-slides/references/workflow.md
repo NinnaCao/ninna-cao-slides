@@ -24,7 +24,7 @@ Every slide needs a visual. If a meaningful image is missing, find one on the we
 
 ## Discover the design visually
 
-Use the [original library](original-workflow.md), the [Ninna catalog](style-index.md) or a custom design to select by use, audience and tone. Aim for three live cover previews when the direction is open. Include an appropriate familiar direction, an expressive one and a custom option or another sharply differentiated treatment. For a clear brand, selected style or narrow revision, use it directly.
+Use the [original library](original-workflow.md), the [style catalog](style-index.md) or a custom design to select by use, audience and tone. Aim for three live cover previews when the direction is open. Include an appropriate familiar direction, an expressive one and a custom option or another sharply differentiated treatment. For a clear brand, selected style or narrow revision, use it directly.
 
 Use the same actual title, story or image, and relevant approved logo across the options. Make each the true opening slide and label the alternatives outside the canvas. Open the previews using the available preview surface and link them for comparison. If the choice is delegated, choose the one that fits the venue and story. When the user chooses, expand that direction into section, image-and-text, comparison, exact diagram, decision and closing compositions. A useful preview defines a system the whole deck can use. When the user separately supplies a template collection and requests a specific original design, consult its index and selected design as project inputs. Keep applicable notices with any reused materials.
 
