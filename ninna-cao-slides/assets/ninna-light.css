@@ -1,7 +1,7 @@
 /* An explicitly selected light workshop preset with sans type and crisp image panels. */
 :root {
-  --heading-font: "Source Sans 3", Arial, sans-serif;
-  --body-font: "Source Sans 3", Arial, sans-serif;
+  --heading-font: system-ui, Arial, sans-serif;
+  --body-font: system-ui, Arial, sans-serif;
   --stage-bg: #212e43;
 }
 .slide {

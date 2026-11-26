@@ -19,7 +19,7 @@ For a new deck, check the typography, color, image treatment and compositions ag
 
 ## PowerPoint
 
-Use an available native PowerPoint generation or conversion workflow. In Claude, combine these visual instructions with the available PPTX skill. Use the environment's supported presentation library rather than assuming an OpenAI-specific SDK exists.
+Use the presentation and file tools available in the current environment. Apply this skill's visual and content guidance to the native PowerPoint generation or conversion workflow.
 
 Rebuild text, diagrams and photos as editable objects where feasible. Keep fonts, geometry, photo crops and the content hierarchy. A browser-only mask or tracing effect may require a native substitute. CSS motion does not become PowerPoint animation by changing the extension.
 
@@ -49,4 +49,4 @@ Use the final slide numbers and current speaker split. Keep colored headings and
 6. Test interaction and print behavior where supported. Keep structural checks separate from native-app execution claims.
 7. Compare formats for the current revision and deliver only requested final files with working links.
 
-Run `scripts/check_deck.py` for static HTML checks. A passing result does not replace visual review, fact checking or a browser interaction test.
+Use structural checks alongside visual review, fact checking and interaction checks.

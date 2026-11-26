@@ -9,21 +9,13 @@ import mimetypes
 from pathlib import Path
 import re
 
+from theme_catalog import css_for, styles
+
 ASSETS = Path(__file__).resolve().parents[1] / "assets"
 PRESETS = {
-    "editorial": ("ninna-editorial.css", ("Instrument Serif", "Source Sans 3")),
-    "light": ("ninna-light.css", ("Source Sans 3",)),
-    "custom": (None, ()),
-}
-BUNDLED_FONTS = {
-    "Instrument Serif": (
-        ("InstrumentSerif-Regular.ttf", 400, "normal"),
-        ("InstrumentSerif-Italic.ttf", 400, "italic"),
-    ),
-    "Source Sans 3": (
-        ("SourceSans3-Regular.ttf", 400, "normal"),
-        ("SourceSans3-Bold.ttf", 700, "normal"),
-    ),
+    "editorial": "ninna-editorial.css",
+    "light": "ninna-light.css",
+    "custom": None,
 }
 FONT_FORMATS = {
     ".ttf": ("font/ttf", "truetype"),
@@ -93,10 +85,14 @@ def font_face(family, path, weight, style):
 
 def load_style(style, root):
     preset = style.get("preset") if isinstance(style, dict) else None
-    if not isinstance(preset, str) or preset not in PRESETS:
-        raise ValueError("Choose style.preset for this brief: editorial, light, or custom.")
-    stylesheet, families = PRESETS[preset]
-    css = (ASSETS / stylesheet).read_text(encoding="utf-8") if stylesheet else ""
+    if not isinstance(preset, str) or (preset not in PRESETS and preset not in styles()):
+        raise ValueError("Choose style.preset as a catalog ID, editorial, light, or custom.")
+    stylesheet = PRESETS.get(preset)
+    css = ""
+    if preset in styles():
+        css = css_for(preset)
+    elif stylesheet:
+        css = (ASSETS / stylesheet).read_text(encoding="utf-8")
     css_path = style.get("css")
     if preset == "custom" and not css_path:
         raise ValueError("The custom preset requires style.css with a local stylesheet path.")
@@ -108,11 +104,7 @@ def load_style(style, root):
         if re.search(r"</style", project_css, re.I):
             raise ValueError("The project stylesheet contains an HTML style closing tag.")
         css += "\n" + project_css
-    fonts = [
-        font_face(family, ASSETS / "fonts" / filename, weight, font_style)
-        for family in families
-        for filename, weight, font_style in BUNDLED_FONTS[family]
-    ]
+    fonts = []
     supplied_fonts = style.get("fonts", [])
     if not isinstance(supplied_fonts, list) or not all(isinstance(font, dict) for font in supplied_fonts):
         raise ValueError("Style.fonts must be a list of local font declarations.")
@@ -126,7 +118,7 @@ def load_style(style, root):
     return preset, css, "\n".join(fonts)
 
 
-def render_slide(slide, number, main_count, root):
+def render_slide(slide, number, main_count, root, design=None):
     identifier = slide.get("id", f"slide-{number}")
     if identifier != f"slide-{number}":
         raise ValueError(f"Keep stable numbered ids matching the visible order: slide-{number}")
@@ -138,6 +130,11 @@ def render_slide(slide, number, main_count, root):
     if layout not in ("cover", "content"):
         raise ValueError("Use layout cover or content and customize the composition in CSS.")
     classes = ["slide", layout]
+    if design:
+        classes.extend(("catalog", "layout-" + design["layout"], "motif-" + design["motif"]))
+    if slide.get("background_image"):
+        classes.append("has-backdrop")
+    visual = '<div class="style-visual" aria-hidden="true"></div>' if design and layout == "cover" else ""
     theme = slide.get("theme")
     if theme:
         if not isinstance(theme, str) or not re.fullmatch(r"[a-z][a-z0-9-]*", theme):
@@ -196,7 +193,7 @@ def render_slide(slide, number, main_count, root):
     page_label = f"Appendix {number - main_count}" if appendix else f"{number:02d} / {main_count:02d}"
 
     return (
-        f'<section {attributes}{position_attribute}>\n{backdrop}\n'
+        f'<section {attributes}{position_attribute}>\n{visual}{backdrop}\n'
         f'<header class="slide-header">{kicker}'
         f'<h2 class="slide-title reveal" style="--delay:20ms">{headline}</h2>{subtitle}</header>\n'
         f'<div class="slide-body {body_class}">{body}</div>\n'
@@ -219,19 +216,29 @@ def build(manifest_path, output_path):
 
     root = manifest_path.parent
     preset, style_css, font_css = load_style(model.get("style"), root)
-    sections = [render_slide(slide, number, main_count, root) for number, slide in enumerate(slides, 1)]
+    design = styles().get(preset)
+    sections = [
+        render_slide(slide, number, main_count, root, design)
+        for number, slide in enumerate(slides, 1)
+    ]
     notes = [{"en": str(slide.get("notes_en", "")), "zh": str(slide.get("notes_zh", ""))} for slide in slides]
+    edit_controls = (
+        '<button id="toggle-editor" aria-pressed="false">Edit text</button>\n'
+        '<button id="save-edited" hidden>Download edited copy</button>'
+    ) if model.get("editable", True) else ""
     fields = {
+        "EDIT_CONTROLS": edit_controls,
         "TITLE": html.escape(str(model.get("title", "Presentation"))),
         "AUTHOR": html.escape(str(model.get("author", "")), quote=True),
-        "FOUNDATION_LICENSE": (ASSETS / "licenses/frontend-slides-MIT.txt").read_text(encoding="utf-8").strip(),
         "FONT_CSS": font_css,
-        "VIEWPORT_CSS": (ASSETS / "viewport-base.css").read_text(encoding="utf-8"),
+        "STAGE_CSS": (ASSETS / "deck-stage.css").read_text(encoding="utf-8"),
         "LAYOUT_CSS": (ASSETS / "deck-layout.css").read_text(encoding="utf-8"),
         "STYLE_PRESET": preset,
         "STYLE_CSS": style_css,
         "RUNTIME_CSS": (ASSETS / "deck-runtime.css").read_text(encoding="utf-8"),
-        "CONTROLLER_JS": (ASSETS / "deck-controller.js").read_text(encoding="utf-8"),
+        "CONTROLLER_JS": (ASSETS / "deck-controller.js").read_text(encoding="utf-8") + (
+            "\n" + (ASSETS / "deck-editing.js").read_text(encoding="utf-8") if edit_controls else ""
+        ),
         "SLIDES": "\n".join(sections),
         "MANIFEST_JSON": safe_json(model),
         "NOTES_JSON": safe_json(notes),

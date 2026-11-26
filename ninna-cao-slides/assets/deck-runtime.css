@@ -10,11 +10,16 @@
 }
 @keyframes ninna-trace { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 .js .slide .reveal { opacity: 0; }
-.slide.entered .reveal { animation: ninna-enter 560ms cubic-bezier(.2, .7, .3, 1) var(--delay, 120ms) both; }
+.slide.entered .reveal { animation: ninna-enter var(--motion-duration, 560ms) cubic-bezier(.2, .7, .3, 1) var(--delay, 120ms) both; }
 .slide.entered .photo-frame.reveal { animation-name: ninna-photo; }
 .trace { stroke-dasharray: 1; stroke-dashoffset: 0; }
 .slide.entered .trace { animation: ninna-trace 820ms ease var(--delay, 180ms) both; }
 .deck-controls {
+  position: fixed;
+  inset: auto 0 22px;
+  width: max-content;
+  margin-inline: auto;
+  z-index: 1000;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -77,4 +82,13 @@
   .slide .reveal, .js .slide .reveal { opacity: 1 !important; animation: none !important; transform: none !important; }
   .trace { animation: none !important; stroke-dashoffset: 0 !important; }
   .notes-panel { display: none !important; }
+}
+
+/* Local editor outlines remain off during presentation and PDF export. */
+.deck-controls [hidden] { display: none; }
+.deck-editing .deck-controls { opacity: 1; pointer-events: auto; }
+.deck-editing [contenteditable] { outline: 2px dashed var(--accent); outline-offset: 5px; }
+.deck-editing [contenteditable]:focus { outline-style: solid; }
+@media print {
+  .deck-editing [contenteditable] { outline: none; }
 }

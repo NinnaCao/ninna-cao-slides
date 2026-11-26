@@ -31,7 +31,7 @@
       "subtitle": "Consider what happens before, during and after someone uses the product.",
       "background_image": "media/workshop-atmosphere.svg",
       "background_alt": "Illustrative notes blending into a dark background",
-      "body_html": "<div class=\"columns-2\"><div class=\"text-region reveal\" style=\"--delay:180ms\"><p class=\"label\">Look beyond the object</p><p>A useful feature is part of a larger journey. Someone must find it, understand it, use it and tell whether it worked.</p><div class=\"rule\"></div><h3 class=\"display\">What does this feel like for the person?</h3><p class=\"caption\">Listen to the situation behind the feedback. A score can show dissatisfaction; the story helps explain why it matters.</p></div><div class=\"reveal\" style=\"--delay:320ms\"><svg class=\"stage-svg\" viewBox=\"0 0 810 510\" role=\"img\" aria-label=\"A person at the center of finding, understanding, using and checking a change\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"405\" cy=\"248\" r=\"118\" fill=\"#314d53\" stroke=\"#a9e1d5\" stroke-width=\"2\" /><g fill=\"none\" stroke=\"#809a99\" stroke-width=\"2\"><path class=\"trace\" pathLength=\"1\" d=\"M287 219H206V110H30\" /><path class=\"trace\" pathLength=\"1\" d=\"M524 219H602V110H785\" style=\"--delay:260ms\" /><path class=\"trace\" pathLength=\"1\" d=\"M287 278H206V402H30\" style=\"--delay:400ms\" /><path class=\"trace\" pathLength=\"1\" d=\"M524 278H602V402H785\" style=\"--delay:540ms\" /></g><g class=\"serif-label\" text-anchor=\"middle\" font-size=\"44\"><text x=\"405\" y=\"239\" fill=\"#fff3e5\" font-family=\"Instrument Serif\">The person</text><text x=\"405\" y=\"286\" fill=\"#fff3e5\" font-family=\"Instrument Serif\">using it</text></g><g font-size=\"32\"><text x=\"12\" y=\"86\" fill=\"#fff3e5\" font-family=\"Source Sans 3\">Find the control</text><text x=\"566\" y=\"86\" fill=\"#fff3e5\" font-family=\"Source Sans 3\">Understand it</text><text x=\"12\" y=\"451\" fill=\"#fff3e5\" font-family=\"Source Sans 3\">Use it</text><text x=\"547\" y=\"451\" fill=\"#fff3e5\" font-family=\"Source Sans 3\">Check the result</text></g></svg></div></div>",
+      "body_html": "<div class=\"columns-2\"><div class=\"text-region reveal\" style=\"--delay:180ms\"><p class=\"label\">Look beyond the object</p><p>A useful feature is part of a larger journey. Someone must find it, understand it, use it and tell whether it worked.</p><div class=\"rule\"></div><h3 class=\"display\">What does this feel like for the person?</h3><p class=\"caption\">Listen to the situation behind the feedback. A score can show dissatisfaction; the story helps explain why it matters.</p></div><div class=\"reveal\" style=\"--delay:320ms\"><svg class=\"stage-svg\" viewBox=\"0 0 810 510\" role=\"img\" aria-label=\"A person at the center of finding, understanding, using and checking a change\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"405\" cy=\"248\" r=\"118\" fill=\"#314d53\" stroke=\"#a9e1d5\" stroke-width=\"2\" /><g fill=\"none\" stroke=\"#809a99\" stroke-width=\"2\"><path class=\"trace\" pathLength=\"1\" d=\"M287 219H206V110H30\" /><path class=\"trace\" pathLength=\"1\" d=\"M524 219H602V110H785\" style=\"--delay:260ms\" /><path class=\"trace\" pathLength=\"1\" d=\"M287 278H206V402H30\" style=\"--delay:400ms\" /><path class=\"trace\" pathLength=\"1\" d=\"M524 278H602V402H785\" style=\"--delay:540ms\" /></g><g class=\"serif-label\" text-anchor=\"middle\" font-size=\"44\"><text x=\"405\" y=\"239\" fill=\"#fff3e5\" font-family=\"serif\">The person</text><text x=\"405\" y=\"286\" fill=\"#fff3e5\" font-family=\"serif\">using it</text></g><g font-size=\"32\"><text x=\"12\" y=\"86\" fill=\"#fff3e5\" font-family=\"sans-serif\">Find the control</text><text x=\"566\" y=\"86\" fill=\"#fff3e5\" font-family=\"sans-serif\">Understand it</text><text x=\"12\" y=\"451\" fill=\"#fff3e5\" font-family=\"sans-serif\">Use it</text><text x=\"547\" y=\"451\" fill=\"#fff3e5\" font-family=\"sans-serif\">Check the result</text></g></svg></div></div>",
       "notes_en": "Consider the whole experience. A feature may exist, but can someone find it, understand it, use it and check the result? Listening to the situation behind the feedback helps us understand what matters to the person.",
       "notes_zh": "把功能放回完整体验",
       "key_phrases": [
@@ -42,27 +42,20 @@
       "speaker": "Presenter"
     },
     {
-      "title": "Explore and focus",
+      "title": "From observation to a test",
       "section": "A framework for the work",
       "theme": "cool",
-      "subtitle": "Open up the question before narrowing the problem and the possible answer.",
+      "subtitle": "Connect what you saw to a question you can answer.",
       "background_image": "media/workshop-atmosphere.svg",
       "background_alt": "Illustrative grouped notes behind the framework",
-      "body_html": "<div class=\"reveal\" style=\"--delay:170ms\"><svg class=\"stage-svg\" viewBox=\"0 0 1704 340\" role=\"img\" aria-label=\"Double Diamond with Discover, Define, Develop and Deliver\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M2 160L426 22L850 160L426 298Z\" fill=\"#203b43\" stroke=\"#a9e1d5\" stroke-width=\"2.5\" /><path d=\"M850 160L1274 22L1702 160L1274 298Z\" fill=\"#42372f\" stroke=\"#f0c58b\" stroke-width=\"2.5\" /><path class=\"trace\" pathLength=\"1\" d=\"M426 22V298M1274 22V298\" fill=\"none\" stroke=\"#839c9b\" stroke-width=\"1.5\" /><g text-anchor=\"middle\" font-size=\"49\" class=\"serif-label\"><text x=\"260\" y=\"155\" fill=\"#fff3e5\" font-family=\"Instrument Serif\">Discover</text><text x=\"607\" y=\"155\" fill=\"#fff3e5\" font-family=\"Instrument Serif\">Define</text><text x=\"1083\" y=\"155\" fill=\"#fff3e5\" font-family=\"Instrument Serif\">Develop</text><text x=\"1450\" y=\"155\" fill=\"#fff3e5\" font-family=\"Instrument Serif\">Deliver</text></g><g text-anchor=\"middle\" font-size=\"28\" fill=\"#d2dfe0\"><text x=\"260\" y=\"198\" fill=\"#d2dfe0\" font-family=\"Source Sans 3\">Understand people</text><text x=\"607\" y=\"198\" fill=\"#d2dfe0\" font-family=\"Source Sans 3\">Frame the problem</text><text x=\"1083\" y=\"198\" fill=\"#d2dfe0\" font-family=\"Source Sans 3\">Explore possibilities</text><text x=\"1450\" y=\"198\" fill=\"#d2dfe0\" font-family=\"Source Sans 3\">Test and learn</text></g></svg></div><div class=\"columns-2\" style=\"height:auto;margin-top:42px\"><div class=\"reveal\" style=\"--delay:380ms\"><h3 class=\"display\">Find the problem</h3><p class=\"caption\">Gather observations and frame a question the team can work on. Keep the need distinct from a requested feature.</p></div><div class=\"reveal\" style=\"--delay:510ms\"><h3 class=\"display gold\">Explore an answer</h3><p class=\"caption\">Make options tangible, try a realistic task, and use what happens to decide the next step.</p></div></div>",
-      "source_credit": "Design Council, Double Diamond. Adapted under CC BY 4.0 for this illustrative example.",
-      "sources": [
-        {
-          "title": "The Double Diamond",
-          "url": "https://www.designcouncil.org.uk/resources/the-double-diamond/",
-          "license": "CC BY 4.0",
-          "license_url": "https://creativecommons.org/licenses/by/4.0/"
-        }
-      ],
-      "notes_en": "The Double Diamond helps organize the work. Discover and Define concern the problem. Develop and Deliver concern possible answers and learning in use. These activities can repeat when new evidence changes our understanding.",
-      "notes_zh": "先找问题 再探索答案",
+      "body_html": "<svg class=\"stage-svg reveal\" style=\"--delay:170ms\" viewBox=\"0 0 1704 260\" role=\"img\" aria-label=\"Observe the task, frame the need, and try a prototype\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"#17313a\" stroke=\"#63818a\" stroke-width=\"2\"><rect x=\"1\" y=\"22\" width=\"488\" height=\"206\"/><rect x=\"608\" y=\"22\" width=\"488\" height=\"206\"/><rect x=\"1215\" y=\"22\" width=\"488\" height=\"206\"/></g><g stroke=\"#a9e1d5\" stroke-width=\"3\" fill=\"none\"><path class=\"trace\" pathLength=\"1\" d=\"M510 125 H586 M574 113 L586 125 L574 137\"/><path class=\"trace\" pathLength=\"1\" style=\"--delay:300ms\" d=\"M1117 125 H1193 M1181 113 L1193 125 L1181 137\"/></g><g fill=\"#a9e1d5\" font-family=\"sans-serif\" font-size=\"26\" font-weight=\"bold\"><text x=\"31\" y=\"84\">OBSERVE</text><text x=\"638\" y=\"84\">FRAME</text><text x=\"1245\" y=\"84\">TRY</text></g><g fill=\"#fff3e5\" font-family=\"serif\" font-size=\"41\"><text x=\"31\" y=\"144\">Watch the task</text><text x=\"638\" y=\"144\">State the need</text><text x=\"1245\" y=\"144\">Test one idea</text></g><g fill=\"#d2dfe0\" font-family=\"sans-serif\" font-size=\"24\"><text x=\"31\" y=\"190\">Look for a pause or detour.</text><text x=\"638\" y=\"190\">Write a question to explore.</text><text x=\"1245\" y=\"190\">Watch someone try it again.</text></g></svg><div class=\"columns-2\" style=\"height:auto;margin-top:35px\"><div class=\"reveal\" style=\"--delay:380ms\"><h3 class=\"display\">Start with a pause</h3><p class=\"caption\">If someone stops after saving, ask what signal would help them know the change went through.</p></div><div class=\"reveal\" style=\"--delay:510ms\"><h3 class=\"display gold\">Use what you learn</h3><p class=\"caption\">Show a simple confirmation. If the person still checks elsewhere, ask what gives them confidence and revisit the question.</p></div></div>",
+      "source_credit": "Illustrative walk-through.",
+      "sources": [],
+      "notes_en": "Start with a specific task and watch where someone pauses. Describe the need as a question, then try one idea that can answer it. Go back to the question if the test reveals something you did not expect.",
+      "notes_zh": "观察停顿 提问 尝试 再回看",
       "key_phrases": [
-        "Discover and Define",
-        "Develop and Deliver"
+        "watch where someone pauses",
+        "try one idea"
       ],
       "duration_seconds": 65,
       "id": "slide-3",
@@ -133,19 +126,14 @@
       "speaker": "Presenter"
     },
     {
-      "title": "Sources and visual references",
+      "title": "Working with the examples",
       "section": "Appendix",
       "theme": "warm",
       "appendix": true,
-      "body_html": "<dl class=\"source-list reveal\" style=\"--delay:180ms\"><dt>Framework</dt><dd>Design Council, The Double Diamond.</dd><dt>Fixed-stage foundation</dt><dd>Zara Zhang, Frontend Slides. MIT licensed.</dd><dt>Editorial direction</dt><dd>Ninna Cao Slides, refined through presentation development and review.</dd><dt>Typefaces</dt><dd>Instrument Serif and Source Sans 3. SIL Open Font License.</dd><dt>Visual examples</dt><dd>Neutral SVG illustrations prepared for the skill. No documentary research photographs are included.</dd></dl>",
-      "notes_en": "The framework and technical foundation are credited here. The visual examples are neutral illustrations and do not claim to be research evidence.",
-      "notes_zh": "来源和图片性质清晰区分",
-      "sources": [
-        {
-          "title": "Frontend Slides",
-          "url": "https://github.com/zarazhangrui/frontend-slides"
-        }
-      ],
+      "body_html": "<dl class=\"source-list reveal\" style=\"--delay:180ms\"><dt>Whole experience</dt><dd>Map what a person needs to find, understand, use and confirm.</dd><dt>Process diagram</dt><dd>Show how an observation leads to a question and a test.</dd><dt>Prototype comparison</dt><dd>Use different levels of detail to answer different questions.</dd><dt>Visual direction</dt><dd>Choose colors, type and image treatment for the audience and setting.</dd></dl>",
+      "notes_en": "Use the layouts as examples of how to explain a process. Choose the images and wording for your own brief.",
+      "notes_zh": "用示例学表达 按项目选视觉",
+      "sources": [],
       "duration_seconds": 30,
       "id": "slide-8",
       "speaker": "Presenter"

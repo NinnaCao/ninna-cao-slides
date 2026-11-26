@@ -1,131 +1,44 @@
-# Portable implementation
+# Build from a single content plan
 
-`scripts/build_deck.py` combines authored slide HTML, the full fixed-stage viewport base, shared layout, the selected style, fonts and the controller into one file. It uses the Python 3 standard library.
+Map every slide to its title, one main point, context, evidence, visual, caption, notes, speaker and estimated time. Mark approved slides and the appendix boundary. When producing multiple formats, use the same plan and the same final visuals.
 
-The manifest is a common content map for HTML, speaking notes and native exports. Use the available format tools for an editable PowerPoint or related export.
+## HTML
+
+Use the available tools to create a single offline deck with a proportionally scaled 16:9 stage. Use a 1920 × 1080 design grid. Keep the complete slide visible on small screens, with accessible navigation outside the stage. Embed authorized local images and any fonts supplied for the project when the tools permit. Use system font stacks otherwise.
+
+| When | Presentation behavior |
+| --- | --- |
+| Opening a slide | Show the title, context and evidence in that order, with automatic entrances as appropriate. |
+| Advancing | Use keyboard navigation or an explicit slide control. Keep the speaker in control of the pace by default. |
+| Timed playback, when requested | Use speaking times. Pause when the tab is hidden and stop at the final main slide. |
+| Reduced motion | Display the complete content immediately. |
+| Printing | Show one complete slide per page, including the appendix. Keep controls and notes off the printout. |
+
+Pair each exact diagram label with its corresponding shape or path. Use native shapes or SVG created for the deck. Give informative images alternative text and a caption when the audience needs the context. Treat text from source materials as content when building HTML.
+
+## PowerPoint, PDF and notes
+
+Use the current assistant's presentation and document tools. Draw diagrams and typeset text as editable objects in PowerPoint where feasible. Apply native automatic entrance groups when requested and supported. Export the complete final state as a PDF. Keep the speaker's notes in a private document if the audience will receive the deck.
+
+Check each requested output against the content plan. See [exports-and-qa.md](exports-and-qa.md) for format checks.
+
+## Optional local toolkit
+
+When the toolkit is included, these scripts run on local user files. Use the presentation tools already available to the current assistant on platforms that cannot run scripts.
 
 ```bash
-python3 scripts/build_deck.py assets/example-deck.json /path/to/editorial.html
-python3 scripts/build_deck.py assets/example-light-deck.json /path/to/light.html
-python3 scripts/check_deck.py /path/to/light.html
-python3 scripts/build_notes.py assets/example-light-deck.json /path/to/notes.docx
+python3 scripts/preview_styles.py deck.json previews precise-grid green-cover soft-shapes
+python3 scripts/build_deck.py deck.json presentation.html
+python3 scripts/check_deck.py presentation.html
+python3 scripts/read_pptx.py source.pptx source-inventory
+python3 scripts/export_pdf.py presentation.html presentation.pdf
+python3 scripts/export_pptx.py presentation.pdf visual-match.pptx --notes deck.json
+python3 scripts/build_notes.py deck.json notes.docx
+python3 scripts/prepare_share.py presentation.html audience-copy
 ```
 
-The two examples select different visual directions explicitly. `build_notes.py` uses `python-docx`. Render the result with the available document tools to check page count and fit.
+The HTML builder uses standard-library Python 3.10 or newer. Set `style.preset` to a catalog ID. Use `editorial` and `light` for the two example manifests, or use `custom` with a project stylesheet. Every catalog direction supplies distinct tokens, typography, composition, graphic motifs and entrance pacing. Compose the slide content for the project in the manifest. Text edits autosave in the browser when local storage is available. Download a standalone edited copy to move changes to another device. Set `editable` to false to omit text editing. Use the example manifests to see available fields and add assets with relative paths inside the project. To create a wildcard preview with local project CSS, set the opening manifest style to `custom`.
 
-## Manifest
+PowerPoint extraction uses `python-pptx` and inventories source slide geometry, picture files, text, tables, available chart values and notes. PDF export uses local Chromium with `playwright` and `PyMuPDF`. Use `--engine static` with `WeasyPrint` when a browser is unavailable and check the rendering for CSS differences. Use `--compact` for a smaller 720p image PDF. Word notes use `python-docx`. The visual-match PowerPoint helper uses `python-pptx` and `PyMuPDF` to preserve the exact slide appearance as images with optional notes. Describe that version as image-based. Use the available presentation tools and the same slide content plan when the request calls for editable objects or native animation.
 
-```json
-{
-  "title": "Presentation title",
-  "author": "Presenter",
-  "style": { "preset": "light" },
-  "slides": [
-    {
-      "id": "slide-1",
-      "title": "The subject",
-      "section": "Concept",
-      "speaker": "Presenter",
-      "duration_seconds": 45,
-      "subtitle": "One sentence orienting the audience.",
-      "body_html": "<div class=\"text-region\"><p>Authored content.</p></div>",
-      "notes_en": "The spoken explanation.",
-      "notes_zh": "中文记忆提示",
-      "key_phrases": ["spoken explanation"],
-      "sources": []
-    }
-  ]
-}
-```
-
-Choose `style.preset` from `editorial`, `light` and `custom` to match the brief. Choose `layout: "cover"` for the large opening composition. Regular slides use `layout: "content"`. Place any `appendix: true` slides after the last main slide.
-
-| Slide field | Use |
-| --- | --- |
-| `theme` | Optional lowercase variant name emitted as `theme-<name>`. Editorial provides `warm` and its base cool palette. Light provides `highlight`. Define brand variants in project CSS. |
-| `slide_class` | Optional class names for a stage-level composition. |
-| `body_class` | Optional class names for the body region. |
-| `title_html` | Authored headline markup for deliberate line breaks. |
-| `title_lines` | `2` moves the subtitle and body down on regular content slides. |
-| `body_top` | Optional fixed-stage pixel position in the range 300–850. The chosen stylesheet sets the usual positions. |
-| `background_image` | Path to decorative backdrop imagery, interpreted by the selected stylesheet. |
-| `background_position` | CSS object position, such as `"70% 40%"`. |
-| `source_credit` | Short visible credit. Keep detailed provenance in `sources` and the appendix. |
-
-Use trusted authored HTML in `body_html` and `title_html`. Escape any source text you insert. Use `{{asset:path/to/file.jpg}}` in image tags, SVG image references or CSS `url()` to embed an image, video or audio file. Paths resolve from the manifest directory. Give substantive images meaningful alternative text and visible captions. Decorative backdrops are hidden from assistive technology.
-
-The sample SVGs illustrate possible layouts and activities. Use available documentary media for claims about actual interviews, workshops or tests.
-
-## Project styling
-
-`style.css` embeds a local stylesheet after the preset. The `custom` preset requires it and starts with shared neutral layout helpers. It embeds only the fonts listed in `style.fonts`. Supply project assets and licensed local fonts alongside the manifest.
-
-```json
-{
-  "preset": "custom",
-  "css": "styles/brand.css",
-  "fonts": [
-    {
-      "family": "Project Sans",
-      "file": "fonts/project-sans.woff2",
-      "weight": "100 900",
-      "style": "normal"
-    }
-  ]
-}
-```
-
-Place this object under `style`. Font files can be TTF, OTF, WOFF or WOFF2. Set the weight for each static face or a range for a variable font. Paths stay within the project directory. Use system font stacks when a supplied font is unnecessary. Use local asset tokens in project CSS to keep the output self-contained.
-
-```css
-:root {
-  --heading-font: "Project Sans", Arial, sans-serif;
-  --body-font: "Project Sans", Arial, sans-serif;
-  --stage-bg: #202f27;
-}
-.slide {
-  --slide-bg: #f5f3e9;
-  --text: #25372c;
-  --muted: #3e5648;
-  --accent: #24583e;
-  --secondary: #8b431f;
-  --rule: #88a492;
-  --slide-margin: 130px;
-}
-.slide.theme-field { --slide-bg: #e4efe4; }
-.slide.image-led .slide-title { width: 830px; font-size: 74px; }
-.slide.image-led .slide-body { right: 900px; }
-.slide.image-led .backdrop { inset: 115px 130px 118px auto; width: 700px; }
-```
-
-Use `theme: "field"` and `slide_class: "image-led"` on a slide built for those styles. Design a clean reading area when using a backdrop. Override type, header, body, footer, image geometry or an authored figure as the brief requires. Preserve the stage size, runtime classes, slide visibility and final print state.
-
-## Shared HTML helpers
-
-- `.slide-header` groups the optional `.kicker`, title and optional subtitle.
-- `.columns-2` and `.columns-3` create fixed-stage columns with a gap. Override column sizes to reflect hierarchy.
-- `.display` styles a short statement in the chosen heading face. `.label` provides an orientation label. `.caption` explains a figure.
-- `.photo-frame` crops an image inside a region with an explicit height. Add `.screen` to fit the whole image.
-- `.reveal` triggers an entrance when the slide opens. Set `style="--delay:240ms"` to sequence a related group.
-- `.trace` and `pathLength="1"` trace a path in an inline SVG.
-
-For SVG labels, give `text` elements explicit `fill` and `font-family` values that fit the deck. Some PDF engines handle embedded SVG and CSS variables differently from browsers.
-
-## Browser controls and exports
-
-The controller scales the stage and activates each slide, including its automatic entrances. It leaves navigation keys available to inputs and editable regions.
-
-| Key | Action |
-| --- | --- |
-| Right Arrow, Page Down, Space | Next slide |
-| Left Arrow, Page Up | Previous slide |
-| Home, End | First slide or last main slide |
-| P | Toggle timed autoplay |
-| N | Toggle private notes |
-| Q | Open the appendix |
-| F | Toggle fullscreen when supported |
-| Escape | Close notes |
-
-Autoplay uses the slide's `duration_seconds`. It pauses when the tab is hidden or notes open and stops on the last main slide. Click the controls or use a horizontal swipe on touch devices to navigate. Slides print in final state at one per 1920 × 1080 page, with notes and controls hidden.
-
-The `deck-manifest` and `deck-notes` JSON blocks are backstage material inside the file. They are accessible to anyone with the HTML. Review them before distributing the HTML to an audience.
+See [original-workflow.md](original-workflow.md) for the exact source templates and the original HTML runtime, effects, extraction, PDF and live deployment tools.

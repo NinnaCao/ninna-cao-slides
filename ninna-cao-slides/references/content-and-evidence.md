@@ -29,7 +29,7 @@ Create a coverage map from the actual article or book. Include:
 
 Do not promise complete coverage without reading the supplied source. Put full exhibits, detailed historical evidence and reference tables after a visual appendix divider. Keep the concepts needed to understand the talk in the main sequence.
 
-When the source and an applied framework differ, preserve the distinction. For example, Tim Brown's overlapping Inspiration, Ideation and Implementation spaces can be connected to Double Diamond activities without claiming they are the same model. Do not introduce another Design Thinking 101 framework merely because it is familiar if the user asked to focus on the assigned reading.
+When an applied framework differs from the assigned reading, explain where the activities connect and where the models differ. Keep the reading central when the user asks to explain it.
 
 Keep long quotations and repetitive paper citations off the speaking slides unless the user or assignment calls for them. Retain traceable sources in notes and the appendix. Preserve a short visible attribution when it is necessary to interpret a fact or credit an image.
 

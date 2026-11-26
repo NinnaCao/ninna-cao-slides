@@ -14,15 +14,7 @@ Start with the audience, what they need to learn or decide, the subject, brand, 
 
 Write down the direction in a sentence while planning the deck. Choose type, palette, visual treatments and a few compositions that fit together. Proceed directly when the brief makes the choice clear. Use style exploration when the user asks for options or when a material decision remains open.
 
-## Optional HTML references
-
-| Preset | Design | Example |
-| --- | --- | --- |
-| `editorial` | Dark stage, Instrument Serif titles, Source Sans 3 text, warm and cool sections, softly blended imagery | [Designing for people](../assets/example-deck.json) |
-| `light` | Pale blue stage, bold Source Sans 3 titles, strong blue signposting and crisp image panels | [Turn ideas into one test](../assets/example-light-deck.json) |
-| `custom` | Project typography, colors, backdrop and composition supplied by CSS, with optional local fonts | [Custom styling instructions](implementation.md#project-styling) |
-
-An earlier deck supplies a visual precedent when the user carries that reference into the new brief. Image-rich, clearly explained slides can take any of these directions.
+See [style-index.md](style-index.md) for the style library and [examples.md](examples.md) for two directions extended across several slides. An earlier deck supplies a visual precedent when the user carries that reference into the new brief.
 
 ## Scale and hierarchy
 

@@ -24,13 +24,7 @@ Use bold and a light yellow highlight on the phrases the speaker needs to recove
 
 Use Chinese as private understanding or memory support when requested. Do not automatically translate every English paragraph or double the document length. Do not add production notes, revision history or long introductory instructions to a speaking sheet.
 
-The optional helper builds this kind of DOCX from the same deck manifest:
-
-```bash
-python3 scripts/build_notes.py deck.json speaking-notes.docx --speaker "Ninna Cao"
-```
-
-It requires `python-docx`. Use the environment's document renderer to check the final page count, highlighting, Chinese glyphs and spacing. The helper creates a document; it does not prove that it is one page or that the timing fits.
+Use the current environment's document tools. Render the result to check the page count, highlighting, Chinese glyphs and spacing. Time the talk separately.
 
 ## Engagement that teaches
 

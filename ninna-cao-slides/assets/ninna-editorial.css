@@ -1,7 +1,7 @@
 /* The explicitly selected dark editorial reference preset. */
 :root {
-  --heading-font: "Instrument Serif", Georgia, serif;
-  --body-font: "Source Sans 3", Arial, sans-serif;
+  --heading-font: Georgia, "Times New Roman", serif;
+  --body-font: system-ui, Arial, sans-serif;
   --heading-weight: 400;
   --stage-bg: #080e13;
 }
@@ -36,4 +36,5 @@
 .kicker { left: 56px; }
 .kicker::before { content: ""; position: absolute; left: -56px; top: 12px; width: 39px; height: 2px; background: var(--accent); }
 .slide-subtitle { left: 2px; }
+.slide.cover .slide-title { font-size: 116px; }
 .photo-frame::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px #ecf5ef22; pointer-events: none; }

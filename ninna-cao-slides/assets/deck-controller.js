@@ -50,7 +50,28 @@
       this.onState();
     }
   }
-  if (typeof module === 'object' && module.exports) module.exports = { NinnaPlayback };
+  function createWheelNavigation(now = () => performance.now()) {
+    let last = -Infinity;
+    let total = 0;
+    let used = false;
+    return ({deltaX = 0, deltaY = 0, deltaMode = 0}) => {
+      if (!Number.isFinite(deltaY) || Math.abs(deltaY) <= Math.abs(deltaX)) return 0;
+      const time = now();
+      if (time - last > 210) {
+        used = false;
+        total = 0;
+      }
+      last = time;
+      if (used) return 0;
+      const distance = deltaY * (deltaMode === 1 ? 16 : deltaMode === 2 ? 720 : 1);
+      if (Math.sign(distance) !== Math.sign(total)) total = 0;
+      total += distance;
+      if (Math.abs(total) < 36) return 0;
+      used = true;
+      return Math.sign(total);
+    };
+  }
+  if (typeof module === 'object' && module.exports) module.exports = { NinnaPlayback, createWheelNavigation };
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
   window.NinnaPlayback = NinnaPlayback;
   function start() {
@@ -109,6 +130,7 @@
       slides[n].classList.add('entered');
       if (!fromClock) playback.seek(n);
       refreshNotes(); updateControls();
+      stage.dispatchEvent(new CustomEvent('slidechange', {detail: {index: n}}));
       try { history.replaceState(null, '', `#slide-${n + 1}`); } catch (_) {}
     }
     function showControls() {
@@ -144,7 +166,7 @@
     document.getElementById('toggle-fullscreen').addEventListener('click', fullscreen);
     document.addEventListener('keydown', event => {
       const target = event.target;
-      if (target && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName))) return;
+      if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey || (target && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)))) return;
       if (event.key === 'Escape' && !notePanel.hidden) { toggleNotes(false); return; }
       if (event.key === 'Tab' && !notePanel.hidden) { event.preventDefault(); closeNotes.focus(); return; }
       if (!notePanel.hidden) return;
@@ -153,11 +175,20 @@
       else if (event.key === 'Home') { event.preventDefault(); activate(0); }
       else if (event.key === 'End') { event.preventDefault(); activate(mainCount - 1); }
       else if (event.key.toLowerCase() === 'p') togglePlayback();
-      else if (event.key.toLowerCase() === 'n') toggleNotes();
+      else if (event.key.toLowerCase() === 'n' && !noteButton.hidden) toggleNotes();
       else if (event.key.toLowerCase() === 'q' && mainCount < slides.length) activate(mainCount);
       else if (event.key.toLowerCase() === 'f') fullscreen();
       showControls();
     });
+    const wheelDirection = createWheelNavigation();
+    stage.parentElement.addEventListener('wheel', event => {
+      if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey
+        || !notePanel.hidden || document.body.classList.contains('deck-editing')) return;
+      if (!event.deltaY || Math.abs(event.deltaX) >= Math.abs(event.deltaY)) return;
+      event.preventDefault();
+      const direction = wheelDirection(event);
+      if (direction) activate(index + direction);
+    }, {passive: false});
     stage.addEventListener('touchstart', e => { touchX = e.changedTouches[0].clientX; touchY = e.changedTouches[0].clientY; }, {passive:true});
     stage.addEventListener('touchend', e => {
       if (touchX === null) return;

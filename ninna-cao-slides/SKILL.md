@@ -5,9 +5,11 @@ description: Create image-rich presentations with a visual direction chosen for 
 
 # Ninna Cao Slides
 
-Create polished presentations that help an audience understand an idea and how it is applied. Ninna's presentation preferences carry across projects. The typography, palette, atmosphere and composition follow each brief. This skill includes the fixed-stage Frontend Slides foundation by Zara Zhang.
+Create presentations that help an audience understand an idea and how it is applied. Ninna's preferences for meaningful visuals, clear explanations and measured motion carry across projects. Choose the typography, palette, atmosphere and composition from the specific content, audience, brand and setting. Apply the same standard of visual evidence and export quality to every style.
 
-Read [visual-system.md](references/visual-system.md) and [content-and-evidence.md](references/content-and-evidence.md) before building. Read [images-and-diagrams.md](references/images-and-diagrams.md) when choosing visuals. Keep the user's current instructions above these defaults.
+The complete original design library and tools are available through [original-workflow.md](references/original-workflow.md). Use them for source templates, effects or tooling. Preserve their functional behavior and apply the Ninna workflow and requested exports.
+
+Use the tools available in the current assistant. If you only have this file, apply its instructions directly. When the supporting files are available, read [visual-system.md](references/visual-system.md) and [content-and-evidence.md](references/content-and-evidence.md) before building, and [images-and-diagrams.md](references/images-and-diagrams.md) when choosing visuals. See [portable-use.md](references/portable-use.md) for a workflow suited to your tools. Follow the user's instructions for the current deck.
 
 ## Working principles
 
@@ -20,6 +22,8 @@ Read [visual-system.md](references/visual-system.md) and [content-and-evidence.m
 7. **Keep deliverables aligned.** Use the same current content, image choices, slide numbers, appendix and notes across requested formats.
 
 ## 1 Determine scope from the existing conversation and files
+
+Identify creation, conversion or revision first. See [workflow.md](references/workflow.md) for visual discovery, density, conversion and the delivery sequence.
 
 - Identify the topic, audience, purpose, primary sources, brand, delivery setting, desired formats, duration, speaker split and approved reference version. Ask only for missing information that materially changes the result.
 - Continue a scoped revision in the visual direction of the latest approved deck. For a new deck, derive a direction from its own brief and the references the user selected for it.
@@ -40,10 +44,10 @@ For each slide, record its purpose, plain-language point, supporting evidence, c
 
 ## 3 Choose and apply the visual direction
 
-Use the topic, audience, brand, delivery setting and applicable references to choose typography, palette, image treatment and slide compositions. For example, a projected workshop may call for high-contrast sans typography and crisp image panels. A reflective talk may call for quieter type and an atmospheric photograph. Follow the supplied brand system when it applies. When the context gives a clear direction, carry it into the deck directly.
+Use the topic, audience, brand, delivery setting and applicable references to choose typography, palette, image treatment and slide compositions. For example, a projected workshop may call for high-contrast sans typography and crisp image panels. A reflective talk may call for quieter type and an atmospheric photograph. Follow the supplied brand or approved visual direction when it applies. Explore the [complete source library](references/original-workflow.md), the [Ninna style catalog](references/style-index.md) or a project-specific direction matched to the brief. When the style is open, show three authentic title-slide previews using the user's real content. Continue the chosen direction through the whole deck. A project can use a custom visual system created for its brief.
 
 - Author HTML at **1920 × 1080** and scale the entire stage uniformly, including on phones.
-- Choose and embed licensed typefaces suited to the brief and delivery conditions. Each starter preset is an explicit selection. Use project CSS for a different direction.
+- Choose typefaces suited to the brief and delivery conditions. Use system font stacks or embed supplied fonts with redistribution permission. Choose a starter preset explicitly or use project CSS.
 - Start with approximately **55–100 visible words** on an explanatory slide. Allow around 110–125 where a framework needs context. Adjust the density to the content, audience and presentation distance.
 - Keep a clear hierarchy between the headline, orienting sentence, evidence and captions. Choose one main visual action per slide and vary the composition across the story.
 - Pair a photo with an explanation, connect observations in a diagram, sequence an activity in photos or compare distinct prototype forms as the slide requires.
@@ -53,25 +57,16 @@ See [visual-system.md](references/visual-system.md) for choosing the direction a
 
 ## 4 Implement HTML and motion
 
-Use `assets/deck-shell.html`, `assets/viewport-base.css`, the shared layout and runtime, and `assets/deck-controller.js`. Apply one chosen preset or the project's own stylesheet. Keep the full MIT-licensed Frontend Slides viewport base and attribution.
+Use the current environment's presentation tools or build a self-contained HTML deck when browser slides are requested. Read [implementation.md](references/implementation.md) for stage, playback, print and export behavior. See [examples.md](references/examples.md) for two ways to match composition and tone to the brief.
 
-The optional portable builder accepts a deck manifest with authored slide body HTML:
-
-```bash
-python3 scripts/build_deck.py assets/example-deck.json /path/to/deck.html
-python3 scripts/check_deck.py /path/to/deck.html
-```
-
-Read [implementation.md](references/implementation.md) for the manifest, presets and project styling. Each sample demonstrates a different composition for its particular brief.
-
-- Inline CSS, JavaScript, images and fonts in the downloadable HTML. Do not depend on a development server, CDN or an online font request.
+- Inline CSS, JavaScript and images in the downloadable HTML. Embed any project font files you use. Do not depend on a development server, CDN or an online font request.
 - Keep semantic `.slide` sections and use visibility, opacity and pointer-events for switching. Do not use display-based slide switching.
 - Give images meaningful alt text. Keep exact diagrams as SVG or native shapes with legible labels.
-- Use restrained automatic fades, 8–16 px translations and sequential SVG tracing. Reveal useful content within about 1.5–2 seconds. Do not loop decorative motion behind reading text.
-- Support keyboard navigation, visible navigation controls, fullscreen, reduced motion, and private notes. Keep controls outside the authored slide canvas.
+- Use [motion.md](references/motion.md) to match automatic entrances, pacing and effects to the content. Reveal useful content within about 1.5–2 seconds. Keep the settled reading state visually quiet.
+- Support keyboard, mouse wheel and swipe navigation, visible navigation controls, fullscreen, reduced motion and private notes. Keep controls outside the authored slide canvas.
 - If autoplay is enabled, derive timings from the actual talk and stop on the last main slide. Do not advance automatically into the appendix. Pause when the tab is hidden.
 - Make the print state show all content in its final state, one slide per page, with controls and private notes hidden.
-- Add optional text editing only if it is useful; keep it off during normal presenting. Treat it as an extra feature, not a reason to delay an otherwise complete deck.
+- Offer inline text editing for local drafts when suitable. Leave edit mode off when the file opens. Use an explicit button or E, autosave changes locally where available, and provide a downloadable edited copy. Leave the editing controls out of distribution copies when the user asks for a locked deck.
 
 ## 5 Prepare the talk and requested exports
 
@@ -87,7 +82,7 @@ Read [notes-and-engagement.md](references/notes-and-engagement.md) when notes, t
 
 ## 6 Verify before delivery
 
-Run the bundled static check on generated HTML. It is an audit aid, not visual proof.
+Validate the output files and inspect the rendered result.
 
 1. Check concept and process coverage against the actual source.
 2. Inspect rendered slides at 1280 × 720 and a phone viewport. Verify uniform scaling, readable captions, image loading, sharp focal subjects, contrast, label spacing and absence of overlap.
@@ -99,11 +94,16 @@ Run the bundled static check on generated HTML. It is an audit aid, not visual p
 
 ## Resources
 
-- [visual-system.md](references/visual-system.md) for choosing typography, palette, image treatment and composition.
+- [original-workflow.md](references/original-workflow.md) for the full original styles, motion patterns, conversion and publishing tools.
+- [workflow.md](references/workflow.md) for creation, PowerPoint conversion, enhancement and visual discovery.
+- [style-index.md](references/style-index.md) for 46 possible visual directions.
+- [visual-system.md](references/visual-system.md) for matching typography, palette, photo treatment and composition to the brief.
+- [motion.md](references/motion.md) for pacing and interaction.
+- [publishing.md](references/publishing.md) for live link delivery when requested.
 - [images-and-diagrams.md](references/images-and-diagrams.md): photo evidence, accurate mapping and reusable diagram patterns.
 - [content-and-evidence.md](references/content-and-evidence.md): source coverage, context, workplace application and scope control.
 - [notes-and-engagement.md](references/notes-and-engagement.md): scripts, timing, speaker split and audience participation.
-- [implementation.md](references/implementation.md): portable builder, manifest and runtime contract.
+- [implementation.md](references/implementation.md) for the content plan, HTML stage and exports.
+- [examples.md](references/examples.md) for different treatments of a research talk and a workshop.
 - [exports-and-qa.md](references/exports-and-qa.md): HTML/PPTX/PDF/DOCX parity and final checks.
-- [claude-use.md](references/claude-use.md): upload and invocation instructions.
-- [credits.md](references/credits.md): foundation, fonts and attribution.
+- [portable-use.md](references/portable-use.md) for using one workflow across assistants with different capabilities.
