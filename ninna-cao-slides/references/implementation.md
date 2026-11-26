@@ -27,6 +27,7 @@ Check each requested output against the content plan. See [exports-and-qa.md](ex
 When the toolkit is included, these scripts run on local user files. Use the presentation tools already available to the current assistant on platforms that cannot run scripts.
 
 ```bash
+python3 scripts/collect_page_images.py https://brand.example/product --brand Brand --out media/candidates/brand
 python3 scripts/find_images.py "studio microphone" --out media/candidates/mic
 python3 scripts/fetch_image.py --candidates media/candidates/mic/candidates.json --pick 3 media/mic.webp --manifest deck.json
 python3 scripts/preview_styles.py deck.json previews cinematic precise-grid green-cover
@@ -46,7 +47,7 @@ The HTML builder uses standard-library Python 3.10 or newer. Set `style.preset` 
 
 | Field | Where | Meaning |
 | --- | --- | --- |
-| `backdrop` | slide | `{image, place, focus, start, height, fade, brightness, alt, scrim}`. `place` (`right`, `left`, `top`, `top-right`, `bottom`, `full`) turns on the image fade. Older `background_image` still works; add `background_place` to fade it. |
+| `backdrop` | slide | `{image, place, focus, start, height, fade, brightness, alt, scrim, opacity, at, blur}`. `place` (`right`, `left`, `top`, `top-right`, `bottom`, `full`, `ambient`) turns on the image fade; `opacity`, `at` and `blur` tune `ambient`. Older `background_image` still works; add `background_place` to fade it. |
 | `glow` | slide | Light pool name (`ember`, `rust`, `indigo`, `violet`, `plum`, `steel`, `teal`, `none`, plus `left`). Styled by presets that define glows. |
 | `layout` | slide | `cover`, `content`, `divider`, `statement`. |
 | `section_number` | slide | Short label shown in an accent chip before `section`. |

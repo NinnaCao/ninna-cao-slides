@@ -29,6 +29,7 @@ Every slide has a visual ([web-visuals.md](web-visuals.md)). Decide each one's j
 - **Atmosphere, subject or hero picture: fade it into the stage.** This is Ninna's preferred treatment for covers, dividers, concept slides and closings. Place the picture on one side and let the edges that face the text dissolve into the slide background, so there is no hard photo edge and the glow of the slide shows through. See *Image fades* below.
 - **Evidence the audience must inspect** (a screenshot, a research photo, a prototype): a crisp frame, diptych or sequence with a caption.
 - **Several parts or options:** image tiles whose lower edge fades into the label below.
+- **Diagram, chart, table or text in front:** the photo goes behind it as an ambient background (`place: "ambient"`): full slide, dimmed to roughly 20–40% and vignetted toward one corner, so it sets the scene without competing with the content.
 
 Preserve the sharpness of the face, hands, object or activity that matters, and keep it clear of the fade.
 

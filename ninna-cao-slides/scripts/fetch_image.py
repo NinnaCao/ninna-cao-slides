@@ -152,7 +152,7 @@ def main():
     result = convert(data, output, args.max_edge, args.quality, args.keep_format)
     listed = int((row or {}).get("width") or 0) if args.candidates else 0
     saved = (result.get("source_size") or [0])[0]
-    if listed and saved and saved < listed * 0.6:
+    if listed and saved and saved < listed * 0.6 and saved < 1800:  # 1920 px already fills a slide
         result["warning"] = (f"The library listed {listed}px but served {saved}px (a preview). "
                              "Use it only for small placements, or download the original from the source page.")
     entry = {k: v for k, v in {

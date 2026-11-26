@@ -7,7 +7,8 @@
 Checks each slide in its settled state:
   errors    text blocks that overlap each other, text leaving the 1920 × 1080 stage,
             clipped text boxes, images that failed to load, and main slides with no
-            visible picture, diagram or video (the "every slide has a visual" rule).
+            visible picture, diagram or video, or no real image such as a photo,
+            render or screenshot (the "every slide has an image" rule).
   warnings  images shown larger than their pixels (soft on a projector), text under
             16 px, and visuals that cover less than 4% of the slide.
 Writes qa/slide-NN.png, qa/contact-sheet.jpg (with Pillow) and qa/report.json. This is
@@ -110,9 +111,12 @@ PROBE = r"""
   const coverage = area / (1920 * 1080);
   const exempt = slide.dataset.visualExempt;
   const appendix = slide.dataset.appendix === 'true';
+  const photos = visuals.filter(el => el.tagName.toLowerCase() === 'video' ||
+    (el.tagName.toLowerCase() === 'img' && !/^data:image\/svg|\.svg($|\?)/i.test(el.currentSrc || el.src))).length;
   if (!visuals.length && !exempt) (appendix ? warnings : errors).push('No visible picture, diagram or video on this slide.');
+  else if (!photos && !exempt) (appendix ? warnings : errors).push('No real image (photo, render or screenshot). Add one, or use backdrop place "ambient" behind the content.');
   else if (coverage < 0.04 && !exempt) warnings.push(`Visuals cover only ${(coverage * 100).toFixed(1)}% of the slide.`);
-  return {title: slide.dataset.title, appendix, visuals: visuals.length,
+  return {title: slide.dataset.title, appendix, visuals: visuals.length, photos,
           coverage: Math.round(coverage * 1000) / 10, errors: [...new Set(errors)], warnings: [...new Set(warnings)]};
 }
 """

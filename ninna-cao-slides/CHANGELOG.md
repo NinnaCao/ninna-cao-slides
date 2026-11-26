@@ -1,5 +1,18 @@
 # Changelog — Ninna Cao Slides
 
+## 3.1.0 — content-first images (26 Nov 2026)
+
+Ninna's direction: understand the whole deck before choosing images; take brand images from the brand's own website (SteelSeries from steelseries.com, Dyson from dyson.com) and topic images from the web; every slide needs an excellent real image, in the background if it is not needed in front.
+
+- **New step 1 in SKILL.md:** read the whole content, write a content brief and an image plan (brand site / web search / user's own work / official sources, per section).
+- **Real image on every main slide:** diagrams and illustrations no longer count on their own. `check_deck.py` and `qa_render.py` fail a main slide without a photo, render or screenshot.
+- **Ambient backgrounds:** `backdrop.place: "ambient"` puts a dimmed, vignetted full-slide photo behind diagrams, charts and text (`opacity`, `at`, `blur`).
+- **`scripts/collect_page_images.py`:** collects candidate images from official brand pages (srcset, picture, share and structured-data images), with `--render` for JavaScript sites, saved-page input, a numbered contact sheet and `fetch_image.py` compatibility. Sites that refuse automated access are reported, never worked around (dyson.com refuses; steelseries.com works).
+- **Quality bar** and brand-image rights in `references/web-visuals.md`.
+- Fade boxes now override preset backdrop frames, so fades look the same in every style; the generated credits slide is styled in every preset.
+- Examples: the editorial and light decks use real workshop photos (Wikimedia Commons, credited) instead of only SVG illustrations; diagram slides gain ambient backgrounds.
+- Contact sheets show the width when the height is unknown; no false "preview" warning for Wikimedia's 1920 px renders.
+
 ## 3.0.1 — open licence (26 Nov 2026)
 
 - Released under the MIT License (`LICENSE.txt`, repo `LICENSE`), copyright 2026 Ninna Cao. Frontend Slides, the bundled fonts and the example photographs keep their own licences, listed in `NOTICE.md` and `references/credits.md`.

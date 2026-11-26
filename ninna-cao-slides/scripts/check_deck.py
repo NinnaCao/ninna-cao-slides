@@ -16,7 +16,7 @@ class DeckParser(HTMLParser):
         if tag=='section':
             if self.current is not None:self.section_depth+=1
             elif 'slide' in a.get('class','').split():
-                self.current={'id':a.get('id'),'title':a.get('data-title',''),'appendix':a.get('data-appendix')=='true','text':'','duration':a.get('data-duration-seconds'),'visuals':0,'exempt':a.get('data-visual-exempt')}
+                self.current={'id':a.get('id'),'title':a.get('data-title',''),'appendix':a.get('data-appendix')=='true','text':'','duration':a.get('data-duration-seconds'),'visuals':0,'images':0,'exempt':a.get('data-visual-exempt')}
                 self.slides.append(self.current);self.section_depth=1
         if tag in ['script','style']: self.skip+=1
         if tag=='style':self.in_style=True
@@ -31,6 +31,10 @@ class DeckParser(HTMLParser):
         if self.current is not None and not self.skip:
             # A visual is a picture, video, canvas or a diagram-sized SVG (not an icon).
             if tag in ('img','video','canvas','picture'):self.current['visuals']+=1
+            # A real image: a photo, render or screenshot (raster), not only a drawn diagram or SVG illustration.
+            src=a.get('src','') or a.get('poster','') or ''
+            if (tag=='img' and src and not re.match(r'data:image/svg|.*\.svg($|\?)',src,re.I)) or tag=='video':self.current['images']+=1
+            if re.search(r'background-image\s*:\s*url\(\s*[\x22\x27]?data:image/(?!svg)',a.get('style',''),re.I):self.current['images']+=1
             elif tag=='svg':
                 box=(a.get('viewbox') or a.get('viewBox') or '').split()
                 wide=float(box[2]) if len(box)==4 else float(re.sub(r'[^0-9.]','',a.get('width','0')) or 0)
@@ -82,6 +86,9 @@ def audit(path):
         if not slide['visuals'] and not slide['exempt']:
             message=str(slide['id'])+' has no picture, diagram or video. Every slide needs a visual (or data-visual-exempt with a reason).'
             (warnings if slide['appendix'] else errors).append(message)
+        elif not slide['images'] and not slide['exempt']:
+            message=str(slide['id'])+' has no real image (photo, render or screenshot). Add one, or put one behind the content with backdrop place "ambient".'
+            (warnings if slide['appendix'] else errors).append(message)
         if re.search(r'\b(TODO|TBD|lorem ipsum)\b',slide['text'],re.I):errors.append('Unresolved audience-visible placeholder on '+str(slide['id']))
     notes=[]
     try:
@@ -93,7 +100,7 @@ def audit(path):
         if photos and not (model.get('credits') or model.get('credits_slide') is False):
             warnings.append(str(photos)+' embedded raster images but no credits ledger in the manifest. Record creator, license and source for every image found online.')
     except (ValueError,TypeError):errors.append('Invalid or absent manifest/notes JSON.')
-    return {'status':'pass' if not errors else 'fail','errors':errors,'warnings':warnings,'main_slides':sum(not s['appendix'] for s in p.slides),'appendix_slides':sum(s['appendix'] for s in p.slides),'embedded_images':len(p.images),'notes':len(notes or []),'slides':[{k:s[k] for k in ['id','title','appendix','words','cjk_chars','visuals']} for s in p.slides],'claim_boundary':'Static structure only. Visual layout, image quality, factual accuracy and browser interaction require separate review.'}
+    return {'status':'pass' if not errors else 'fail','errors':errors,'warnings':warnings,'main_slides':sum(not s['appendix'] for s in p.slides),'appendix_slides':sum(s['appendix'] for s in p.slides),'embedded_images':len(p.images),'notes':len(notes or []),'slides':[{k:s[k] for k in ['id','title','appendix','words','cjk_chars','visuals','images']} for s in p.slides],'claim_boundary':'Static structure only. Visual layout, image quality, factual accuracy and browser interaction require separate review.'}
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('html');parser.add_argument('--out')

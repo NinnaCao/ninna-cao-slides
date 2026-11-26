@@ -42,6 +42,7 @@ Every hero picture sits on one side and fades toward the text. Use `backdrop` in
 | `top` | Wide scene above a row of content | 64% tall, fades down |
 | `bottom` | Scene under a statement | |
 | `full` | Closing or statement slide; scrim on the left (or `scrim: "bottom"`) | |
+| `ambient` | Behind a diagram, chart, table or text-led slide, so every slide still has a real image | full slide, opacity 0.32, vignette toward `at` (default `80% 35%`); optional `blur` |
 
 - `start` moves the picture's left edge (percent of the slide), `height` sets its height for top and bottom places, `fade` sets the fade length, `focus` is `object-position`, `brightness` lifts dark photos (1.1–1.3 is typical).
 - Put the subject at least 200 px clear of the nearest text. Check the crop at full size: the fade must never cut through a face or the product's key detail.

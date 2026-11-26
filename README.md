@@ -8,7 +8,8 @@ An Agent Skill for Claude (and other assistants that load Agent Skills) that bui
 
 ## What's in v3
 
-- **A visual on every slide.** The skill plans a picture, diagram or chart for each slide and finds openly licensed images on the web when your material runs out (`find_images.py`, `fetch_image.py`), recording creator, license and source. A sources-and-credits slide is generated automatically.
+- **Content first.** Before designing, the skill reads the whole deck or brief and plans where every image comes from: the brand's own website for company and product decks (`collect_page_images.py`), web and open-library search for topics (`find_images.py`), your own photos for your own work.
+- **An excellent real image on every slide.** Photos, renders or screenshots; behind diagrams and text as an ambient background. Creator, license and source are recorded, and a sources-and-credits slide is generated automatically.
 - **Image fades.** Pictures sit on one side and dissolve into the stage (`backdrop.place`: right, left, top, top-right, bottom, full). Works with every style.
 - **Cinematic Night.** Condensed headlines, typewriter labels, a warm charcoal stage with soft light pools and one brand accent. Fonts bundled.
 - **Checks that look at the render.** `qa_render.py` flags overlapping or clipped text, broken or upscaled images and slides with no visual, and makes a contact sheet. The PDF exporter is pixel-exact by default, so fades survive.

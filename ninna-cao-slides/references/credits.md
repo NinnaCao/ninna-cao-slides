@@ -25,7 +25,7 @@ The fonts are subset to Latin characters and converted to WOFF2; otherwise unmod
 
 ## Example images
 
-The Cinematic Night example uses openly licensed photographs from Wikimedia Commons, converted to WebP and resized. They are illustrative and not evidence of any project:
+The example decks use openly licensed photographs from Wikimedia Commons, converted to WebP and resized. They are illustrative and not evidence of any project:
 
 - `media/cinematic/night-train.webp`: Midnight train (Unsplash), Ioan Radu Mester radumester, CC0, https://commons.wikimedia.org/wiki/File:Midnight_train_(Unsplash).jpg
 - `media/cinematic/condenser-mic.webp`: AKG C214 Condenser microphone, Lucasbosch, CC BY-SA 3.0, https://commons.wikimedia.org/wiki/File:AKG_C214_Condenser_microphone.jpg
@@ -35,5 +35,10 @@ The Cinematic Night example uses openly licensed photographs from Wikimedia Comm
 - `media/cinematic/mics-on-stand.webp`: Studio Microphones on Stand (51877280903), Dejan Krsmanovic, CC BY 2.0, https://commons.wikimedia.org/wiki/File:Studio_Microphones_on_Stand_(51877280903).jpg
 - `media/cinematic/desk-mics.webp`: 2026 YETI 2 mics, Stan Lee, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:2026_YETI_2_mics.jpg
 - `media/cinematic/stage-blue.webp`: Dark Revenge Band 1, Drevenger, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Dark_Revenge_Band_1.jpg
+- `media/workshop/sprint-wall.webp`: Design Sprint Workshop, Design Sprint Ltd, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Design_Sprint_Workshop.jpg
+- `media/workshop/whiteboard-notes.webp`: Design Thinking Workshop WMDE 1, Corinna Schuster (WMDE), CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Design_Thinking_Workshop_WMDE_1.jpg
+- `media/workshop/sketching-wireframes.webp`: Designer sketching Wireframes (Unsplash), Green Chameleon craftedbygc, CC0, https://commons.wikimedia.org/wiki/File:Designer_sketching_Wireframes_(Unsplash).jpg
+- `media/workshop/ux-testing-laptop.webp`: Project User Experience Testing (9719939867), Samuel Mann from Dunedin, New Zealand, CC BY 2.0, https://commons.wikimedia.org/wiki/File:Project_User_Experience_Testing_(9719939867).jpg
+- `media/workshop/usability-session.webp`: SFSU Wiki Ed Usability testing, Jami (Wiki Ed), CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:SFSU_Wiki_Ed_Usability_testing.jpg
 
 The decorative SVG examples in `assets/media` are neutral illustrations prepared for this skill, not documentary photos or research evidence. The package does not bundle private interview media, unpublished product designs, commercial research claims or credentials.

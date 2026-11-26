@@ -1,6 +1,6 @@
 ---
 name: ninna-cao-slides
-description: Create image-rich presentations where every slide has a visual, photos fade softly into the background, and the visual direction fits each brief. Finds and credits openly licensed images on the web when the user's material runs out. Includes the Cinematic Night style (condensed headlines, typewriter labels, glowing dark stage), clear diagrams, automatic motion, render QA, and HTML, PowerPoint, PDF and speaking-note outputs.
+description: Create image-rich presentations where every slide has an excellent real image (in the foreground, or in the background behind diagrams and text), photos fade softly into the stage, and the visual direction fits each brief. Reads the whole content first, then sources images to match it - the brand's own website for company and product decks (e.g. SteelSeries, Dyson), web and open-library search for topics - and credits them. Includes the Cinematic Night style (condensed headlines, typewriter labels, glowing dark stage), clear diagrams, automatic motion, render QA, and HTML, PowerPoint, PDF and speaking-note outputs.
 ---
 
 # Ninna Cao Slides
@@ -13,16 +13,37 @@ Use the tools available in the current assistant. If you only have this file, ap
 
 ## Working principles
 
-1. **A visual on every slide.** Each main slide carries a photograph, product image, screenshot, diagram, chart or video that explains its point. When the user's material does not cover a slide, find a suitable image on the web, check its license and record its source. Never present stock or generated images as the user's real work.
-2. **Let photographs melt into the stage.** For covers, dividers, concept and closing slides, place the picture on one side and fade the edges that face the text into the background. Use crisp frames only when the audience must inspect the image.
-3. **Preserve context.** Keep enough explanation for someone unfamiliar with the source to follow the presentation.
-4. **Show the work.** Use photographs of interviews, observation, workshops, sketches and tests to explain what people actually do. Keep faces, hands, prototypes and other focal details sharp and visible.
-5. **Design a coherent story.** Establish the main concept, explain the framework, show its application, then close with the takeaway. Fit the sequence to the actual brief.
-6. **Respect approved work.** Start from the latest approved version. Preserve locked slides, wording, order and visual treatments. Make targeted improvements.
-7. **Let motion run.** Run staged entrances automatically when a slide opens. Use one advance per slide and make timed autoplay optional.
-8. **Keep deliverables aligned.** Use the same current content, image choices, slide numbers, appendix and notes across requested formats.
+1. **Understand the content before choosing a single image.** Read the whole source deck or brief first. Name the subject, brand, products, people, places and tone, then decide where the images should come from (see step 1).
+2. **An excellent real image on every slide.** Every main slide carries at least one real image: a photograph, product render or screenshot. Diagrams, charts and text-led slides still get one, placed in the background (`backdrop.place: "ambient"`) if it is not needed in front. Every image must be excellent: sharp, on-subject, on-brand and well cropped. Never present stock or generated images as the user's real work.
+3. **Let photographs melt into the stage.** For covers, dividers, concept and closing slides, place the picture on one side and fade the edges that face the text into the background. Use crisp frames only when the audience must inspect the image.
+4. **Preserve context.** Keep enough explanation for someone unfamiliar with the source to follow the presentation.
+5. **Show the work.** Use photographs of interviews, observation, workshops, sketches and tests to explain what people actually do. Keep faces, hands, prototypes and other focal details sharp and visible.
+6. **Design a coherent story.** Establish the main concept, explain the framework, show its application, then close with the takeaway. Fit the sequence to the actual brief.
+7. **Respect approved work.** Start from the latest approved version. Preserve locked slides, wording, order and visual treatments. Make targeted improvements.
+8. **Let motion run.** Run staged entrances automatically when a slide opens. Use one advance per slide and make timed autoplay optional.
+9. **Keep deliverables aligned.** Use the same current content, image choices, slide numbers, appendix and notes across requested formats.
 
-## 1 Determine scope from the existing conversation and files
+## 1 Understand the whole content first
+
+Before designing, read every slide of a supplied deck (and its notes) or the whole brief, end to end. Write a short content brief:
+
+- **Subject and purpose:** what the deck is about and what the audience should do or believe afterwards.
+- **Who and what appears:** organisations and brands, product names and models, people, places, events, data.
+- **Tone and setting:** internal or public, formal or energetic, room or screen.
+
+Then write the **image plan**: where each kind of image will come from.
+
+| The content is about | Get images from |
+| --- | --- |
+| A company, brand or its products (e.g. SteelSeries, Dyson) | The brand's own website first: product pages, newsroom, press or media kit. Exact products, models and colours. `scripts/collect_page_images.py` |
+| A topic, market or idea (e.g. AI for elderly care) | Web search and open libraries for real, authentic photos of the subject. `scripts/find_images.py` |
+| The user's own work, research or team | The user's photos, screenshots and files first |
+| Real people, places or events | Official or press sources, or openly licensed photos with credit |
+| A mix | Decide per section |
+
+Use the plan for every slide. See [web-visuals.md](references/web-visuals.md).
+
+## 2 Determine scope from the existing conversation and files
 
 Identify creation, conversion or revision first. See [workflow.md](references/workflow.md) for visual discovery, density, conversion and the delivery sequence.
 
@@ -32,7 +53,7 @@ Identify creation, conversion or revision first. See [workflow.md](references/wo
 - Record any protected slide range. A request such as "only my part" is a scope constraint. Do not renumber protected slides or insert new slides inside them without a reason grounded in the current request.
 - Treat a request for a format conversion as a conversion task. Preserve the content and design unless the user also asks for edits.
 
-## 2 Build the content and visual map together
+## 3 Build the content and visual map together
 
 For each slide, record its purpose, plain-language point, supporting evidence, **chosen visual and where it comes from** (user file, official source, open library, or a diagram you draw), and the sentence that explains the connection. Use a canonical deck manifest or an equivalent content map.
 
@@ -43,17 +64,21 @@ For each slide, record its purpose, plain-language point, supporting evidence, *
 - For a case drawn across several products, state that the photos illustrate practices across projects.
 - Use a physical prop or a brief audience question when it strengthens the explanation. Do not add a giveaway by default.
 
-## 3 Find the visuals
+## 4 Find the images
 
-Follow [web-visuals.md](references/web-visuals.md).
+Follow [web-visuals.md](references/web-visuals.md) and the image plan from step 1.
 
-- Use the user's own images first, then official sources for real products, places and events, then open libraries for atmosphere. Draw diagrams and charts instead of searching for them.
+- **Brand and product decks:** collect from the brand's own pages with `scripts/collect_page_images.py <url>` (add `--render` for sites that build images with JavaScript). If a site refuses automated access, view it in a real browser, use its press kit, or ask the user. Never work around the block.
+- **Topic decks:** search the web and open libraries with `scripts/find_images.py`. Prefer authentic, documentary photos over staged stock that feels generic or AI-made.
+- **The user's work:** their own photos and screenshots first.
+- Draw diagrams and charts yourself. Then give each diagram or text-led slide a background photo (`ambient`).
 - Search open libraries with `scripts/find_images.py` (Openverse and Wikimedia Commons without a key; Unsplash and Pexels with a key). Open the contact sheet, then the full image, before choosing.
 - Fetch with `scripts/fetch_image.py --manifest deck.json`: it saves a slide-ready WebP and adds the creator, license and source to the manifest's `credits`. The builder turns them into a sources and image credits slide.
+- Hold every image to the quality bar in web-visuals.md: look at three or more candidates per slide, open the full image, reject anything soft, generic, off-brand, watermarked or badly cropped.
 - Choose pictures for the planned treatment: a dark or plain background with the subject away from the text for fades, a clear subject that survives the crop for tiles and frames, and enough pixels for the displayed size.
 - If a site refuses a download, do not work around it; use the source page, ask the user or choose another image. Use only licenses that allow the deck's purpose.
 
-## 4 Choose and apply the visual direction
+## 5 Choose and apply the visual direction
 
 Use the topic, audience, brand, delivery setting and applicable references to choose typography, palette, image treatment and slide compositions. Follow the supplied brand or approved direction when it applies. Explore the [Ninna presets and style catalog](references/style-index.md), the [complete source library](references/original-workflow.md) or a project-specific direction. When the style is open, show three authentic title-slide previews using the user's real content, then continue the chosen direction through the whole deck.
 
@@ -63,8 +88,9 @@ Use the topic, audience, brand, delivery setting and applicable references to ch
 - Start with approximately **55–100 visible words** on an explanatory slide; around 110–125 where a framework needs context.
 - Keep a clear hierarchy between the headline, orienting sentence, evidence and captions. Choose one main visual action per slide and vary the composition across the story.
 - Fade hero pictures with `backdrop.place` (`right`, `left`, `top-right`, `top`, `bottom`, `full`) or `.fade-plate`. Check the fade never cuts through the subject and the text sits on the quiet side.
+- Behind a diagram, chart, table or text-led slide, use `backdrop.place: "ambient"` (a dimmed, vignetted full-slide photo; tune `opacity` 0.2–0.4 and `at`) so the slide still has a real image.
 
-## 5 Implement HTML and motion
+## 6 Implement HTML and motion
 
 Build a self-contained HTML deck when browser slides are requested. Read [implementation.md](references/implementation.md) for the manifest, stage, playback, print and export behavior, and [motion.md](references/motion.md) for pacing.
 
@@ -81,7 +107,7 @@ python3 scripts/build_deck.py deck.json presentation.html
 - Make the print state show all content in its final state, one slide per page, with controls and notes hidden.
 - Offer inline text editing for local drafts. Leave edit mode off when the file opens; use a button or E, autosave locally and offer a downloadable edited copy. Omit editing from locked distribution copies.
 
-## 6 Prepare the talk and requested exports
+## 7 Prepare the talk and requested exports
 
 Read [notes-and-engagement.md](references/notes-and-engagement.md) for notes, timing, audience participation or multiple presenters, and [exports-and-qa.md](references/exports-and-qa.md) before delivery.
 
@@ -91,14 +117,14 @@ Read [notes-and-engagement.md](references/notes-and-engagement.md) for notes, ti
 - Create requested PPTX, PDF or DOCX files with the environment's format tools. Preserve editable text, diagrams and pictures in PPTX where practical; say plainly when slides are image-only. Rebuild native motion if requested and do not claim a PowerPoint check that did not happen.
 - Export PDF from the final complete state, including the appendix.
 
-## 7 Verify before delivery
+## 8 Verify before delivery
 
 ```bash
 python3 scripts/check_deck.py presentation.html
 python3 scripts/qa_render.py presentation.html qa
 ```
 
-1. Both checks pass. `check_deck` fails a main slide without a visual; `qa_render` renders every slide and fails on overlapping, overflowing or clipped text, broken images and slides with no visible visual. Fix defects; do not exempt main slides.
+1. Both checks pass. They fail a main slide without a real image (photo, render or screenshot); `qa_render` also renders every slide and fails on overlapping, overflowing or clipped text and broken images. Fix defects; do not exempt main slides.
 2. Open `qa/contact-sheet.jpg` and the full-size slides. Check fades (no hard photo edge, subject intact, text on the quiet side), crops, focal sharpness, contrast, label spacing and rhythm across the deck.
 3. Check concept and process coverage against the actual source, and each caption against what its picture shows.
 4. Compare changed slides with the approved version and check protected ranges for unintended edits.
@@ -108,7 +134,7 @@ python3 scripts/qa_render.py presentation.html qa
 
 ## Resources
 
-- [web-visuals.md](references/web-visuals.md): the visual-per-slide rule, where to look, search and fetch scripts, licenses, credits.
+- [web-visuals.md](references/web-visuals.md): the image-per-slide rule, content-first image plan, brand websites, web search, quality bar, licenses, credits.
 - [cinematic-night.md](references/cinematic-night.md): the Cinematic Night recipe, fades, layouts and rhythm.
 - [visual-system.md](references/visual-system.md): direction, scale, photo treatments, image fades, Chinese typography, motion.
 - [images-and-diagrams.md](references/images-and-diagrams.md): photo evidence, accurate mapping and diagram patterns.

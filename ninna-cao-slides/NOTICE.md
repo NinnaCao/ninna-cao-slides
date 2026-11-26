@@ -8,6 +8,6 @@ Third-party components keep their own licences and are not covered by that licen
   and assets/source/ — see references/frontend-slides/LICENSE.
 - Fonts in assets/fonts/ (SIL Open Font License 1.1) — see the
   *-OFL.txt files beside them.
-- Example photographs in assets/media/cinematic/ (CC0, CC BY,
-  CC BY-SA, from Wikimedia Commons) — creators and licences are listed in
+- Example photographs in assets/media/cinematic/ and assets/media/workshop/
+  (CC0, CC BY, CC BY-SA, from Wikimedia Commons) — creators and licences are listed in
   references/credits.md.

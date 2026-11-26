@@ -17,7 +17,8 @@ python3 scripts/check_deck.py presentation.html     # structure, visuals per sli
 python3 scripts/qa_render.py presentation.html qa  # renders each slide; overlaps, overflow, clipping, image resolution
 ```
 
-- Every main slide has a visible picture, diagram, chart or video. Fix a failure by adding one, not by exempting the slide.
+- Every main slide has a real image (photo, render or screenshot), in front or as an ambient background. Fix a failure by adding one, not by exempting the slide.
+- Every image meets the quality bar in web-visuals.md: on-subject, on-brand, sharp, well cropped, authentic.
 - No text overlaps other text, leaves the stage or is clipped. Treat each `qa_render` error as a real defect.
 - Fades: no visible photo edge, the subject is not cut by the fade, body text sits on the quiet side, contrast is comfortable.
 - Images are not shown larger than their pixels on hero placements.

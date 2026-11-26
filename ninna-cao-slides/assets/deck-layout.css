@@ -126,6 +126,8 @@ body { font-family: var(--body-font); }
    --img-brightness and object-position (manifest: backdrop.focus).
    =========================================== */
 .slide .backdrop.fade { inset: 0; z-index: 0; }
+/* (0,4,0) reset so a preset's framed backdrop (fixed width, matte, rounded corner) gives way to the fade box. */
+.slide .backdrop.fade[class*="place-"] { width: auto; height: auto; border-radius: 0; background: none; box-shadow: none; }
 .slide .backdrop.fade img {
   position: absolute; inset: 0; left: 0; width: 100%; height: 100%;
   object-fit: cover; opacity: 1;
@@ -134,12 +136,12 @@ body { font-family: var(--body-font); }
 .slide .backdrop.fade::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
 }
-.slide .backdrop.fade.place-right { inset: 0 0 0 var(--plate-start, 36%); }
-.slide .backdrop.fade.place-left { inset: 0 var(--plate-start, 36%) 0 0; }
-.slide .backdrop.fade.place-top { inset: 0 0 auto 0; height: var(--plate-height, 64%); }
-.slide .backdrop.fade.place-top-right { inset: 0 0 auto var(--plate-start, 52%); height: var(--plate-height, 58%); }
-.slide .backdrop.fade.place-bottom { inset: auto 0 0 0; height: var(--plate-height, 60%); }
-.slide .backdrop.fade.place-full { inset: 0; }
+.slide .backdrop.fade.place-right[class] { inset: 0 0 0 var(--plate-start, 36%); }
+.slide .backdrop.fade.place-left[class] { inset: 0 var(--plate-start, 36%) 0 0; }
+.slide .backdrop.fade.place-top[class] { inset: 0 0 auto 0; height: var(--plate-height, 64%); }
+.slide .backdrop.fade.place-top-right[class] { inset: 0 0 auto var(--plate-start, 52%); height: var(--plate-height, 58%); }
+.slide .backdrop.fade.place-bottom[class] { inset: auto 0 0 0; height: var(--plate-height, 60%); }
+.slide .backdrop.fade.place-full[class] { inset: 0; }
 .slide .backdrop.fade.place-right, .fade-plate.place-right {
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 var(--fade-len, 34%));
   mask-image: linear-gradient(90deg, transparent 0%, #000 var(--fade-len, 34%));
@@ -192,6 +194,23 @@ body { font-family: var(--body-font); }
 }
 .slide .backdrop.fade ~ :is(.slide-header, .slide-body, .slide-footer) { z-index: 1; }
 
+/* AMBIENT: a real photograph behind a diagram, chart or text-heavy slide. Full-bleed, dimmed and
+   vignetted toward one point (--ambient-at), so the content in front stays easy to read. */
+.slide .backdrop.fade.place-ambient {
+  inset: 0;
+  -webkit-mask-image: radial-gradient(ellipse 80% 95% at var(--ambient-at, 80% 35%), #000 0%, rgba(0, 0, 0, .6) 42%, transparent 82%);
+  mask-image: radial-gradient(ellipse 80% 95% at var(--ambient-at, 80% 35%), #000 0%, rgba(0, 0, 0, .6) 42%, transparent 82%);
+}
+.slide .backdrop.fade.place-ambient img {
+  opacity: var(--ambient, .32);
+  filter: brightness(var(--img-brightness, 1)) saturate(var(--img-saturate, .85)) blur(var(--ambient-blur, 0px));
+}
+.slide .backdrop.fade.place-ambient::after {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--slide-bg) 50%, transparent) 0%, transparent 55%),
+    linear-gradient(0deg, var(--slide-bg) 0%, transparent 30%);
+}
+
 /* The same treatment inside slide bodies: <figure class="fade-plate place-right" style="left:…;top:…;width:…;height:…"> */
 .fade-plate { position: absolute; overflow: hidden; margin: 0; }
 .fade-plate img { display: block; width: 100%; height: 100%; object-fit: cover; filter: brightness(var(--img-brightness, 1.04)); }
@@ -212,3 +231,9 @@ body { font-family: var(--body-font); }
 /* Optional numbered kicker and section-divider numeral, styled further by presets. */
 .kicker-num { display: inline-block; margin-right: 18px; }
 .divider-num { display: block; }
+
+/* Generated "Sources and image credits" slide (every preset; presets may restyle it). */
+.credits-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 40px; }
+.credits-grid > div { padding-top: 12px; border-top: 1px solid var(--rule); font-size: 18px; line-height: 1.35; color: var(--muted); }
+.credits-grid span { display: block; margin-bottom: 4px; color: var(--accent); font-size: 16px; letter-spacing: .04em; }
+.credits-grid b { display: block; color: var(--text); font-size: 19px; }

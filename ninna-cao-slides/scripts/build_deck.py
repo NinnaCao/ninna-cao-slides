@@ -30,7 +30,7 @@ PRESET_FONTS = {
     ],
 }
 LAYOUTS = ("cover", "content", "divider", "statement")
-PLACES = ("right", "left", "top", "top-right", "bottom", "full")
+PLACES = ("right", "left", "top", "top-right", "bottom", "full", "ambient")
 NAME = re.compile(r"[a-z][a-z0-9-]*")
 HEX = re.compile(r"#[0-9a-fA-F]{6}")
 FONT_FORMATS = {
@@ -239,6 +239,21 @@ def render_backdrop(slide, root):
         if not 0.4 <= level <= 1.8:
             raise ValueError("Backdrop brightness must be between 0.4 and 1.8.")
         variables.append(f"--img-brightness:{level:g}")
+    if "opacity" in spec:
+        level = float(spec["opacity"])
+        if not 0.05 <= level <= 1:
+            raise ValueError("Backdrop opacity must be between 0.05 and 1.")
+        variables.append(f"--ambient:{level:g}")
+    if "at" in spec:
+        at = str(spec["at"])
+        if not re.fullmatch(r"\d{1,3}% \d{1,3}%", at):
+            raise ValueError("Backdrop 'at' must look like '80% 35%'.")
+        variables.append("--ambient-at:" + at)
+    if "blur" in spec:
+        blur = float(spec["blur"])
+        if not 0 <= blur <= 24:
+            raise ValueError("Backdrop blur must be between 0 and 24 px.")
+        variables.append(f"--ambient-blur:{blur:g}px")
     style = f' style="{";".join(variables)}"' if variables else ""
     alt = html.escape(str(spec.get("alt", "")), quote=True)
     hidden = "" if alt else ' aria-hidden="true"'

@@ -214,7 +214,8 @@ def contact_sheet(rows, path):
             draw.text((x + 12, y + 100), "thumbnail unavailable", fill="#888", font=font)
         draw.rectangle([x + 6, y + 6, x + 46, y + 36], fill="#ff7338")
         draw.text((x + 12, y + 8), str(index), fill="#111", font=big)
-        label = f'{row["width"]}×{row["height"]} · {row["license_label"][:22]} · {row["provider"].split("/")[-1][:14]}'
+        dims = f'{row["width"]}×{row["height"]}' if row.get("height") else (f'{row["width"]}px' if row.get("width") else "size ?")
+        label = f'{dims} · {row["license_label"][:22]} · {row["provider"].split("/")[-1][:14]}'
         draw.text((x + 8, y + cell_h + 6), label, fill="#e8e2da", font=font)
         draw.text((x + 8, y + cell_h + 25), row["title"][:44], fill="#a9a39c", font=font)
     sheet.save(path, quality=82)

@@ -12,8 +12,8 @@
       "section": "Ideas into practice",
       "theme": "warm",
       "subtitle": "Understand the experience, then decide what to build.",
-      "background_image": "media/workshop-atmosphere.svg",
-      "background_alt": "An illustrative wall of grouped notes",
+      "background_image": "media/workshop/sprint-wall.webp",
+      "background_alt": "Illustrative photo: a team placing sticky notes on a wall during a design sprint",
       "body_html": "<div class=\"reveal\" style=\"--delay:260ms\"><p>Research, shared questions, sketches and feedback make an idea easier to understand and improve.</p><div class=\"rule\"></div><p class=\"label\">A practical view of the design process</p></div>",
       "notes_en": "Start with the person using a product or service. The design process helps us understand their situation, make a useful question clear, and try possible answers. The next slides show how to make that process visible.",
       "notes_zh": "先理解人 再决定做什么",
@@ -22,14 +22,15 @@
       ],
       "duration_seconds": 35,
       "id": "slide-1",
-      "speaker": "Presenter"
+      "speaker": "Presenter",
+      "background_place": "right",
+      "background_position": "58% 40%"
     },
     {
       "title": "The whole experience",
       "section": "A human perspective",
       "theme": "warm",
       "subtitle": "Consider what happens before, during and after someone uses the product.",
-      "background_image": "media/workshop-atmosphere.svg",
       "background_alt": "Illustrative notes blending into a dark background",
       "body_html": "<div class=\"columns-2\"><div class=\"text-region reveal\" style=\"--delay:180ms\"><p class=\"label\">Look beyond the object</p><p>A useful feature is part of a larger journey. Someone must find it, understand it, use it and tell whether it worked.</p><div class=\"rule\"></div><h3 class=\"display\">What does this feel like for the person?</h3><p class=\"caption\">Listen to the situation behind the feedback. A score can show dissatisfaction; the story helps explain why it matters.</p></div><div class=\"reveal\" style=\"--delay:320ms\"><svg class=\"stage-svg\" viewBox=\"0 0 810 510\" role=\"img\" aria-label=\"A person at the center of finding, understanding, using and checking a change\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"405\" cy=\"248\" r=\"118\" fill=\"#314d53\" stroke=\"#a9e1d5\" stroke-width=\"2\" /><g fill=\"none\" stroke=\"#809a99\" stroke-width=\"2\"><path class=\"trace\" pathLength=\"1\" d=\"M287 219H206V110H30\" /><path class=\"trace\" pathLength=\"1\" d=\"M524 219H602V110H785\" style=\"--delay:260ms\" /><path class=\"trace\" pathLength=\"1\" d=\"M287 278H206V402H30\" style=\"--delay:400ms\" /><path class=\"trace\" pathLength=\"1\" d=\"M524 278H602V402H785\" style=\"--delay:540ms\" /></g><g class=\"serif-label\" text-anchor=\"middle\" font-size=\"44\"><text x=\"405\" y=\"239\" fill=\"#fff3e5\" font-family=\"serif\">The person</text><text x=\"405\" y=\"286\" fill=\"#fff3e5\" font-family=\"serif\">using it</text></g><g font-size=\"32\"><text x=\"12\" y=\"86\" fill=\"#fff3e5\" font-family=\"sans-serif\">Find the control</text><text x=\"566\" y=\"86\" fill=\"#fff3e5\" font-family=\"sans-serif\">Understand it</text><text x=\"12\" y=\"451\" fill=\"#fff3e5\" font-family=\"sans-serif\">Use it</text><text x=\"547\" y=\"451\" fill=\"#fff3e5\" font-family=\"sans-serif\">Check the result</text></g></svg></div></div>",
       "notes_en": "Consider the whole experience. A feature may exist, but can someone find it, understand it, use it and check the result? Listening to the situation behind the feedback helps us understand what matters to the person.",
@@ -39,14 +40,20 @@
       ],
       "duration_seconds": 55,
       "id": "slide-2",
-      "speaker": "Presenter"
+      "speaker": "Presenter",
+      "backdrop": {
+        "image": "media/workshop/usability-session.webp",
+        "place": "ambient",
+        "at": "85% 30%",
+        "opacity": 0.38,
+        "alt": "Illustrative photo: a usability session"
+      }
     },
     {
       "title": "From observation to a test",
       "section": "A framework for the work",
       "theme": "cool",
       "subtitle": "Connect what you saw to a question you can answer.",
-      "background_image": "media/workshop-atmosphere.svg",
       "background_alt": "Illustrative grouped notes behind the framework",
       "body_html": "<svg class=\"stage-svg reveal\" style=\"--delay:170ms\" viewBox=\"0 0 1704 260\" role=\"img\" aria-label=\"Observe the task, frame the need, and try a prototype\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"#17313a\" stroke=\"#63818a\" stroke-width=\"2\"><rect x=\"1\" y=\"22\" width=\"488\" height=\"206\"/><rect x=\"608\" y=\"22\" width=\"488\" height=\"206\"/><rect x=\"1215\" y=\"22\" width=\"488\" height=\"206\"/></g><g stroke=\"#a9e1d5\" stroke-width=\"3\" fill=\"none\"><path class=\"trace\" pathLength=\"1\" d=\"M510 125 H586 M574 113 L586 125 L574 137\"/><path class=\"trace\" pathLength=\"1\" style=\"--delay:300ms\" d=\"M1117 125 H1193 M1181 113 L1193 125 L1181 137\"/></g><g fill=\"#a9e1d5\" font-family=\"sans-serif\" font-size=\"26\" font-weight=\"bold\"><text x=\"31\" y=\"84\">OBSERVE</text><text x=\"638\" y=\"84\">FRAME</text><text x=\"1245\" y=\"84\">TRY</text></g><g fill=\"#fff3e5\" font-family=\"serif\" font-size=\"41\"><text x=\"31\" y=\"144\">Watch the task</text><text x=\"638\" y=\"144\">State the need</text><text x=\"1245\" y=\"144\">Test one idea</text></g><g fill=\"#d2dfe0\" font-family=\"sans-serif\" font-size=\"24\"><text x=\"31\" y=\"190\">Look for a pause or detour.</text><text x=\"638\" y=\"190\">Write a question to explore.</text><text x=\"1245\" y=\"190\">Watch someone try it again.</text></g></svg><div class=\"columns-2\" style=\"height:auto;margin-top:35px\"><div class=\"reveal\" style=\"--delay:380ms\"><h3 class=\"display\">Start with a pause</h3><p class=\"caption\">If someone stops after saving, ask what signal would help them know the change went through.</p></div><div class=\"reveal\" style=\"--delay:510ms\"><h3 class=\"display gold\">Use what you learn</h3><p class=\"caption\">Show a simple confirmation. If the person still checks elsewhere, ask what gives them confidence and revisit the question.</p></div></div>",
       "source_credit": "Illustrative walk-through.",
@@ -59,14 +66,21 @@
       ],
       "duration_seconds": 65,
       "id": "slide-3",
-      "speaker": "Presenter"
+      "speaker": "Presenter",
+      "backdrop": {
+        "image": "media/workshop/whiteboard-notes.webp",
+        "place": "ambient",
+        "at": "80% 25%",
+        "opacity": 0.36,
+        "alt": "Illustrative photo: a whiteboard covered in grouped notes"
+      }
     },
     {
       "title": "Make the activity visible",
       "section": "Observation into decisions",
       "theme": "cool",
       "subtitle": "Connect each visual to an activity, a learning question and an output.",
-      "body_html": "<div class=\"columns-3\"><div class=\"reveal\" style=\"--delay:160ms\"><p class=\"label\">Observe</p><div class=\"photo-frame\" style=\"height:260px\"><img src=\"{{asset:media/workshop-atmosphere.svg}}\" alt=\"Illustration of notes collected for discussion\"></div><h3 class=\"display\" style=\"margin-top:25px\">Understand the situation</h3><p class=\"caption\">Use an actual interview or observation photograph when presenting real work. Explain what the team wanted to learn.</p></div><div class=\"reveal\" style=\"--delay:300ms\"><p class=\"label\">Make sense of it</p><div class=\"photo-frame\" style=\"height:260px\"><img src=\"{{asset:media/layout-variants.svg}}\" alt=\"Illustration of several directions arranged side by side\"></div><h3 class=\"display\" style=\"margin-top:25px\">Compare directions</h3><p class=\"caption\">Show the team sharing or grouping ideas. State how the discussion helped choose what to explore.</p></div><div class=\"reveal\" style=\"--delay:440ms\"><p class=\"label\">Decide what to test</p><div class=\"photo-frame\" style=\"height:260px\"><img src=\"{{asset:media/rough-wireframe.svg}}\" alt=\"Illustration of a rough wireframe\"></div><h3 class=\"display\" style=\"margin-top:25px\">Make a question tangible</h3><p class=\"caption\">A sketch gives people something to discuss and change before investing in a complete solution.</p></div></div>",
+      "body_html": "<div class=\"columns-3\"><div class=\"reveal\" style=\"--delay:160ms\"><p class=\"label\">Observe</p><div class=\"photo-frame\" style=\"height:260px\"><img src=\"{{asset:media/workshop/usability-session.webp}}\" alt=\"Illustrative photo: an observer watching a participant work through a task\"></div><h3 class=\"display\" style=\"margin-top:25px\">Understand the situation</h3><p class=\"caption\">Use an actual interview or observation photograph when presenting real work. Explain what the team wanted to learn.</p></div><div class=\"reveal\" style=\"--delay:300ms\"><p class=\"label\">Make sense of it</p><div class=\"photo-frame\" style=\"height:260px\"><img src=\"{{asset:media/workshop/sprint-wall.webp}}\" alt=\"Illustrative photo: a team grouping sticky notes on a wall\"></div><h3 class=\"display\" style=\"margin-top:25px\">Compare directions</h3><p class=\"caption\">Show the team sharing or grouping ideas. State how the discussion helped choose what to explore.</p></div><div class=\"reveal\" style=\"--delay:440ms\"><p class=\"label\">Decide what to test</p><div class=\"photo-frame\" style=\"height:260px\"><img src=\"{{asset:media/rough-wireframe.svg}}\" alt=\"Illustration of a rough wireframe\"></div><h3 class=\"display\" style=\"margin-top:25px\">Make a question tangible</h3><p class=\"caption\">A sketch gives people something to discuss and change before investing in a complete solution.</p></div></div>",
       "source_credit": "Illustrative diagrams. They do not document a real research project.",
       "notes_en": "A process image needs an explanation. Say what people are doing, what they are trying to learn, and what decision follows. Use real project photographs for observation and workshops. These neutral illustrations show the layout, rather than claiming research evidence.",
       "notes_zh": "照片要说清活动 学习和决定",
@@ -83,7 +97,7 @@
       "section": "Prototype and learn",
       "theme": "cool",
       "subtitle": "Choose a prototype form that fits the learning question.",
-      "body_html": "<div class=\"columns-3\"><div class=\"reveal\" style=\"--delay:170ms\"><p class=\"label\">Rough sketch</p><div class=\"photo-frame\" style=\"height:270px\"><img src=\"{{asset:media/rough-wireframe.svg}}\" alt=\"A deliberately rough illustrative wireframe\"></div><h3 class=\"display\" style=\"margin-top:26px\">Discuss the structure</h3><p class=\"caption\">A quick sketch helps reveal whether the arrangement makes sense while changes are inexpensive.</p></div><div class=\"reveal\" style=\"--delay:300ms\"><p class=\"label\">Several alternatives</p><div class=\"photo-frame\" style=\"height:270px\"><img src=\"{{asset:media/layout-variants.svg}}\" alt=\"Four illustrative interface arrangements\"></div><h3 class=\"display\" style=\"margin-top:26px\">Compare possible answers</h3><p class=\"caption\">Make different directions visible. Keep the same user need in view when choosing which to try.</p></div><div class=\"reveal\" style=\"--delay:430ms\"><p class=\"label\">Working prototype</p><div class=\"photo-frame\" style=\"height:270px\"><img src=\"{{asset:media/working-prototype.svg}}\" alt=\"An illustrative interactive-interface design\"></div><h3 class=\"display\" style=\"margin-top:26px\">Observe a realistic task</h3><p class=\"caption\">Build the interaction needed for the question. Watch where someone hesitates and ask what they expected.</p></div></div>",
+      "body_html": "<div class=\"columns-3\"><div class=\"reveal\" style=\"--delay:170ms\"><p class=\"label\">Rough sketch</p><div class=\"photo-frame\" style=\"height:270px\"><img src=\"{{asset:media/workshop/sketching-wireframes.webp}}\" alt=\"Illustrative photo: a designer sketching wireframes on paper\"></div><h3 class=\"display\" style=\"margin-top:26px\">Discuss the structure</h3><p class=\"caption\">A quick sketch helps reveal whether the arrangement makes sense while changes are inexpensive.</p></div><div class=\"reveal\" style=\"--delay:300ms\"><p class=\"label\">Several alternatives</p><div class=\"photo-frame\" style=\"height:270px\"><img src=\"{{asset:media/layout-variants.svg}}\" alt=\"Four illustrative interface arrangements\"></div><h3 class=\"display\" style=\"margin-top:26px\">Compare possible answers</h3><p class=\"caption\">Make different directions visible. Keep the same user need in view when choosing which to try.</p></div><div class=\"reveal\" style=\"--delay:430ms\"><p class=\"label\">Working prototype</p><div class=\"photo-frame\" style=\"height:270px\"><img src=\"{{asset:media/working-prototype.svg}}\" alt=\"An illustrative interactive-interface design\"></div><h3 class=\"display\" style=\"margin-top:26px\">Observe a realistic task</h3><p class=\"caption\">Build the interaction needed for the question. Watch where someone hesitates and ask what they expected.</p></div></div>",
       "source_credit": "Illustrative sketches and interface diagrams.",
       "notes_en": "Each prototype should answer a question. A rough sketch helps us discuss structure, alternatives help us compare directions, and a working prototype lets us observe a realistic task. More detail is useful only when the question needs it.",
       "notes_zh": "原型服务于学习问题",
@@ -107,7 +121,14 @@
       ],
       "duration_seconds": 50,
       "id": "slide-6",
-      "speaker": "Presenter"
+      "speaker": "Presenter",
+      "backdrop": {
+        "image": "media/workshop/ux-testing-laptop.webp",
+        "place": "ambient",
+        "at": "85% 20%",
+        "opacity": 0.24,
+        "alt": "Illustrative photo: a person testing a website on a laptop"
+      }
     },
     {
       "title": "Appendix",
@@ -116,14 +137,16 @@
       "theme": "cool",
       "appendix": true,
       "subtitle": "Sources and visual references",
-      "background_image": "media/workshop-atmosphere.svg",
-      "background_alt": "Illustrative notes used as a visual section divider",
+      "background_image": "media/workshop/whiteboard-notes.webp",
+      "background_alt": "Illustrative photo: a whiteboard covered in grouped notes",
       "body_html": "<div class=\"reveal\"><p>Keep detailed evidence and references here, after the main talk.</p><div class=\"rule\"></div><p class=\"label\">For discussion and follow-up</p></div>",
       "notes_en": "Use this section for follow-up questions.",
       "notes_zh": "主要演讲之后再进入",
       "duration_seconds": 30,
       "id": "slide-7",
-      "speaker": "Presenter"
+      "speaker": "Presenter",
+      "background_place": "right",
+      "background_position": "50% 40%"
     },
     {
       "title": "Working with the examples",
@@ -139,5 +162,53 @@
       "speaker": "Presenter",
       "visual_exempt": "Reference list in the appendix"
     }
-  ]
+  ],
+  "credits": [
+    {
+      "title": "Design Sprint Workshop",
+      "creator": "Design Sprint Ltd",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Design_Sprint_Workshop.jpg",
+      "provider": "wikimedia-commons",
+      "file": "media/workshop/sprint-wall.webp"
+    },
+    {
+      "title": "Design Thinking Workshop WMDE 1",
+      "creator": "Corinna Schuster (WMDE)",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Design_Thinking_Workshop_WMDE_1.jpg",
+      "provider": "wikimedia-commons",
+      "file": "media/workshop/whiteboard-notes.webp"
+    },
+    {
+      "title": "Designer sketching Wireframes (Unsplash)",
+      "creator": "Green Chameleon craftedbygc",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "source": "https://commons.wikimedia.org/wiki/File:Designer_sketching_Wireframes_(Unsplash).jpg",
+      "provider": "wikimedia-commons",
+      "file": "media/workshop/sketching-wireframes.webp"
+    },
+    {
+      "title": "Project User Experience Testing (9719939867)",
+      "creator": "Samuel Mann from Dunedin, New Zealand",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Project_User_Experience_Testing_(9719939867).jpg",
+      "provider": "wikimedia-commons",
+      "file": "media/workshop/ux-testing-laptop.webp"
+    },
+    {
+      "title": "SFSU Wiki Ed Usability testing",
+      "creator": "Jami (Wiki Ed)",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:SFSU_Wiki_Ed_Usability_testing.jpg",
+      "provider": "wikimedia-commons",
+      "file": "media/workshop/usability-session.webp"
+    }
+  ],
+  "credits_note": "Illustrative photos from Wikimedia Commons, used under the licenses shown. They are not from a real project."
 }
