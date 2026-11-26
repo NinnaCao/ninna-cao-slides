@@ -2,7 +2,7 @@
 
 ## 3.0.1 — open licence (26 Nov 2026)
 
-- Released under the MIT License (`LICENSE.txt`, repo `LICENSE`), copyright 2026 Ninna Cao. Frontend Slides, the bundled fonts and the example photographs keep their own licences, listed in the licence file and `references/credits.md`.
+- Released under the MIT License (`LICENSE.txt`, repo `LICENSE`), copyright 2026 Ninna Cao. Frontend Slides, the bundled fonts and the example photographs keep their own licences, listed in `NOTICE.md` and `references/credits.md`.
 
 ## 3.0.0 — visual-first (26 Nov 2026)
 

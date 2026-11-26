@@ -44,4 +44,4 @@ tools/package.sh   # → dist/Ninna_Cao_Slides_v<version>.zip
 
 ## Licence
 
-[MIT](LICENSE), copyright 2026 Ninna Cao. Third-party parts keep their own licences: [Frontend Slides](https://github.com/zarazhangrui/frontend-slides) by Zara Zhang (MIT), the bundled fonts (SIL Open Font License) and the example photographs (CC0 / CC BY / CC BY-SA). Full provenance in [references/credits.md](ninna-cao-slides/references/credits.md).
+[MIT](LICENSE), copyright 2026 Ninna Cao. Third-party parts keep their own licences: [Frontend Slides](https://github.com/zarazhangrui/frontend-slides) by Zara Zhang (MIT), the bundled fonts (SIL Open Font License) and the example photographs (CC0 / CC BY / CC BY-SA). See [NOTICE](ninna-cao-slides/NOTICE.md) and [references/credits.md](ninna-cao-slides/references/credits.md).

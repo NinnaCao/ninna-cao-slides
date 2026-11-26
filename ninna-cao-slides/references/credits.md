@@ -4,7 +4,7 @@
 
 ## Licence
 
-The Ninna Cao Slides layer (instructions, references, scripts, styles and examples written for this skill) is released under the MIT License, copyright 2026 Ninna Cao: see `LICENSE.txt`. The components below keep their own licences.
+The Ninna Cao Slides layer (instructions, references, scripts, styles and examples written for this skill) is released under the MIT License, copyright 2026 Ninna Cao: see `LICENSE.txt` and `NOTICE.md`. The components below keep their own licences.
 
 ## Foundation
 
