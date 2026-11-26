@@ -1,0 +1,80 @@
+/* Presentation behavior shared by every visual direction. */
+.slide { transition: opacity 220ms ease; }
+@keyframes ninna-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ninna-photo {
+  from { opacity: 0; transform: scale(1.025); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes ninna-trace { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.js .slide .reveal { opacity: 0; }
+.slide.entered .reveal { animation: ninna-enter 560ms cubic-bezier(.2, .7, .3, 1) var(--delay, 120ms) both; }
+.slide.entered .photo-frame.reveal { animation-name: ninna-photo; }
+.trace { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.slide.entered .trace { animation: ninna-trace 820ms ease var(--delay, 180ms) both; }
+.deck-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #0c151eeb;
+  border: 1px solid #566c7466;
+  border-radius: 12px;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: opacity 180ms ease;
+}
+.deck-controls button, .notes-panel button {
+  font: 600 14px/1.2 var(--body-font);
+  background: #263a44;
+  border: 1px solid #63818a77;
+  color: #f7f3e9;
+  border-radius: 6px;
+  padding: 8px 11px;
+  cursor: pointer;
+}
+.deck-controls button:focus-visible, .notes-panel button:focus-visible { outline: 2px solid #a9e1d5; outline-offset: 3px; }
+.deck-controls button:disabled { opacity: .4; cursor: default; }
+#slide-counter { min-width: 65px; text-align: center; color: #d2dfe0; }
+.controls-hidden .deck-controls { opacity: 0; pointer-events: none; }
+.controls-hidden .deck-controls:focus-within { opacity: 1; pointer-events: auto; }
+.notes-panel[hidden] { display: none; }
+.notes-panel {
+  position: fixed;
+  z-index: 2000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 92vw);
+  max-height: 85vh;
+  overflow: auto;
+  padding: 30px;
+  background: #f6f1e8;
+  color: #17242b;
+  border-radius: 14px;
+  box-shadow: 0 20px 100px #0009;
+  font-size: 20px;
+  line-height: 1.45;
+}
+.notes-panel h2 { font: var(--heading-weight) 38px/1.1 var(--heading-font); margin: 0 70px 22px 0; }
+.notes-panel p { white-space: pre-wrap; }
+.notes-panel p + p { margin-top: 20px; color: #4c5c62; }
+.notes-panel button { float: right; }
+@media (max-width: 540px) {
+  .deck-controls { width: max-content; max-width: calc(100vw - 16px); flex-wrap: wrap; justify-content: center; bottom: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .slide .reveal { opacity: 1; }
+  .slide.entered .reveal, .slide.entered .trace { animation: none !important; transform: none !important; stroke-dashoffset: 0 !important; }
+  .slide { transition: none; }
+}
+@page { size: 1920px 1080px; margin: 0; }
+@media print {
+  body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .slide { transition: none !important; }
+  .slide .reveal, .js .slide .reveal { opacity: 1 !important; animation: none !important; transform: none !important; }
+  .trace { animation: none !important; stroke-dashoffset: 0 !important; }
+  .notes-panel { display: none !important; }
+}

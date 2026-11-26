@@ -1,0 +1,33 @@
+/* An explicitly selected light workshop preset with sans type and crisp image panels. */
+:root {
+  --heading-font: "Source Sans 3", Arial, sans-serif;
+  --body-font: "Source Sans 3", Arial, sans-serif;
+  --stage-bg: #212e43;
+}
+.slide {
+  --slide-bg: #f8fbff;
+  --text: #152b46;
+  --muted: #38526d;
+  --accent: #114fb7;
+  --secondary: #97450f;
+  --rule: #91a8c4;
+  --photo-matte: #deebf9;
+  --slide-margin: 96px;
+  --body-top: 312px;
+}
+.slide.theme-highlight { --slide-bg: #e2f0ff; --rule: #7b9abe; }
+.slide.two-line { --body-top: 384px; }
+.slide.cover { --body-top: 579px; }
+.kicker { top: 65px; color: var(--accent); letter-spacing: .04em; }
+.slide-title { top: 118px; font-size: 76px; line-height: .99; letter-spacing: -.025em; }
+.slide-subtitle { top: 222px; font-size: 32px; }
+.slide.two-line .slide-subtitle { top: 283px; }
+.slide.cover .slide-title { top: 201px; width: 850px; font-size: 112px; }
+.slide.cover .slide-subtitle { top: 475px; width: 795px; font-size: 36px; }
+.slide.cover .slide-body { width: 770px; }
+.backdrop { inset: 120px 96px 120px auto; width: 735px; background: var(--photo-matte); }
+.slide.cover .backdrop { inset: 65px 96px 126px auto; width: 808px; border-radius: 0 100px 0 0; }
+.display { font-size: 42px; }
+.question { font-size: 49px; }
+.photo-frame { border-radius: 0 32px 0 0; }
+.slide-footer { border-top-width: 2px; }

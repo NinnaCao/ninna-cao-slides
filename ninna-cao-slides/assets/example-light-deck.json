@@ -1,0 +1,66 @@
+{
+  "title": "Turn ideas into one test",
+  "author": "Ninna Cao Slides",
+  "style": {
+    "preset": "light"
+  },
+  "slides": [
+    {
+      "title": "Turn ideas into one test",
+      "title_html": "Turn ideas<br>into one test",
+      "layout": "cover",
+      "section": "Workshop facilitation",
+      "subtitle": "Help a team leave an idea workshop with a question it can answer.",
+      "background_image": "media/workshop-atmosphere.svg",
+      "background_position": "67% center",
+      "body_html": "<p class=\"reveal\" style=\"--delay:260ms\">Group ideas around the need they address, then pick an uncertainty and plan a small test.</p>",
+      "source_credit": "Illustration of a workshop wall",
+      "notes_en": "A workshop can produce a lot of ideas. The useful outcome is knowing which question to answer next. Here is a short sequence to get there.",
+      "notes_zh": "让工作坊产出可验证的问题",
+      "key_phrases": ["which question to answer next"],
+      "duration_seconds": 25
+    },
+    {
+      "title": "Group ideas by the need they serve",
+      "section": "Synthesis",
+      "subtitle": "Ask what people need to do before comparing particular interface changes.",
+      "body_html": "<div class=\"columns-2\" style=\"grid-template-columns:1.2fr 1fr;gap:76px\"><figure class=\"reveal\" style=\"--delay:170ms\"><div class=\"photo-frame\" style=\"height:437px\"><img src=\"{{asset:media/layout-variants.svg}}\" alt=\"Illustration of four interface layouts with different ways to arrange controls and feedback\"></div><figcaption class=\"caption\">Example layouts for giving feedback about a saved change.</figcaption></figure><div class=\"text-region reveal\" style=\"--delay:330ms\"><p class=\"label\">Example</p><h3 class=\"display\">How can people tell a change was saved?</h3><p>A confirmation message and a status indicator belong together if they address the same need. Give the group a name that describes that need.</p><div class=\"rule\"></div><p>Use the group to choose which idea to explore and explain what the other ideas have in common.</p></div></div>",
+      "notes_en": "Two ideas may look different and still answer the same need. Here a confirmation message and a status indicator both help people check what happened. Grouping them around that shared need makes comparison easier.",
+      "notes_zh": "按照用户要完成的事归类",
+      "key_phrases": ["answer the same need"],
+      "duration_seconds": 45
+    },
+    {
+      "title": "Choose the uncertainty to test",
+      "section": "Pick a question",
+      "theme": "highlight",
+      "subtitle": "Write down the need, the open question and the behavior that would help answer it.",
+      "body_html": "<svg class=\"stage-svg reveal\" style=\"--delay:160ms\" viewBox=\"0 0 1728 382\" role=\"img\" aria-label=\"A need to know that a change was saved leads to a question about noticing the confirmation and the behavior of checking the result\" xmlns=\"http://www.w3.org/2000/svg\"><g fill=\"#f8fbff\" stroke=\"#91a8c4\" stroke-width=\"2\"><rect x=\"2\" y=\"36\" width=\"474\" height=\"274\"/><rect x=\"625\" y=\"36\" width=\"478\" height=\"274\"/><rect x=\"1252\" y=\"36\" width=\"474\" height=\"274\"/></g><g fill=\"none\" stroke=\"#114fb7\" stroke-width=\"6\"><path class=\"trace\" pathLength=\"1\" d=\"M496 171H596M579 152L598 171 579 190\"/><path class=\"trace\" pathLength=\"1\" d=\"M1123 171H1223M1206 152L1225 171 1206 190\" style=\"--delay:320ms\"/></g><g text-anchor=\"middle\" font-size=\"26\" font-weight=\"700\"><text x=\"239\" y=\"112\" font-family=\"Source Sans 3\" fill=\"#114fb7\">NEED</text><text x=\"864\" y=\"112\" font-family=\"Source Sans 3\" fill=\"#114fb7\">OPEN QUESTION</text><text x=\"1489\" y=\"112\" font-family=\"Source Sans 3\" fill=\"#114fb7\">BEHAVIOR TO OBSERVE</text></g><g text-anchor=\"middle\" font-size=\"36\" font-weight=\"700\"><text x=\"239\" y=\"171\" font-family=\"Source Sans 3\" fill=\"#152b46\">Know that a change</text><text x=\"239\" y=\"215\" font-family=\"Source Sans 3\" fill=\"#152b46\">was saved</text><text x=\"864\" y=\"171\" font-family=\"Source Sans 3\" fill=\"#152b46\">Do people notice</text><text x=\"864\" y=\"215\" font-family=\"Source Sans 3\" fill=\"#152b46\">the confirmation?</text><text x=\"1489\" y=\"171\" font-family=\"Source Sans 3\" fill=\"#152b46\">Find the result and</text><text x=\"1489\" y=\"215\" font-family=\"Source Sans 3\" fill=\"#152b46\">say what happened</text></g></svg><p class=\"question reveal\" style=\"--delay:520ms\">What will you watch for when someone tries it?</p>",
+      "notes_en": "Write the question so you can answer it by watching a realistic task. In this example, ask a person to save a change and see if they find the result without a prompt. Ask what they think happened.",
+      "notes_zh": "把假设写成能观察的行为",
+      "key_phrases": ["watching a realistic task"],
+      "duration_seconds": 45
+    },
+    {
+      "title": "Build only what the task requires",
+      "section": "Prototype and observe",
+      "subtitle": "Make the shortest interaction that lets someone change a setting, save and check the result.",
+      "body_html": "<div class=\"columns-2\" style=\"grid-template-columns:.9fr 1.1fr;gap:92px\"><div class=\"text-region reveal\" style=\"--delay:180ms\"><p class=\"label\">Prototype scope</p><h3 class=\"display\">Make saving visible</h3><p>Start with a setting and a way to save it. Include the confirmation you want to compare.</p><div class=\"rule\"></div><h3 class=\"display\">Observe the next step</h3><p>Watch where someone looks after saving. Follow up on what they expected to see.</p></div><figure class=\"reveal\" style=\"--delay:340ms\"><div class=\"photo-frame screen\" style=\"height:476px\"><img src=\"{{asset:media/working-prototype.svg}}\" alt=\"Illustrative interface mockup with a left navigation column and a set of controls\"></div><figcaption class=\"caption\">Sketch only the parts of the interface needed for the task.</figcaption></figure></div>",
+      "notes_en": "We only need the interaction that lets someone change a setting, save and look for a result. Watch what they do before explaining the design. Their response tells us what to adjust in the next draft.",
+      "notes_zh": "搭出能验证问题的最小操作",
+      "key_phrases": ["Watch what they do"],
+      "duration_seconds": 40
+    },
+    {
+      "title": "Workshop prompts",
+      "section": "Appendix",
+      "appendix": true,
+      "subtitle": "Use these questions when the group needs help moving from ideas to a test.",
+      "body_html": "<dl class=\"source-list reveal\" style=\"--delay:190ms\"><dt>Group</dt><dd>Which ideas address the same need? How would a participant describe that need?</dd><dt>Choose</dt><dd>What do we need to learn to make a decision? What action would give us an answer?</dd><dt>Scope</dt><dd>Which parts of the idea must work for someone to try the task?</dd><dt>Observe</dt><dd>What did they do? What did they expect? What should we change next?</dd></dl>",
+      "source_credit": "Visuals in this example are illustrations prepared for the skill.",
+      "notes_en": "Use these questions to coach a group as they prepare an experiment.",
+      "notes_zh": "讨论时可以回到这几个提示",
+      "duration_seconds": 30
+    }
+  ]
+}

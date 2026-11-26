@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ninna Cao Slides"
+  short_description: "Create image-rich slides styled for each brief"
+  default_prompt: "Use $ninna-cao-slides to match this presentation to its audience and brief, with meaningful visuals, clear context, and automatic motion."

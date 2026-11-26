@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="{{AUTHOR}}">
+<title>{{TITLE}}</title>
+<!--
+{{FOUNDATION_LICENSE}}
+-->
+<style>
+{{FONT_CSS}}
+{{VIEWPORT_CSS}}
+{{LAYOUT_CSS}}
+{{STYLE_CSS}}
+{{RUNTIME_CSS}}
+</style>
+</head>
+<body data-deck-style="{{STYLE_PRESET}}">
+<main class="deck-viewport" aria-label="Presentation">
+<div class="deck-stage" id="deck-stage">
+{{SLIDES}}
+</div>
+</main>
+<nav class="deck-controls" aria-label="Presentation controls">
+<button id="previous-slide" aria-label="Previous slide">Previous</button>
+<span id="slide-counter" aria-live="polite"></span>
+<button id="next-slide" aria-label="Next slide">Next</button>
+<button id="toggle-autoplay" aria-pressed="false">Autoplay</button>
+<button id="toggle-notes" aria-pressed="false">Notes</button>
+<button id="toggle-fullscreen">Fullscreen</button>
+</nav>
+<section id="speaker-notes" class="notes-panel" role="dialog" aria-modal="true" aria-labelledby="notes-title" hidden>
+<button id="close-notes" aria-label="Close notes">Close</button>
+<h2 id="notes-title">Speaking notes</h2>
+<p id="notes-english"></p>
+<p id="notes-chinese" lang="zh-CN"></p>
+</section>
+<script id="deck-manifest" type="application/json">{{MANIFEST_JSON}}</script>
+<script id="deck-notes" type="application/json">{{NOTES_JSON}}</script>
+<script>
+{{CONTROLLER_JS}}
+</script>
+</body>
+</html>

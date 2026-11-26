@@ -1,0 +1,67 @@
+/* Fixed canvas. The controller positions and scales it within the viewport. */
+body {
+  margin: 0;
+  background-color: var(--stage-bg, #101820);
+}
+
+.deck-viewport {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.deck-stage {
+  position: absolute;
+  inset: 0 auto auto 0;
+  display: grid;
+  grid-template: 1080px / 1920px;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  transform-origin: top left;
+}
+
+.slide {
+  grid-area: 1 / 1;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.slide[aria-hidden="true"] {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media print {
+  .deck-viewport,
+  .deck-stage {
+    position: static;
+    display: block;
+    width: 1920px;
+    height: auto;
+    overflow: visible;
+    transform: none !important;
+  }
+
+  .slide {
+    width: 1920px;
+    height: 1080px;
+    break-inside: avoid;
+  }
+
+  .slide[aria-hidden="true"] {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .slide + .slide {
+    break-before: page;
+  }
+
+  .deck-controls {
+    display: none !important;
+  }
+}

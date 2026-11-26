@@ -1,0 +1,88 @@
+/* Stage proportions shared by the catalog designs. */
+.slide.catalog .kicker { color: var(--accent); }
+.slide.catalog .slide-title { top: 125px; font-size: 79px; }
+.slide.catalog .slide-subtitle { top: 230px; }
+.slide.catalog.two-line .slide-subtitle { top: 294px; }
+.slide.catalog .slide-body { --body-top: 326px; }
+.slide.catalog.two-line .slide-body { --body-top: 405px; }
+.slide.catalog.cover .slide-title { top: 182px; font-size: 115px; width: 1090px; }
+.slide.catalog.cover .slide-subtitle { top: 448px; width: 915px; }
+.slide.catalog.cover .slide-body { --body-top: 572px; width: 800px; }
+.slide.catalog.cover .backdrop { inset: 103px 108px 124px auto; width: 730px; z-index: 1; }
+.slide.catalog.cover :is(.slide-header, .slide-body, .slide-footer) { z-index: 2; }
+.slide.catalog.cover .slide-footer { pointer-events: none; }
+.slide.catalog.cover .slide-title { text-wrap: balance; }
+.slide.catalog.cover .slide-subtitle { text-wrap: pretty; }
+
+.slide.catalog.cover .style-visual {
+  position: absolute;
+  pointer-events: none;
+  width: 700px;
+  height: 768px;
+  right: 108px;
+  top: 104px;
+  overflow: hidden;
+  color: var(--motif);
+  background: var(--detail);
+}
+.slide.catalog.cover.has-backdrop .style-visual { opacity: .35; }
+.slide.catalog.cover .style-visual::before,
+.slide.catalog.cover .style-visual::after {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+.slide.catalog.cover.layout-left .style-visual { width: 600px; }
+.slide.catalog.cover.layout-offset .style-visual { right: 152px; top: 138px; width: 600px; height: 680px; transform: rotate(-5deg); }
+.slide.catalog.cover.layout-poster .style-visual { right: 0; top: 0; width: 692px; height: 1080px; }
+.slide.catalog.cover.layout-poster .slide-title { font-size: 130px; }
+.slide.catalog.cover.layout-bottom .style-visual { inset: 99px 108px auto; height: 319px; width: auto; }
+.slide.catalog.cover.layout-bottom .slide-title { top: 470px; width: 1500px; font-size: 105px; }
+.slide.catalog.cover.layout-bottom .slide-subtitle { top: 710px; width: 1350px; }
+.slide.catalog.cover.layout-bottom .slide-body { --body-top: 810px; width: 1200px; }
+.slide.catalog.cover.layout-bottom .backdrop { inset: 99px 108px auto; height: 319px; width: auto; }
+.slide.catalog.cover.layout-center .style-visual { inset: 65px 76px; width: auto; height: auto; opacity: .4; }
+.slide.catalog.cover.layout-center .slide-title { top: 210px; left: 180px; width: 1340px; text-align: center; }
+.slide.catalog.cover.layout-center .slide-subtitle { top: 478px; left: 345px; width: 1010px; text-align: center; }
+.slide.catalog.cover.layout-center .slide-body { left: 430px; width: 1060px; text-align: center; }
+.slide.catalog.cover.layout-center .slide-body p { max-width: none; }
+.slide.catalog.cover.layout-center .backdrop { inset: 0; width: auto; opacity: .18; }
+
+.slide.catalog.cover.motif-band .style-visual::before {
+  width: 160%; height: 29%; top: 53%; left: -31%;
+  transform: rotate(-28deg); background: currentColor;
+}
+.motif-glow .style-visual {
+  background: radial-gradient(ellipse at 63% 35%, var(--motif), var(--detail) 43%, var(--slide-bg) 82%) !important;
+}
+.motif-crosses .style-visual::before {
+  inset: 30px;
+  background:
+    linear-gradient(90deg, currentColor 2px, transparent 2px),
+    linear-gradient(currentColor 2px, transparent 2px);
+  background-size: 95px 95px;
+  opacity: .64;
+}
+.motif-rings .style-visual::before { width: 560px; height: 560px; left: 140px; top: 48px; border: 8px solid; border-radius: 50%; }
+.motif-rings .style-visual::after { width: 410px; height: 410px; left: 112px; top: 128px; border: 2px solid; border-radius: 50%; }
+.motif-tabs .style-visual::before { inset: 165px 70px 67px; border: 3px solid; border-radius: 35px 35px 0 0; }
+.motif-tabs .style-visual::after { width: 168px; height: 78px; left: 70px; top: 87px; background: currentColor; border-radius: 30px 26px 0 0; }
+.motif-ruling .style-visual::before { inset: 14% 12%; border-block: 2px solid; }
+.motif-ruling .style-visual::after { left: 12%; top: 14%; width: 4px; height: 72%; background: currentColor; }
+.motif-pixels .style-visual::before { width: 94px; height: 94px; left: 45%; top: 20%; background: currentColor; box-shadow: -94px 94px, 0 94px, 94px 94px, -188px 188px, -94px 188px, 188px 188px, 94px 282px, 188px 282px, 188px 376px; }
+.motif-corner .style-visual::before { width: 65%; height: 72%; top: 0; right: 0; background: currentColor; clip-path: polygon(10% 0, 100% 0, 100% 100%, 50% 100%); }
+.motif-frame .style-visual::before { inset: 58px 68px; border: 8px solid; }
+.motif-frame .style-visual::after { width: 100%; height: 15%; background: currentColor; bottom: 0; right: 0; }
+.motif-columns .style-visual::before { inset: 12% 12%; border-inline: 2px solid; }
+.motif-columns .style-visual::after { inset: 12% 40%; border-inline: 2px solid; }
+.motif-pills .style-visual::before { inset: 14% 23% 26% 13%; background: currentColor; border-radius: 1200px; transform: rotate(29deg); }
+.motif-pills .style-visual::after { inset: 40% 20% 11% 36%; border: 5px solid; border-radius: 1200px; transform: rotate(-28deg); }
+.motif-grid .style-visual::before { inset: 0 0 24% 25%; border: 3px solid; background: repeating-linear-gradient(0deg, transparent 0 85px, currentColor 85px 87px); }
+.motif-grid .style-visual::after { width: 43%; height: 42%; bottom: 0; right: 0; background: currentColor; }
+.motif-sun .style-visual::before { width: 475px; height: 475px; right: 28px; top: 95px; border-radius: 50%; background: repeating-conic-gradient(currentColor 0deg 2deg, transparent 2deg 18deg); }
+.motif-trails .style-visual::before,
+.motif-trails .style-visual::after { inset: 7% 14%; border: 2px solid; border-radius: 48% 42% 35% 25%; transform: rotate(25deg); }
+.motif-trails .style-visual::after { inset: 21% 7% 14% 25%; transform: rotate(-23deg); }
+.motif-pins .style-visual::before { width: 58%; height: 62%; left: 16%; top: 17%; border: 2px solid; background: var(--slide-bg); transform: rotate(-10deg); }
+.motif-pins .style-visual::after { width: 27px; height: 27px; left: 48%; top: 14%; border-radius: 50%; background: currentColor; }
