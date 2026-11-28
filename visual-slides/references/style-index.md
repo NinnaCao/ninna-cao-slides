@@ -1,6 +1,6 @@
 # Style catalog
 
-Choose using the audience, content, venue and brand. The 46 designs are starting points. A supplied brand or approved deck can define the direction entirely.
+By default the look comes from the topic: make a theme from the deck's own images or brand with `scripts/make_theme.py` and use the `adaptive` preset (see [themes.md](themes.md)). The presets and 46 designs below are starting points and inspiration. A supplied brand or approved deck can define the direction entirely.
 
 When pursuing visual discovery, make three previews with the same real opening content. Pick a readable standard direction, a more expressive direction and a custom exploration with a meaningful difference. Preview them using the palette, type and cover composition below. Load the recipe for the selected design to extend its rhythm throughout the deck.
 
@@ -8,7 +8,8 @@ When pursuing visual discovery, make three previews with the same real opening c
 
 | Direction | Content fit | Cover composition |
 | --- | --- | --- |
-| [Cinematic Night](cinematic-night.md) (`cinematic`) | Product, marketing, technology and strategy talks in a dim room. Recorded from an approved November 2026 deck. | A huge condensed title on the left; a product or scene photo on the right fading into a warm charcoal stage. |
+| [Topic theme](themes.md) (`adaptive` + `style.theme`) | Every deck, by default. Palette from the deck's own images or brand; typefaces from the subject's mood (editorial, warm, tech, corporate, playful, luxury, nature, bold, clinical). Light or dark. | Set by the mood: a serif, grotesk or condensed title beside a photo fading into the page. |
+| [Cinematic Night](cinematic-night.md) (`cinematic`) | When the user chooses it: product and technology talks in a dim room. Recorded from an approved November 2026 deck. | A huge condensed title on the left; a product or scene photo on the right fading into a warm charcoal stage. |
 | Dark editorial (`editorial`) | Reflective research talks with an atmospheric photo. | Serif title over a softly blended photograph. |
 | Light (`light`) | Bright rooms and reading-first teaching decks. | Clear sans title beside a framed image. |
 

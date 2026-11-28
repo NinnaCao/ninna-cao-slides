@@ -1,0 +1,194 @@
+{
+  "example": true,
+  "title": "Cities that grow on their roofs",
+  "credits": [
+    {
+      "title": "20080708 Chicago City Hall Green Roof Edit1",
+      "creator": "TonyTheTiger; derivative work: raeky",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20080708_Chicago_City_Hall_Green_Roof_Edit1.jpg",
+      "provider": "wikimedia-commons",
+      "file": "media/green-roofs/city-hall-aerial.webp"
+    },
+    {
+      "title": "Chicago-City-Hall-Green-Roof 02",
+      "creator": "Conservation Design Forum",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chicago-City-Hall-Green-Roof_02.jpg",
+      "provider": "wikimedia-commons",
+      "file": "media/green-roofs/city-hall-meadow.webp"
+    },
+    {
+      "title": "Green roof tray",
+      "creator": "Skasnl - groendakmaterialen.nl",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Green_roof_tray.jpg",
+      "provider": "wikimedia-commons",
+      "file": "media/green-roofs/sedum-tray.webp"
+    },
+    {
+      "title": "A green roof - geograph.org.uk - 4676986",
+      "creator": "Anthony O'Neil",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:A_green_roof_-_geograph.org.uk_-_4676986.jpg",
+      "provider": "wikimedia-commons",
+      "file": "media/green-roofs/extensive-roof.webp"
+    },
+    {
+      "title": "Austin Public Library August 2019 11 (Roof Garden)",
+      "creator": "Michael Barera",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Austin_Public_Library_August_2019_11_(Roof_Garden).jpg",
+      "provider": "wikimedia-commons",
+      "file": "media/green-roofs/library-roof-garden.webp"
+    },
+    {
+      "title": "Brooklyn Grange (75908)",
+      "creator": "Rhododendrites",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Brooklyn_Grange_(75908).jpg",
+      "provider": "wikimedia-commons",
+      "file": "media/green-roofs/rooftop-farm.webp"
+    }
+  ],
+  "slides": [
+    {
+      "title": "Cities that grow on their roofs",
+      "title_html": "Cities that<br>grow on<br>their roofs<span class=\"dot\">.</span>",
+      "layout": "cover",
+      "section": "Urban climate talk",
+      "glow": "accent",
+      "subtitle": "Planted roofs cool buildings, hold rain and make room for wildlife, on space the city already has.",
+      "backdrop": {
+        "image": "media/green-roofs/city-hall-aerial.webp",
+        "place": "right",
+        "start": 46,
+        "fade": 26,
+        "focus": "50% 40%",
+        "alt": "Aerial view of the planted roof of Chicago City Hall between high-rise buildings"
+      },
+      "body_html": "<div class=\"reveal\" style=\"--delay:300ms\"><p class=\"presenter\">Presenter name</p><p class=\"meta\">Example deck · Made with Visual Slides</p></div>",
+      "source_credit": "Example deck · general content",
+      "duration_seconds": 40,
+      "notes_en": "Open on the aerial: a meadow on top of a city hall. This example shows a theme made from the topic's own photos."
+    },
+    {
+      "title": "A planted roof takes on three new jobs",
+      "title_html": "A planted roof takes on<br><em>three new jobs</em>",
+      "title_lines": 2,
+      "section": "Why roofs",
+      "glow": "alt",
+      "subtitle": "Most city roofs only keep the rain out. Planting keeps that job and adds three more.",
+      "backdrop": {
+        "image": "media/green-roofs/city-hall-meadow.webp",
+        "place": "ambient",
+        "opacity": 0.36,
+        "at": "84% 34%",
+        "alt": "Tall grasses and wildflowers on a roof between historic office buildings",
+        "focus": "50% 92%"
+      },
+      "body_top": 500,
+      "body_html": "<div class=\"cards\" style=\"--cols:3\"><div class=\"card reveal\" style=\"--delay:240ms\"><span class=\"label\">01 · Cool</span><h3>Shade the roof</h3><p>Plants shade the surface and release water vapour, so the rooms below stay cooler in summer.</p></div><div class=\"card reveal\" style=\"--delay:340ms\"><span class=\"label\">02 · Hold</span><h3>Slow the rain</h3><p>The growing layer soaks up a storm and lets it go slowly, easing the load on drains.</p></div><div class=\"card reveal\" style=\"--delay:440ms\"><span class=\"label\">03 · Host</span><h3>Make room for life</h3><p>Bees, butterflies and birds find food and shelter between the towers.</p></div></div>",
+      "duration_seconds": 50,
+      "notes_en": "Three jobs, one sentence each. Keep it qualitative; add local figures only from a source you can cite."
+    },
+    {
+      "title": "How a green roof works",
+      "layout": "divider",
+      "number_label": "01",
+      "section_number": "Part 01",
+      "section": "How it works",
+      "glow": "accent",
+      "subtitle": "What is in the layers, which kind of roof fits, and what to check before planting.",
+      "backdrop": {
+        "image": "media/green-roofs/sedum-tray.webp",
+        "place": "right",
+        "start": 42,
+        "focus": "55% 55%",
+        "alt": "A tray of pre-grown sedum plants ready to lay on a roof"
+      },
+      "body_html": "<ul class=\"marks reveal\" style=\"--delay:380ms;--cols:3;width:900px\"><li><span>01</span>The layers</li><li><span>02</span>Kinds of roof</li><li><span>03</span>Before you plant</li></ul>",
+      "duration_seconds": 25,
+      "notes_en": "Section one in three steps."
+    },
+    {
+      "title": "A green roof is a stack of layers",
+      "section_number": "01",
+      "section": "The layers",
+      "glow": "none",
+      "subtitle": "Each layer has one job. Together they keep plants alive and the building dry.",
+      "backdrop": {
+        "image": "media/green-roofs/extensive-roof.webp",
+        "place": "ambient",
+        "opacity": 0.18,
+        "at": "92% 12%",
+        "alt": "A low sedum roof running alongside a row of town houses"
+      },
+      "body_top": 350,
+      "body_html": "<svg class=\"stage-svg\" viewBox=\"0 0 1712 580\" role=\"img\" aria-label=\"Cross-section of a green roof, top to bottom: plants, growing medium, filter fabric, drainage layer, root barrier, waterproofing, roof structure\" xmlns=\"http://www.w3.org/2000/svg\"><g class=\"reveal\" style=\"--delay:720ms\"><ellipse cx=\"30\" cy=\"102\" rx=\"34\" ry=\"40\" style=\"fill:color-mix(in srgb, var(--accent) 70%, var(--slide-bg))\"/><ellipse cx=\"86\" cy=\"102\" rx=\"34\" ry=\"40\" style=\"fill:color-mix(in srgb, var(--accent) 85%, var(--slide-bg))\"/><ellipse cx=\"142\" cy=\"102\" rx=\"34\" ry=\"40\" style=\"fill:color-mix(in srgb, var(--accent) 100%, var(--slide-bg))\"/><ellipse cx=\"198\" cy=\"102\" rx=\"34\" ry=\"40\" style=\"fill:color-mix(in srgb, var(--accent) 70%, var(--slide-bg))\"/><ellipse cx=\"254\" cy=\"102\" rx=\"34\" ry=\"40\" style=\"fill:color-mix(in srgb, var(--accent) 85%, var(--slide-bg))\"/><ellipse cx=\"310\" cy=\"102\" rx=\"34\" ry=\"40\" style=\"fill:color-mix(in srgb, var(--accent) 100%, var(--slide-bg))\"/><ellipse cx=\"366\" cy=\"102\" rx=\"34\" ry=\"40\" style=\"fill:color-mix(in srgb, var(--accent) 70%, var(--slide-bg))\"/><ellipse cx=\"422\" cy=\"102\" rx=\"34\" ry=\"40\" style=\"fill:color-mix(in srgb, var(--accent) 85%, var(--slide-bg))\"/><ellipse cx=\"478\" cy=\"102\" rx=\"34\" ry=\"40\" style=\"fill:color-mix(in srgb, var(--accent) 100%, var(--slide-bg))\"/><ellipse cx=\"534\" cy=\"102\" rx=\"34\" ry=\"40\" style=\"fill:color-mix(in srgb, var(--accent) 70%, var(--slide-bg))\"/><ellipse cx=\"590\" cy=\"102\" rx=\"34\" ry=\"40\" style=\"fill:color-mix(in srgb, var(--accent) 85%, var(--slide-bg))\"/></g><rect class=\"reveal\" style=\"--delay:630ms;fill:var(--accent-2)\" x=\"0\" y=\"140\" width=\"620\" height=\"130\"/><rect class=\"reveal\" style=\"--delay:540ms;fill:color-mix(in srgb, var(--text) 30%, var(--slide-bg))\" x=\"0\" y=\"270\" width=\"620\" height=\"20\"/><g class=\"reveal\" style=\"--delay:450ms\"><rect x=\"0\" y=\"290\" width=\"620\" height=\"70\" style=\"fill:color-mix(in srgb, var(--text) 12%, var(--slide-bg))\"/><path d=\"M8 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M48 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M88 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M128 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M168 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M208 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M248 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M288 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M328 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M368 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M408 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M448 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M488 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M528 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/><path d=\"M568 308q16 34 32 0\" style=\"fill:none;stroke:var(--muted);stroke-width:3\"/></g><rect class=\"reveal\" style=\"--delay:360ms;fill:color-mix(in srgb, var(--accent) 55%, var(--slide-bg))\" x=\"0\" y=\"360\" width=\"620\" height=\"20\"/><rect class=\"reveal\" style=\"--delay:270ms;fill:var(--text)\" x=\"0\" y=\"380\" width=\"620\" height=\"24\"/><rect class=\"reveal\" style=\"--delay:180ms;fill:color-mix(in srgb, var(--text) 22%, var(--slide-bg))\" x=\"0\" y=\"404\" width=\"620\" height=\"46\"/><path class=\"trace\" pathLength=\"1\" style=\"--delay:900ms;stroke:var(--accent)\" d=\"M636 90H664L700 51H724\" fill=\"none\" stroke-width=\"2\"/><text class=\"reveal\" style=\"--delay:960ms\" x=\"740\" y=\"60\"><tspan style=\"fill:var(--text);font:700 30px var(--body-font)\">Plants</tspan><tspan x=\"1050\" style=\"fill:var(--muted);font:400 24px var(--body-font)\">Sedums, grasses or crops, chosen for the soil depth and climate</tspan></text><path class=\"trace\" pathLength=\"1\" style=\"--delay:990ms;stroke:var(--accent)\" d=\"M636 205H664L700 127H724\" fill=\"none\" stroke-width=\"2\"/><text class=\"reveal\" style=\"--delay:1050ms\" x=\"740\" y=\"136\"><tspan style=\"fill:var(--text);font:700 30px var(--body-font)\">Growing medium</tspan><tspan x=\"1050\" style=\"fill:var(--muted);font:400 24px var(--body-font)\">A light, mineral soil that holds water and roots</tspan></text><path class=\"trace\" pathLength=\"1\" style=\"--delay:1080ms;stroke:var(--accent)\" d=\"M636 280H664L700 203H724\" fill=\"none\" stroke-width=\"2\"/><text class=\"reveal\" style=\"--delay:1140ms\" x=\"740\" y=\"212\"><tspan style=\"fill:var(--text);font:700 30px var(--body-font)\">Filter fabric</tspan><tspan x=\"1050\" style=\"fill:var(--muted);font:400 24px var(--body-font)\">Keeps fine soil out of the drainage</tspan></text><path class=\"trace\" pathLength=\"1\" style=\"--delay:1170ms;stroke:var(--accent)\" d=\"M636 325H664L700 279H724\" fill=\"none\" stroke-width=\"2\"/><text class=\"reveal\" style=\"--delay:1230ms\" x=\"740\" y=\"288\"><tspan style=\"fill:var(--text);font:700 30px var(--body-font)\">Drainage layer</tspan><tspan x=\"1050\" style=\"fill:var(--muted);font:400 24px var(--body-font)\">Stores some rain for the plants and sheds the rest</tspan></text><path class=\"trace\" pathLength=\"1\" style=\"--delay:1260ms;stroke:var(--accent)\" d=\"M636 370H664L700 355H724\" fill=\"none\" stroke-width=\"2\"/><text class=\"reveal\" style=\"--delay:1320ms\" x=\"740\" y=\"364\"><tspan style=\"fill:var(--text);font:700 30px var(--body-font)\">Root barrier</tspan><tspan x=\"1050\" style=\"fill:var(--muted);font:400 24px var(--body-font)\">Stops roots from reaching the membrane</tspan></text><path class=\"trace\" pathLength=\"1\" style=\"--delay:1350ms;stroke:var(--accent)\" d=\"M636 392H664L700 431H724\" fill=\"none\" stroke-width=\"2\"/><text class=\"reveal\" style=\"--delay:1410ms\" x=\"740\" y=\"440\"><tspan style=\"fill:var(--text);font:700 30px var(--body-font)\">Waterproofing</tspan><tspan x=\"1050\" style=\"fill:var(--muted);font:400 24px var(--body-font)\">The membrane that keeps the building dry</tspan></text><path class=\"trace\" pathLength=\"1\" style=\"--delay:1440ms;stroke:var(--accent)\" d=\"M636 427H664L700 507H724\" fill=\"none\" stroke-width=\"2\"/><text class=\"reveal\" style=\"--delay:1500ms\" x=\"740\" y=\"516\"><tspan style=\"fill:var(--text);font:700 30px var(--body-font)\">Roof structure</tspan><tspan x=\"1050\" style=\"fill:var(--muted);font:400 24px var(--body-font)\">Must carry the weight of wet soil, plants and people</tspan></text></svg>",
+      "duration_seconds": 60,
+      "notes_en": "Walk the stack from the plants down to the structure. The bottom line matters most: can the roof carry it?"
+    },
+    {
+      "title": "Three kinds of green roof",
+      "section_number": "02",
+      "section": "Kinds of roof",
+      "glow": "alt",
+      "body_html": "<div class=\"tiles\" style=\"--tile-h:330px\"><div class=\"tile reveal\" style=\"--delay:200ms\"><figure><img src=\"{{asset:media/green-roofs/extensive-roof.webp}}\" alt=\"A thin sedum roof beside town houses\" style=\"object-position:50% 70%\"></figure><div class=\"tile-text\"><span class=\"num\">01</span><h3>Extensive</h3><p>A thin carpet of sedum and moss. Light, and needs little care.</p></div></div><div class=\"tile reveal\" style=\"--delay:320ms\"><figure><img src=\"{{asset:media/green-roofs/library-roof-garden.webp}}\" alt=\"A roof garden with trees, shrubs and seating at a public library\" style=\"object-position:50% 55%\"></figure><div class=\"tile-text\"><span class=\"num\">02</span><h3>Intensive</h3><p>Deeper soil for shrubs and trees: a garden people can use.</p></div></div><div class=\"tile reveal\" style=\"--delay:440ms\"><figure><img src=\"{{asset:media/green-roofs/rooftop-farm.webp}}\" alt=\"Rows of vegetables and a stone path on a rooftop farm\" style=\"object-position:50% 70%\"></figure><div class=\"tile-text\"><span class=\"num\">03</span><h3>Rooftop farm</h3><p>Beds and rows for food, run by a business or a community.</p></div></div></div>",
+      "duration_seconds": 50,
+      "notes_en": "Depth decides everything: weight, cost, what grows and who can use it."
+    },
+    {
+      "title": "Four questions before you plant",
+      "section_number": "03",
+      "section": "Before you plant",
+      "theme": "alt",
+      "glow": "none",
+      "slide_class": "narrow",
+      "subtitle": "Answer these with the building's owner and an engineer.",
+      "backdrop": {
+        "image": "media/green-roofs/city-hall-meadow.webp",
+        "place": "right",
+        "start": 52,
+        "fade": 30,
+        "focus": "60% 60%",
+        "alt": "Grasses and flowers on a city roof"
+      },
+      "body_top": 400,
+      "body_html": "<div class=\"rows reveal\" style=\"--delay:220ms;width:860px\"><div><span>1</span><b>Can the roof carry it?</b><p>Wet soil is heavy. Ask a structural engineer first.</p></div><div><span>2</span><b>How will people get up?</b><p>Access for care, materials and, for gardens, visitors.</p></div><div><span>3</span><b>Where does the water go?</b><p>Drains, overflow, and whether plants need watering.</p></div><div><span>4</span><b>Who looks after it?</b><p>A named owner and a care plan, from the start.</p></div></div>",
+      "duration_seconds": 50,
+      "notes_en": "The alternate surface marks the practical checklist."
+    },
+    {
+      "title": "Start with one roof.",
+      "title_html": "Start with<br><em>one roof.</em>",
+      "layout": "statement",
+      "section": "Takeaways",
+      "glow": "accent",
+      "backdrop": {
+        "image": "media/green-roofs/rooftop-farm.webp",
+        "place": "right",
+        "start": 50,
+        "fade": 30,
+        "focus": "40% 60%",
+        "alt": "Visitors walking through a rooftop farm"
+      },
+      "body_html": "<ul class=\"marks reveal\" style=\"--delay:300ms;--cols:3;width:900px\"><li><span>01</span>Pick the depth<small>It sets weight and cost.</small></li><li><span>02</span>Check the structure<small>Before any design.</small></li><li><span>03</span>Plan the care<small>Plants need an owner.</small></li></ul>",
+      "duration_seconds": 30,
+      "notes_en": "Close on the three takeaways and open the floor."
+    }
+  ],
+  "author": "Visual Slides example",
+  "lang": "en",
+  "style": {
+    "preset": "adaptive",
+    "theme": "themes/green-roofs/theme.json"
+  },
+  "credits_note": "Example images from Wikimedia Commons, used under the licenses shown."
+}

@@ -28,9 +28,13 @@ A quiet photo-led treatment can work well for a small-room readout. Blend a scen
 
 A bright, high-contrast palette with strong sans-serif type works in a well-lit room. Use an alternative direction if the brand, references or space point to one.
 
+## Topic deck with a theme from its own photos
+
+**Purpose.** Explain a public topic (green roofs in dense cities) to a general audience in a daylight room. See `assets/example-topic-deck.json`: six photos found with `find_images.py`, a `nature` theme made from them with `make_theme.py` (Young Serif, DM Sans, a moss accent taken from the planting), a drawn layer diagram over an ambient photo, picture tiles and a dark alternate slide.
+
 ## Product or marketing talk in a dim room
 
-**Purpose.** Explain how a team turns observation into a product decision, with energy, for an audience watching a projector. See `assets/example-cinematic-deck.json` (Cinematic Night).
+**Purpose.** Explain how a team turns observation into a product decision, with energy, for an audience watching a projector. See `assets/example-cinematic-deck.json` (Cinematic Night, a look the user chose).
 
 | Slide idea | Visual and context |
 | --- | --- |

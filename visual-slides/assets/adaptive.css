@@ -1,0 +1,263 @@
+/* ===========================================
+   ADAPTIVE — the Visual Slides component system, driven entirely by tokens.
+   A theme (generated from the deck's topic by scripts/make_theme.py, or a hand-written
+   theme stylesheet such as themes/cinematic.css) sets the tokens below; nothing here
+   hard-codes a colour or a typeface. Works for dark and light themes.
+   =========================================== */
+:root {
+  /* Typography (themes override) */
+  --heading-font: Georgia, "Noto Serif SC", "Songti SC", serif;
+  --body-font: "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", sans-serif;
+  --label-font: var(--body-font);
+  --mono-font: var(--label-font); /* older manifests and the cinematic theme use --mono-font */
+  --heading-weight: 700;
+  --display-weight: 700;
+  --card-title-weight: 700;
+  --body-weight: 400;
+  --label-weight: 700;
+  --label-case: uppercase;
+  --label-tracking: .12em;
+  --title-size: 96px;
+  --title-line: 1;
+  --title-tracking: -.01em;
+  --cover-size: 168px;
+  --cover-line: .92;
+  --cover-tracking: -.02em;
+  --divider-size: 140px;
+  --divider-line: .92;
+  --divider-tracking: -.02em;
+  --numeral-size: 260px;
+  --radius: 0px;
+  --stage-bg: #101114;
+}
+
+/* === COLOUR TOKENS === */
+.slide {
+  --slide-bg: #101114;
+  --text: #f3efe8;
+  --muted: color-mix(in srgb, var(--text) 78%, var(--slide-bg));
+  --accent: #d98a4e;
+  --accent-2: #5a6e8c;
+  --accent-ink: color-mix(in srgb, var(--accent) 58%, var(--text));
+  --secondary: color-mix(in srgb, var(--accent) 35%, var(--text));
+  --on-accent: color-mix(in srgb, var(--slide-bg) 92%, black);
+  --rule: color-mix(in srgb, var(--text) 18%, transparent);
+  --footer-text: color-mix(in srgb, var(--text) 72%, var(--slide-bg));
+  --photo-matte: color-mix(in srgb, var(--text) 6%, var(--slide-bg));
+  --card: color-mix(in srgb, var(--text) 8%, var(--slide-bg));
+  --card-line: color-mix(in srgb, var(--text) 15%, transparent);
+  --caption-bg: color-mix(in srgb, var(--text) 9%, var(--slide-bg));
+  --lede: color-mix(in srgb, var(--text) 88%, var(--slide-bg));
+  --glow-a: color-mix(in srgb, var(--accent) 26%, var(--slide-bg));
+  --glow-b: color-mix(in srgb, var(--accent-2) 30%, var(--slide-bg));
+  --glow-a-at: 84% 18%;
+  --glow-b-at: 6% 104%;
+  --slide-margin: 104px;
+  --body-top: 372px;
+  font-family: var(--body-font);
+  background:
+    radial-gradient(ellipse at var(--glow-a-at), var(--glow-a) 0%, transparent 52%),
+    radial-gradient(ellipse at var(--glow-b-at), var(--glow-b) 0%, transparent 56%),
+    var(--slide-bg);
+}
+
+/* Light pools. Pick one per slide (manifest "glow"); vary them through a section.
+   Every name works in every theme: colours come from the theme's accents. */
+.slide.glow-ember, .slide.glow-accent { --glow-a: color-mix(in srgb, var(--accent) 30%, var(--slide-bg)); }
+.slide.glow-alt, .slide.glow-indigo, .slide.glow-steel { --glow-a: color-mix(in srgb, var(--accent-2) 34%, var(--slide-bg)); --glow-a-at: 82% 22%; }
+.slide.glow-rust { --glow-a: color-mix(in srgb, var(--accent) 36%, var(--slide-bg)); --glow-a-at: 56% -4%; --glow-b-at: 72% 110%; }
+.slide.glow-violet, .slide.glow-teal { --glow-a: color-mix(in srgb, var(--accent-2) 40%, var(--slide-bg)); --glow-a-at: 82% 46%; --glow-b-at: 0% 100%; }
+.slide.glow-plum { --glow-a: color-mix(in srgb, var(--accent) 22%, var(--slide-bg)); --glow-a-at: 28% 73%; --glow-b-at: 96% 0%; }
+.slide.glow-none { --glow-a: transparent; --glow-b: transparent; }
+.slide.glow-left { --glow-a-at: 8% 12%; --glow-b-at: 96% 100%; }
+
+/* Alternate surface: one in roughly every six to eight slides (light on a dark theme,
+   dark on a light theme). theme-paper is kept as an alias for older manifests. */
+.slide.theme-alt, .slide.theme-paper {
+  --slide-bg: var(--alt-bg, #f0ece5);
+  --text: var(--alt-text, #1b1919);
+  --muted: color-mix(in srgb, var(--text) 74%, var(--slide-bg));
+  --accent-ink: color-mix(in srgb, var(--accent) 66%, var(--text));
+  --secondary: var(--accent-ink);
+  --rule: color-mix(in srgb, var(--text) 18%, transparent);
+  --footer-text: color-mix(in srgb, var(--text) 66%, var(--slide-bg));
+  --card: color-mix(in srgb, var(--text) 7%, var(--slide-bg));
+  --card-line: color-mix(in srgb, var(--text) 15%, transparent);
+  --caption-bg: color-mix(in srgb, var(--text) 9%, var(--slide-bg));
+  --lede: color-mix(in srgb, var(--text) 86%, var(--slide-bg));
+  --glow-a: color-mix(in srgb, var(--accent) 22%, var(--slide-bg)); --glow-b: transparent; --glow-a-at: 82% 0%;
+}
+
+/* === HEADER === */
+.kicker {
+  top: 64px; left: 0;
+  display: flex; align-items: center; gap: 22px;
+  color: var(--accent-ink);
+  font: var(--label-weight) 21px/1.25 var(--label-font);
+  letter-spacing: var(--label-tracking); text-transform: var(--label-case);
+}
+.kicker::before { content: ""; width: 32px; border-top: 3px solid var(--accent); }
+.kicker:has(.kicker-num)::before { content: none; }
+.kicker-num {
+  margin-right: 0; padding: 6px 10px 5px;
+  background: var(--accent); color: var(--on-accent);
+  border-radius: calc(var(--radius) / 2);
+  letter-spacing: .08em;
+}
+/* The header flows: a title that wraps pushes its subtitle down instead of colliding. */
+.slide-header { display: flex; flex-direction: column; align-items: flex-start; padding-top: 125px; }
+.slide .slide-header > :is(.slide-title, .slide-subtitle, .divider-num) { position: relative; top: auto; left: auto; }
+.slide .slide-header > .slide-subtitle { margin-top: 26px; }
+.slide-title {
+  width: 100%;
+  font: var(--heading-weight) var(--title-size)/var(--title-line) var(--heading-font);
+  letter-spacing: var(--title-tracking);
+  text-wrap: balance;
+}
+.slide-title em { font-style: normal; color: var(--accent); }
+.slide-subtitle {
+  margin-top: 26px; width: min(100%, 1120px);
+  font: var(--body-weight) 30px/1.42 var(--body-font);
+  color: var(--muted);
+  text-wrap: pretty;
+}
+.slide.two-line { --body-top: 470px; }
+
+/* === FOOTER (folio) === */
+.slide-footer {
+  inset: 1004px var(--slide-margin) auto;
+  height: 48px; padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  color: var(--footer-text);
+  font: var(--label-weight) 16px/1.25 var(--label-font);
+  letter-spacing: var(--label-tracking); text-transform: var(--label-case);
+}
+.slide-body { height: calc(980px - var(--body-top)); font: var(--body-weight) 27px/1.38 var(--body-font); }
+
+/* === COVER === */
+.slide.cover { --body-top: 872px; }
+.slide.cover .kicker { color: var(--text); }
+.slide.cover .slide-header { padding-top: var(--cover-top, 206px); }
+.slide.cover .slide-title {
+  top: auto; width: 1180px;
+  font-size: var(--cover-size); font-weight: var(--display-weight); line-height: var(--cover-line); letter-spacing: var(--cover-tracking);
+}
+.slide.cover .slide-title .dot { color: var(--accent); }
+.slide.cover .slide-subtitle { top: auto; margin-top: 56px; width: 780px; font-size: 37px; line-height: 1.34; color: var(--lede); }
+.slide.cover .slide-body { width: 900px; }
+.slide.cover .presenter { font: var(--presenter-weight, var(--card-title-weight)) 33px/1.2 var(--body-font); }
+.slide.cover .meta { margin-top: 14px; }
+.slide.cover .slide-footer { border-top: 0; }
+
+/* === SECTION DIVIDER === */
+.slide.divider .slide-header { padding-top: 172px; }
+.slide.divider .divider-num {
+  margin-left: -4px;
+  font: var(--display-weight) var(--numeral-size)/.78 var(--heading-font); letter-spacing: -.04em;
+  color: transparent; -webkit-text-stroke: 3px var(--accent);
+}
+.slide.divider .slide-title { margin-top: 44px; width: 1000px; font-size: var(--divider-size); font-weight: var(--display-weight); line-height: var(--divider-line); letter-spacing: var(--divider-tracking); }
+.slide.divider .slide-subtitle { margin-top: 30px; width: 780px; font-size: 34px; line-height: 1.36; color: var(--lede); }
+.slide.divider { --body-top: 868px; }
+.slide.divider .slide-body { height: 110px; }
+
+/* === STATEMENT (big claim, e.g. a pilot or closing) === */
+.slide.statement .slide-header { padding-top: 168px; }
+.slide.statement .slide-title { width: 1040px; font-size: var(--divider-size); font-weight: var(--display-weight); line-height: var(--divider-line); letter-spacing: var(--title-tracking); }
+.slide.statement .slide-subtitle { margin-top: 34px; width: 760px; font-size: 33px; color: var(--statement-lede, var(--lede)); }
+.slide.statement { --body-top: 716px; }
+
+/* === TYPE UTILITIES === */
+.mono, .meta { font: var(--label-weight) 19px/1.32 var(--label-font); letter-spacing: calc(var(--label-tracking) * .875); text-transform: var(--label-case); }
+.meta { color: var(--footer-text); }
+.label { color: var(--accent-ink); font: var(--label-weight) 19px/1.3 var(--label-font); letter-spacing: calc(var(--label-tracking) * .8333); }
+.display { font: var(--heading-weight) 56px/.95 var(--heading-font); letter-spacing: var(--title-tracking); }
+.caption { color: var(--muted); font: var(--label-weight) 17px/1.35 var(--label-font); letter-spacing: .06em; text-transform: var(--label-case); }
+.accent { color: var(--accent); }
+.rule { background: var(--rule); height: 1px; }
+
+/* === CARDS === */
+.cards { display: grid; grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr)); gap: var(--gap, 22px); }
+.card {
+  position: relative; min-width: 0;
+  padding: 26px 24px 30px;
+  background: var(--card);
+  border-top: 2px solid var(--accent);
+  border-radius: var(--radius);
+}
+.card .label { display: block; margin-bottom: 14px; }
+.card h3 { font: var(--card-title-weight) 33px/1.12 var(--body-font); letter-spacing: -.01em; }
+.card p { margin-top: 12px; color: var(--muted); font-size: 24px; line-height: 1.34; }
+
+/* === FLOW: steps joined by arrows === */
+.flow { display: grid; grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr)); gap: 29px; }
+.flow > div { position: relative; padding-top: 22px; border-top: 2px solid color-mix(in srgb, var(--accent) 72%, var(--slide-bg)); }
+.flow > div:not(:last-child)::after { content: "→"; position: absolute; top: -25px; right: -30px; font-size: 33px; color: var(--accent); }
+.flow small { color: var(--accent-ink); font: var(--label-weight) 19px/1.3 var(--label-font); letter-spacing: calc(var(--label-tracking) * .6667); text-transform: var(--label-case); }
+.flow h3 { margin-top: 12px; font: var(--card-title-weight) 31px/1.1 var(--body-font); }
+.flow p { margin-top: 14px; color: var(--muted); font-size: 24px; line-height: 1.36; }
+
+/* === LIST: numbered rows with hairlines === */
+.rows > div { display: grid; grid-template-columns: 66px 1fr; gap: 4px 14px; padding: 20px 0 22px; border-top: 1px solid var(--rule); }
+.rows > div > span { grid-row: span 2; color: var(--accent); font: var(--display-weight) 46px/.9 var(--heading-font); }
+.rows b { font-size: 31px; line-height: 1.16; }
+.rows p { color: var(--muted); font-size: 24px; line-height: 1.34; }
+
+/* === TILES: picture cards whose image fades into the text === */
+.tiles { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 34px; }
+.tile figure { position: relative; height: var(--tile-h, 236px); overflow: hidden; margin: 0; border-radius: var(--radius); }
+.tile figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tile figure::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, color-mix(in srgb, var(--slide-bg) 70%, transparent) 0%, transparent 46%); }
+.tile .tile-text { display: grid; grid-template-columns: 92px 1fr; gap: 6px 16px; padding-top: 22px; border-top: 3px solid var(--accent); }
+.tile .num { grid-row: span 2; color: var(--accent); font: var(--display-weight) 84px/.86 var(--heading-font); }
+.tile h3 { font: var(--heading-weight) 52px/1 var(--heading-font); letter-spacing: calc(var(--title-tracking) * .4); }
+.tile p { color: var(--muted); font-size: 24px; line-height: 1.36; }
+
+/* === FRAME: a crisp image the audience should inspect === */
+.frame { position: relative; overflow: hidden; margin: 0; background: var(--photo-matte); border: 1px solid var(--card-line); border-radius: var(--radius); display: grid; grid-template-rows: minmax(0, 1fr) auto; }
+.frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.frame.contain img { object-fit: contain; padding: 18px; }
+.frame figcaption { padding: 15px 18px; border-top: 1px solid var(--card-line); background: var(--caption-bg); color: var(--lede); font: var(--label-weight) 16px/1.3 var(--label-font); letter-spacing: .06em; text-transform: var(--label-case); }
+.multiply img, img.multiply { mix-blend-mode: multiply; }
+
+/* === NUMBERS === */
+.stats { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 40px; }
+.stat b { display: block; color: var(--accent); font: var(--display-weight) 132px/.82 var(--heading-font); letter-spacing: -.03em; }
+.stat span { display: block; margin-top: 14px; font-size: 25px; line-height: 1.3; color: var(--muted); }
+.theme-alt .stat b, .theme-paper .stat b { color: var(--accent-ink); }
+
+/* === TAKEAWAY LINE === */
+.takeaway { position: absolute; left: 0; right: 0; bottom: 0; display: flex; gap: 24px; align-items: baseline; padding-top: 22px; border-top: 1px solid var(--rule); font-size: 27px; font-weight: 650; color: var(--text); }
+.takeaway strong { color: var(--accent-ink); font: var(--label-weight) 19px/1 var(--label-font); letter-spacing: var(--label-tracking); text-transform: var(--label-case); white-space: nowrap; }
+
+/* === SOURCES SLIDE === */
+.credits-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 40px; }
+.credits-grid > div { padding-top: 12px; border-top: 1px solid var(--rule); font-size: 17px; line-height: 1.35; color: var(--muted); }
+.credits-grid b { display: block; color: var(--text); font-size: 19px; }
+.credits-grid span { font-family: var(--label-font); font-size: 16px; letter-spacing: .02em; }
+
+/* === MARKS: a short list along the bottom of a divider or closing slide === */
+.marks { display: grid; grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr)); gap: 28px; margin: 0; padding: 0; list-style: none; }
+.marks li { padding-top: 16px; border-top: 2px solid color-mix(in srgb, var(--accent) 62%, transparent); font-size: 26px; font-weight: 720; line-height: 1.28; color: var(--text); }
+.marks li span { display: block; margin-bottom: 9px; color: var(--accent-ink); font: var(--label-weight) 17px/1.2 var(--label-font); letter-spacing: var(--label-tracking); text-transform: var(--label-case); }
+.marks li small { display: block; margin-top: 8px; color: var(--muted); font-size: 21px; font-weight: 500; }
+
+/* Keep the headline on the quiet side of a picture. */
+.slide.narrow .slide-title, .slide.narrow .slide-subtitle { width: 860px; }
+
+/* === MOTION: fast in, soft landing === */
+.slide.entered .reveal { animation-duration: 650ms; animation-timing-function: cubic-bezier(.19, 1, .22, 1); }
+
+/* === STAGE CHROME (outside the slide canvas) === */
+.deck-controls { background: color-mix(in srgb, var(--stage-bg) 94%, transparent); border-color: color-mix(in srgb, var(--stage-bg) 70%, white 18%); }
+.deck-controls button, .notes-panel button { background: color-mix(in srgb, var(--stage-bg) 82%, white 10%); border-color: color-mix(in srgb, var(--stage-bg) 70%, white 22%); color: #f1ede6; font-family: var(--body-font); }
+#slide-counter { font-family: var(--label-font); color: #e8e4de; }
+
+/* === CHINESE AND JAPANESE === CJK glyphs need air: no negative tracking, looser leading. */
+:lang(zh) .slide-title, :lang(ja) .slide-title { letter-spacing: .02em; line-height: 1.14; }
+:lang(zh) .slide.cover .slide-title, :lang(ja) .slide.cover .slide-title,
+:lang(zh) .slide.divider .slide-title, :lang(zh) .slide.statement .slide-title { letter-spacing: .02em; line-height: 1.08; }
+:lang(zh) .slide.cover .slide-title { font-size: min(var(--cover-size), 168px); }
+:lang(zh) .slide.divider .slide-title, :lang(zh) .slide.statement .slide-title { font-size: min(var(--divider-size), 120px); }
+:lang(zh) :is(.slide-subtitle, .slide-body, .card p, .tile p, .flow p, .rows p, .marks li) { line-height: 1.62; }
+:lang(zh) :is(.kicker, .label, .meta, .mono, .caption, .slide-footer, .flow small, .marks li span) { letter-spacing: .06em; }

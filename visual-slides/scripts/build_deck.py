@@ -10,13 +10,17 @@ from pathlib import Path
 import re
 
 from theme_catalog import css_for, styles
+from theme_tokens import theme_css, theme_font_files
 
 ASSETS = Path(__file__).resolve().parents[1] / "assets"
+# Stylesheets per preset, in order. "adaptive" takes its colours and typefaces from
+# style.theme (theme.json written by make_theme.py from the deck's own topic).
 PRESETS = {
-    "cinematic": "cinematic.css",
-    "editorial": "editorial.css",
-    "light": "light.css",
-    "custom": None,
+    "adaptive": ["adaptive.css"],
+    "cinematic": ["adaptive.css", "themes/cinematic.css"],
+    "editorial": ["editorial.css"],
+    "light": ["light.css"],
+    "custom": [],
 }
 # Fonts bundled with a preset (OFL, in assets/fonts) and embedded automatically.
 PRESET_FONTS = {
@@ -81,6 +85,8 @@ def subset_font(path, text):
     """Keep only the glyphs the deck uses. Essential for CJK fonts (10–20 MB → a few hundred KB)."""
     try:
         from fontTools import subset
+        import logging
+        logging.getLogger("fontTools").setLevel(logging.ERROR)
     except ImportError:
         return None, "fontTools is not installed; embedded the full font."
     options = subset.Options()
@@ -131,16 +137,49 @@ def font_face(family, path, weight, style, payload=None):
     )
 
 
+def inside(path, root, label):
+    path = path.resolve()
+    if not path.is_relative_to(root.resolve()):
+        raise ValueError(label + " must stay inside the manifest project directory: " + str(path))
+    if not path.is_file():
+        raise ValueError("Missing " + label.lower() + ": " + str(path))
+    return path
+
+
+def load_theme(value, root):
+    """style.theme: a theme object, or a path to theme.json (fonts resolve next to it)."""
+    if isinstance(value, dict):
+        return value, root
+    path = project_file(value, root)
+    if path.suffix.lower() != ".json":
+        raise ValueError("Style.theme must be a theme object or a path to theme.json.")
+    return json.loads(path.read_text(encoding="utf-8")), path.parent
+
+
 def load_style(style, root):
-    preset = style.get("preset") if isinstance(style, dict) else None
+    if not isinstance(style, dict):
+        raise ValueError("The manifest needs a style object. Make a theme from the topic with make_theme.py.")
+    preset = style.get("preset") or ("adaptive" if style.get("theme") else None)
     if not isinstance(preset, str) or (preset not in PRESETS and preset not in styles()):
-        raise ValueError("Choose style.preset as a catalog ID, cinematic, editorial, light, or custom.")
-    stylesheet = PRESETS.get(preset)
+        raise ValueError("Choose style.preset: adaptive (with style.theme), cinematic, editorial, light, custom or a catalog ID.")
     css = ""
+    theme = None
+    theme_fonts = []
     if preset in styles():
         css = css_for(preset)
-    elif stylesheet:
-        css = (ASSETS / stylesheet).read_text(encoding="utf-8")
+    else:
+        css = "\n".join((ASSETS / sheet).read_text(encoding="utf-8") for sheet in PRESETS[preset])
+    if preset == "adaptive":
+        if not style.get("theme"):
+            raise ValueError("The adaptive preset needs style.theme (theme.json from make_theme.py, or a theme object).")
+        theme, theme_root = load_theme(style["theme"], root)
+        tokens, _ = theme_css(theme)
+        css += "\n" + tokens
+        for family, file, weight, font_style, subset in theme_font_files(theme):
+            theme_fonts.append({"family": family, "path": inside(theme_root / file, root, "Theme font"),
+                                "weight": weight, "style": font_style, "subset": subset})
+    elif style.get("theme"):
+        raise ValueError("Style.theme works with the adaptive preset only.")
     accent = style.get("accent")
     if accent:
         if not isinstance(accent, str) or not HEX.fullmatch(accent):
@@ -161,7 +200,7 @@ def load_style(style, root):
         {"family": family, "path": ASSETS / "fonts" / file, "weight": weight, "style": font_style, "subset": False}
         for family, file, weight, font_style in PRESET_FONTS.get(preset, [])
         if style.get("bundled_fonts", True)
-    ]
+    ] + theme_fonts
     supplied_fonts = style.get("fonts", [])
     if not isinstance(supplied_fonts, list) or not all(isinstance(font, dict) for font in supplied_fonts):
         raise ValueError("Style.fonts must be a list of local font declarations.")
@@ -173,7 +212,7 @@ def load_style(style, root):
             "style": font.get("style", "normal"),
             "subset": bool(font.get("subset", style.get("subset_fonts", False))),
         })
-    return preset, css, fonts
+    return preset, css, fonts, theme
 
 
 def font_css(fonts, text):
@@ -415,7 +454,7 @@ def build(manifest_path, output_path):
         raise ValueError("All appendix slides must follow the main presentation.")
 
     root = manifest_path.parent
-    preset, style_css, fonts = load_style(model.get("style"), root)
+    preset, style_css, fonts, theme = load_style(model.get("style"), root)
     design = styles().get(preset)
     all_slides = slides + credit_slides(model, slides)
     sections = [
@@ -458,6 +497,7 @@ def build(manifest_path, output_path):
     return {
         "file": str(output_path),
         "style": preset,
+        "theme": (theme or {}).get("name"),
         "main_slides": main_count,
         "appendix_slides": len(all_slides) - main_count,
         "generated_credit_slides": len(all_slides) - len(slides),

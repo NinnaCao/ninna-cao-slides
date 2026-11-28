@@ -1,0 +1,119 @@
+{
+  "name": "Nature & wellbeing · palette from the green-roof photos",
+  "mood": "nature",
+  "mood_label": "Nature & wellbeing",
+  "mode": "light",
+  "source": {
+    "images": [
+      "media/green-roofs/city-hall-aerial.webp",
+      "media/green-roofs/city-hall-meadow.webp",
+      "media/green-roofs/extensive-roof.webp",
+      "media/green-roofs/library-roof-garden.webp",
+      "media/green-roofs/rooftop-farm.webp",
+      "media/green-roofs/sedum-tray.webp"
+    ],
+    "brand": []
+  },
+  "colors": {
+    "bg": "#f4f5f1",
+    "text": "#1e1f1a",
+    "muted": "#565752",
+    "accent": "#697711",
+    "accent2": "#846230",
+    "alt_bg": "#1e1f1a",
+    "alt_text": "#f7f5f2",
+    "accent_alt": "#697711",
+    "stage": "#e4e5e1"
+  },
+  "keep_accent": false,
+  "fonts": {
+    "heading": {
+      "family": "Young Serif",
+      "generic": "serif",
+      "files": [
+        {
+          "file": "fonts/YoungSerif-400.woff2",
+          "weight": "400",
+          "subset": true
+        }
+      ]
+    },
+    "body": {
+      "family": "DM Sans",
+      "generic": "sans-serif",
+      "files": [
+        {
+          "file": "fonts/DMSans-Variable.woff2",
+          "weight": "100 1000",
+          "subset": true
+        }
+      ]
+    },
+    "label": {
+      "family": "DM Mono",
+      "generic": "monospace",
+      "files": [
+        {
+          "file": "fonts/DMMono-500.woff2",
+          "weight": "500",
+          "subset": true
+        }
+      ]
+    }
+  },
+  "type": {
+    "heading_weight": 400,
+    "display_weight": 400,
+    "card_title_weight": 700,
+    "body_weight": 400,
+    "label_weight": 500,
+    "label_case": "uppercase",
+    "label_tracking": ".12em",
+    "title_size": 88,
+    "title_line": 1.04,
+    "title_tracking": "-.015em",
+    "cover_size": 160,
+    "cover_line": 0.96,
+    "cover_tracking": "-.025em",
+    "divider_size": 132,
+    "divider_line": 0.98,
+    "divider_tracking": "-.02em",
+    "numeral_size": 220
+  },
+  "shape": {
+    "radius": 16
+  },
+  "font_credits": [
+    {
+      "family": "Young Serif",
+      "license": "SIL Open Font License 1.1",
+      "source": "https://github.com/google/fonts/tree/main/ofl/youngserif",
+      "file": "fonts/YoungSerif-OFL.txt"
+    },
+    {
+      "family": "DM Sans",
+      "license": "SIL Open Font License 1.1",
+      "source": "https://github.com/google/fonts/tree/main/ofl/dmsans",
+      "file": "fonts/DMSans-OFL.txt"
+    },
+    {
+      "family": "DM Mono",
+      "license": "SIL Open Font License 1.1",
+      "source": "https://github.com/google/fonts/tree/main/ofl/dmmono",
+      "file": "fonts/DMMono-OFL.txt"
+    }
+  ],
+  "guidance": {
+    "images": "Natural light, landscapes, hands at work, textures; wide crops that fade into the page.",
+    "layout": "Tiles and flows, airy spacing, one calm alternate slide per section."
+  },
+  "contrast": {
+    "text_on_bg": 15.1,
+    "muted_on_bg": 6.7,
+    "accent_on_bg": 4.5,
+    "accent_on_alt": 3.4
+  },
+  "notes": [
+    "Accent from the images (#636d3a, hue 118°), made vivid enough for headline accents."
+  ]
+}

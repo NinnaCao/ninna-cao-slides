@@ -53,6 +53,21 @@ class DeckParser(HTMLParser):
         if self.in_style:self.css.append(data)
         if self.current is not None and not self.skip:self.current['text']+=' '+data
 
+MEDIA=Path(__file__).resolve().parents[1]/'assets'/'media'
+
+def sameness(model,source):
+    """Warn when a deck looks like every other deck: the stock example look or example photos."""
+    out=[];style=model.get('style') or {}
+    if style.get('preset')=='cinematic' and str(style.get('accent','#ff7338')).lower()=='#ff7338':
+        out.append('Stock Cinematic Night (default orange, Barlow Condensed). Use it only when the user chose it; otherwise derive the look from this topic: scripts/make_theme.py --mood <mood> --images <topic images>, then style {"preset":"adaptive","theme":"theme/theme.json"}.')
+    reused=[]
+    for f in sorted(MEDIA.rglob('*')):
+        if f.suffix.lower() in ('.webp','.jpg','.jpeg','.png') and f.is_file():
+            import base64
+            if base64.b64encode(f.read_bytes()).decode('ascii')[:4000] in source:reused.append(f.name)
+    if reused:out.append('Bundled example photos reused: '+', '.join(reused)+'. Find images for this topic (find_images.py, the brand site or the user\'s files) instead.')
+    return out
+
 def audit(path):
     source=Path(path).read_text(encoding='utf-8');p=DeckParser();p.feed(source)
     errors=[];warnings=[]
@@ -99,6 +114,7 @@ def audit(path):
         photos=len(re.findall(r'data:image/(?:webp|jpe?g|png|avif)',source))
         if photos and not (model.get('credits') or model.get('credits_slide') is False):
             warnings.append(str(photos)+' embedded raster images but no credits ledger in the manifest. Record creator, license and source for every image found online.')
+        if not model.get('example'):warnings.extend(sameness(model,source))
     except (ValueError,TypeError):errors.append('Invalid or absent manifest/notes JSON.')
     return {'status':'pass' if not errors else 'fail','errors':errors,'warnings':warnings,'main_slides':sum(not s['appendix'] for s in p.slides),'appendix_slides':sum(s['appendix'] for s in p.slides),'embedded_images':len(p.images),'notes':len(notes or []),'slides':[{k:s[k] for k in ['id','title','appendix','words','cjk_chars','visuals','images']} for s in p.slides],'claim_boundary':'Static structure only. Visual layout, image quality, factual accuracy and browser interaction require separate review.'}
 

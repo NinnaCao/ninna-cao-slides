@@ -1,0 +1,585 @@
+{
+  "_about": "Mood library for scripts/make_theme.py. Fonts are Google Fonts families under the SIL Open Font License; paths are inside https://github.com/google/fonts (verified Nov 2026). Colours are NOT here: they come from the deck's own topic images or the brand.",
+  "moods": {
+    "editorial": {
+      "label": "Editorial",
+      "use_for": "culture, research, policy, publishing, thoughtful long-form talks, design reviews",
+      "mode": "light",
+      "fonts": {
+        "heading": {
+          "family": "Fraunces",
+          "generic": "serif",
+          "files": [
+            {
+              "path": "ofl/fraunces/Fraunces[SOFT,WONK,opsz,wght].ttf",
+              "weight": "100 900"
+            }
+          ],
+          "license": "ofl/fraunces/OFL.txt"
+        },
+        "body": {
+          "family": "Work Sans",
+          "generic": "sans-serif",
+          "files": [
+            {
+              "path": "ofl/worksans/WorkSans[wght].ttf",
+              "weight": "100 900"
+            }
+          ],
+          "license": "ofl/worksans/OFL.txt"
+        },
+        "label": {
+          "family": "IBM Plex Mono",
+          "generic": "monospace",
+          "files": [
+            {
+              "path": "ofl/ibmplexmono/IBMPlexMono-Medium.ttf",
+              "weight": "500"
+            }
+          ],
+          "license": "ofl/ibmplexmono/OFL.txt"
+        }
+      },
+      "type": {
+        "heading_weight": 600,
+        "display_weight": 700,
+        "card_title_weight": 600,
+        "body_weight": 400,
+        "label_weight": 500,
+        "label_case": "uppercase",
+        "label_tracking": ".14em",
+        "title_size": 92,
+        "title_line": 1.02,
+        "title_tracking": "-.015em",
+        "cover_size": 170,
+        "cover_line": 0.94,
+        "cover_tracking": "-.025em",
+        "divider_size": 140,
+        "divider_line": 0.95,
+        "divider_tracking": "-.02em",
+        "numeral_size": 240
+      },
+      "shape": {
+        "radius": 4
+      },
+      "images": "Documentary photography, generous negative space; crisp frames for evidence, one full-bleed fade per section.",
+      "layout": "Strong left edge, ample margins, rows and quotes; alternate surface for long reading slides."
+    },
+    "warm": {
+      "label": "Warm & human",
+      "use_for": "family, elder care, community, heritage, education for adults, non-profits, healthcare stories",
+      "mode": "light",
+      "fonts": {
+        "heading": {
+          "family": "Instrument Serif",
+          "generic": "serif",
+          "files": [
+            {
+              "path": "ofl/instrumentserif/InstrumentSerif-Regular.ttf",
+              "weight": "400"
+            }
+          ],
+          "license": "ofl/instrumentserif/OFL.txt"
+        },
+        "body": {
+          "family": "Figtree",
+          "generic": "sans-serif",
+          "files": [
+            {
+              "path": "ofl/figtree/Figtree[wght].ttf",
+              "weight": "300 900"
+            }
+          ],
+          "license": "ofl/figtree/OFL.txt"
+        },
+        "label": {
+          "family": "Figtree",
+          "generic": "sans-serif",
+          "files": [],
+          "license": null
+        }
+      },
+      "type": {
+        "heading_weight": 400,
+        "display_weight": 400,
+        "card_title_weight": 700,
+        "body_weight": 400,
+        "label_weight": 700,
+        "label_case": "uppercase",
+        "label_tracking": ".16em",
+        "title_size": 104,
+        "title_line": 1.0,
+        "title_tracking": "-.005em",
+        "cover_size": 196,
+        "cover_line": 0.9,
+        "cover_tracking": "-.015em",
+        "divider_size": 156,
+        "divider_line": 0.92,
+        "divider_tracking": "-.01em",
+        "numeral_size": 260,
+        "cover_top": 170
+      },
+      "shape": {
+        "radius": 18
+      },
+      "images": "Real people, hands, homes and old photographs; soft light; fades into a warm paper stage.",
+      "layout": "Big serif statements, photo tiles, quotes in the speaker's words; avoid dense grids."
+    },
+    "tech": {
+      "label": "Tech & product",
+      "use_for": "AI, software, data, startups, product launches, engineering reviews",
+      "mode": "dark",
+      "fonts": {
+        "heading": {
+          "family": "Sora",
+          "generic": "sans-serif",
+          "files": [
+            {
+              "path": "ofl/sora/Sora[wght].ttf",
+              "weight": "100 800"
+            }
+          ],
+          "license": "ofl/sora/OFL.txt"
+        },
+        "body": {
+          "family": "IBM Plex Sans",
+          "generic": "sans-serif",
+          "files": [
+            {
+              "path": "ofl/ibmplexsans/IBMPlexSans[wdth,wght].ttf",
+              "weight": "100 700"
+            }
+          ],
+          "license": "ofl/ibmplexsans/OFL.txt"
+        },
+        "label": {
+          "family": "JetBrains Mono",
+          "generic": "monospace",
+          "files": [
+            {
+              "path": "ofl/jetbrainsmono/JetBrainsMono[wght].ttf",
+              "weight": "100 800"
+            }
+          ],
+          "license": "ofl/jetbrainsmono/OFL.txt"
+        }
+      },
+      "type": {
+        "heading_weight": 650,
+        "display_weight": 700,
+        "card_title_weight": 600,
+        "body_weight": 400,
+        "label_weight": 500,
+        "label_case": "uppercase",
+        "label_tracking": ".1em",
+        "title_size": 84,
+        "title_line": 1.04,
+        "title_tracking": "-.03em",
+        "cover_size": 150,
+        "cover_line": 0.96,
+        "cover_tracking": "-.04em",
+        "divider_size": 124,
+        "divider_line": 0.98,
+        "divider_tracking": "-.035em",
+        "numeral_size": 220
+      },
+      "shape": {
+        "radius": 12
+      },
+      "images": "Product renders and real screenshots on dark grounds; UI in crisp frames; glows from the accent.",
+      "layout": "Flows, diagrams and cards; screenshots large enough to read."
+    },
+    "corporate": {
+      "label": "Corporate & finance",
+      "use_for": "strategy, finance, consulting, board updates, investor decks, B2B sales",
+      "mode": "light",
+      "fonts": {
+        "heading": {
+          "family": "IBM Plex Serif",
+          "generic": "serif",
+          "files": [
+            {
+              "path": "ofl/ibmplexserif/IBMPlexSerif-SemiBold.ttf",
+              "weight": "600"
+            }
+          ],
+          "license": "ofl/ibmplexserif/OFL.txt"
+        },
+        "body": {
+          "family": "IBM Plex Sans",
+          "generic": "sans-serif",
+          "files": [
+            {
+              "path": "ofl/ibmplexsans/IBMPlexSans[wdth,wght].ttf",
+              "weight": "100 700"
+            }
+          ],
+          "license": "ofl/ibmplexsans/OFL.txt"
+        },
+        "label": {
+          "family": "IBM Plex Mono",
+          "generic": "monospace",
+          "files": [
+            {
+              "path": "ofl/ibmplexmono/IBMPlexMono-Medium.ttf",
+              "weight": "500"
+            }
+          ],
+          "license": "ofl/ibmplexmono/OFL.txt"
+        }
+      },
+      "type": {
+        "heading_weight": 600,
+        "display_weight": 600,
+        "card_title_weight": 600,
+        "body_weight": 400,
+        "label_weight": 500,
+        "label_case": "uppercase",
+        "label_tracking": ".12em",
+        "title_size": 80,
+        "title_line": 1.08,
+        "title_tracking": "-.01em",
+        "cover_size": 136,
+        "cover_line": 1.0,
+        "cover_tracking": "-.02em",
+        "divider_size": 112,
+        "divider_line": 1.0,
+        "divider_tracking": "-.015em",
+        "numeral_size": 200
+      },
+      "shape": {
+        "radius": 4
+      },
+      "images": "Places, teams and products photographed plainly; charts drawn, not pictured.",
+      "layout": "Clear hierarchy, numbers with labels, one message per slide; restrained motion."
+    },
+    "playful": {
+      "label": "Playful",
+      "use_for": "children, schools, consumer fun, workshops, games for families, community events",
+      "mode": "light",
+      "fonts": {
+        "heading": {
+          "family": "Fredoka",
+          "generic": "sans-serif",
+          "files": [
+            {
+              "path": "ofl/fredoka/Fredoka[wdth,wght].ttf",
+              "weight": "300 700"
+            }
+          ],
+          "license": "ofl/fredoka/OFL.txt"
+        },
+        "body": {
+          "family": "Nunito",
+          "generic": "sans-serif",
+          "files": [
+            {
+              "path": "ofl/nunito/Nunito[wght].ttf",
+              "weight": "200 1000"
+            }
+          ],
+          "license": "ofl/nunito/OFL.txt"
+        },
+        "label": {
+          "family": "Nunito",
+          "generic": "sans-serif",
+          "files": [],
+          "license": null
+        }
+      },
+      "type": {
+        "heading_weight": 600,
+        "display_weight": 700,
+        "card_title_weight": 800,
+        "body_weight": 500,
+        "label_weight": 800,
+        "label_case": "none",
+        "label_tracking": ".02em",
+        "title_size": 92,
+        "title_line": 1.02,
+        "title_tracking": "-.01em",
+        "cover_size": 168,
+        "cover_line": 0.95,
+        "cover_tracking": "-.02em",
+        "divider_size": 140,
+        "divider_line": 0.96,
+        "divider_tracking": "-.015em",
+        "numeral_size": 240
+      },
+      "shape": {
+        "radius": 28
+      },
+      "images": "Bright, candid photos of activity; cut-outs on colour; never stock smiles.",
+      "layout": "Rounded cards, big numbers, short sentences; lively but uncluttered."
+    },
+    "luxury": {
+      "label": "Luxury",
+      "use_for": "fashion, beauty, hospitality, jewellery, premium real estate, art",
+      "mode": "dark",
+      "fonts": {
+        "heading": {
+          "family": "Cormorant Garamond",
+          "generic": "serif",
+          "files": [
+            {
+              "path": "ofl/cormorantgaramond/CormorantGaramond[wght].ttf",
+              "weight": "300 700"
+            }
+          ],
+          "license": "ofl/cormorantgaramond/OFL.txt"
+        },
+        "body": {
+          "family": "Jost",
+          "generic": "sans-serif",
+          "files": [
+            {
+              "path": "ofl/jost/Jost[wght].ttf",
+              "weight": "100 900"
+            }
+          ],
+          "license": "ofl/jost/OFL.txt"
+        },
+        "label": {
+          "family": "Jost",
+          "generic": "sans-serif",
+          "files": [],
+          "license": null
+        }
+      },
+      "type": {
+        "heading_weight": 500,
+        "display_weight": 500,
+        "card_title_weight": 500,
+        "body_weight": 300,
+        "label_weight": 500,
+        "label_case": "uppercase",
+        "label_tracking": ".28em",
+        "title_size": 100,
+        "title_line": 1.0,
+        "title_tracking": "0em",
+        "cover_size": 180,
+        "cover_line": 0.92,
+        "cover_tracking": "-.01em",
+        "divider_size": 150,
+        "divider_line": 0.94,
+        "divider_tracking": "-.005em",
+        "numeral_size": 260,
+        "cover_top": 190
+      },
+      "shape": {
+        "radius": 0
+      },
+      "images": "Still-life and portrait photography with deep shadows; one subject per slide; slow fades.",
+      "layout": "Lots of space, centred moments, thin rules; very few words."
+    },
+    "nature": {
+      "label": "Nature & wellbeing",
+      "use_for": "sustainability, food, farming, outdoors, wellness, cities and parks, climate",
+      "mode": "light",
+      "fonts": {
+        "heading": {
+          "family": "Young Serif",
+          "generic": "serif",
+          "files": [
+            {
+              "path": "ofl/youngserif/YoungSerif-Regular.ttf",
+              "weight": "400"
+            }
+          ],
+          "license": "ofl/youngserif/OFL.txt"
+        },
+        "body": {
+          "family": "DM Sans",
+          "generic": "sans-serif",
+          "files": [
+            {
+              "path": "ofl/dmsans/DMSans[opsz,wght].ttf",
+              "weight": "100 1000"
+            }
+          ],
+          "license": "ofl/dmsans/OFL.txt"
+        },
+        "label": {
+          "family": "DM Mono",
+          "generic": "monospace",
+          "files": [
+            {
+              "path": "ofl/dmmono/DMMono-Medium.ttf",
+              "weight": "500"
+            }
+          ],
+          "license": "ofl/dmmono/OFL.txt"
+        }
+      },
+      "type": {
+        "heading_weight": 400,
+        "display_weight": 400,
+        "card_title_weight": 700,
+        "body_weight": 400,
+        "label_weight": 500,
+        "label_case": "uppercase",
+        "label_tracking": ".12em",
+        "title_size": 88,
+        "title_line": 1.04,
+        "title_tracking": "-.015em",
+        "cover_size": 160,
+        "cover_line": 0.96,
+        "cover_tracking": "-.025em",
+        "divider_size": 132,
+        "divider_line": 0.98,
+        "divider_tracking": "-.02em",
+        "numeral_size": 220
+      },
+      "shape": {
+        "radius": 16
+      },
+      "images": "Natural light, landscapes, hands at work, textures; wide crops that fade into the page.",
+      "layout": "Tiles and flows, airy spacing, one calm alternate slide per section."
+    },
+    "bold": {
+      "label": "Bold launch",
+      "use_for": "sports, product launches, events, gaming, campaigns, rallying talks",
+      "mode": "dark",
+      "fonts": {
+        "heading": {
+          "family": "Anton",
+          "generic": "sans-serif",
+          "files": [
+            {
+              "path": "ofl/anton/Anton-Regular.ttf",
+              "weight": "400"
+            }
+          ],
+          "license": "ofl/anton/OFL.txt"
+        },
+        "body": {
+          "family": "Archivo",
+          "generic": "sans-serif",
+          "files": [
+            {
+              "path": "ofl/archivo/Archivo[wdth,wght].ttf",
+              "weight": "100 900"
+            }
+          ],
+          "license": "ofl/archivo/OFL.txt"
+        },
+        "label": {
+          "family": "Archivo",
+          "generic": "sans-serif",
+          "files": [],
+          "license": null
+        }
+      },
+      "type": {
+        "heading_weight": 400,
+        "display_weight": 400,
+        "card_title_weight": 800,
+        "body_weight": 500,
+        "label_weight": 800,
+        "label_case": "uppercase",
+        "label_tracking": ".14em",
+        "title_size": 112,
+        "title_line": 0.96,
+        "title_tracking": "0em",
+        "cover_size": 190,
+        "cover_line": 0.92,
+        "cover_tracking": "-.005em",
+        "divider_size": 180,
+        "divider_line": 0.9,
+        "divider_tracking": "0em",
+        "numeral_size": 300,
+        "cover_top": 120
+      },
+      "shape": {
+        "radius": 0
+      },
+      "images": "Action and product photography with energy; hard crops, high contrast, big fades.",
+      "layout": "Huge headlines, short lines, numbers as heroes; fast motion."
+    },
+    "clinical": {
+      "label": "Clear & clinical",
+      "use_for": "health, science, public services, accessibility, training, safety",
+      "mode": "light",
+      "fonts": {
+        "heading": {
+          "family": "Spectral",
+          "generic": "serif",
+          "files": [
+            {
+              "path": "ofl/spectral/Spectral-SemiBold.ttf",
+              "weight": "600"
+            }
+          ],
+          "license": "ofl/spectral/OFL.txt"
+        },
+        "body": {
+          "family": "Atkinson Hyperlegible",
+          "generic": "sans-serif",
+          "files": [
+            {
+              "path": "ofl/atkinsonhyperlegible/AtkinsonHyperlegible-Regular.ttf",
+              "weight": "400"
+            },
+            {
+              "path": "ofl/atkinsonhyperlegible/AtkinsonHyperlegible-Bold.ttf",
+              "weight": "700"
+            }
+          ],
+          "license": "ofl/atkinsonhyperlegible/OFL.txt"
+        },
+        "label": {
+          "family": "Atkinson Hyperlegible",
+          "generic": "sans-serif",
+          "files": [],
+          "license": null
+        }
+      },
+      "type": {
+        "heading_weight": 600,
+        "display_weight": 600,
+        "card_title_weight": 700,
+        "body_weight": 400,
+        "label_weight": 700,
+        "label_case": "uppercase",
+        "label_tracking": ".1em",
+        "title_size": 84,
+        "title_line": 1.06,
+        "title_tracking": "-.01em",
+        "cover_size": 140,
+        "cover_line": 1.0,
+        "cover_tracking": "-.015em",
+        "divider_size": 116,
+        "divider_line": 1.0,
+        "divider_tracking": "-.01em",
+        "numeral_size": 200
+      },
+      "shape": {
+        "radius": 10
+      },
+      "images": "Real settings and people, clean light; diagrams for anything exact.",
+      "layout": "High contrast, large body text, step-by-step flows; calm motion."
+    },
+    "cinematic": {
+      "label": "Cinematic Night",
+      "use_for": "product, marketing and technology talks in a dim room; the look recorded from an approved Nov 2026 deck",
+      "mode": "dark",
+      "preset": "cinematic",
+      "images": "Product renders and scenes on dark grounds, fading in from one side.",
+      "layout": "Condensed headlines, typewriter labels, light pools; see references/cinematic-night.md."
+    }
+  },
+  "cjk": {
+    "sans": {
+      "family": "Noto Sans SC",
+      "path": "ofl/notosanssc/NotoSansSC[wght].ttf",
+      "weight": "100 900",
+      "license": "ofl/notosanssc/OFL.txt"
+    },
+    "serif": {
+      "family": "Noto Serif SC",
+      "path": "ofl/notoserifsc/NotoSerifSC[wght].ttf",
+      "weight": "200 900",
+      "license": "ofl/notoserifsc/OFL.txt"
+    }
+  }
+}

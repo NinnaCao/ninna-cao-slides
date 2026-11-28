@@ -30,7 +30,8 @@ When the toolkit is included, these scripts run on local user files. Use the pre
 python3 scripts/collect_page_images.py https://brand.example/product --brand Brand --out media/candidates/brand
 python3 scripts/find_images.py "studio microphone" --out media/candidates/mic
 python3 scripts/fetch_image.py --candidates media/candidates/mic/candidates.json --pick 3 media/mic.webp --manifest deck.json
-python3 scripts/preview_styles.py deck.json previews cinematic precise-grid green-cover
+python3 scripts/make_theme.py --mood nature --images media/ --out theme --preview
+python3 scripts/preview_styles.py deck.json previews theme/theme.json theme-b/theme.json theme-c/theme.json
 python3 scripts/build_deck.py deck.json presentation.html
 python3 scripts/check_deck.py presentation.html
 python3 scripts/qa_render.py presentation.html qa
@@ -41,19 +42,21 @@ python3 scripts/build_notes.py deck.json notes.docx
 python3 scripts/prepare_share.py presentation.html audience-copy
 ```
 
-The HTML builder uses standard-library Python 3.10 or newer. Set `style.preset` to `cinematic`, a catalog ID, `editorial`, `light`, or `custom` with a project stylesheet. `cinematic` embeds its bundled fonts automatically; see [cinematic-night.md](cinematic-night.md). Every catalog direction supplies distinct tokens, typography, composition, graphic motifs and entrance pacing. Compose the slide content for the project in the manifest. Text edits autosave in the browser when local storage is available. Download a standalone edited copy to move changes to another device. Set `editable` to false to omit text editing. Use the example manifests to see available fields and add assets with relative paths inside the project. To create a wildcard preview with local project CSS, set the opening manifest style to `custom`.
+The HTML builder uses standard-library Python 3.10 or newer. Set `style.preset` to `adaptive` with `style.theme` (the default: a theme made from the topic, see [themes.md](themes.md)), `cinematic`, a catalog ID, `editorial`, `light`, or `custom` with a project stylesheet. `adaptive` embeds the theme's fonts, subset to the deck's text; `cinematic` embeds its bundled fonts; see [cinematic-night.md](cinematic-night.md). Theme generation and font subsetting need `Pillow`, `fontTools` and `brotli` (`pip install pillow fonttools brotli`). Every catalog direction supplies distinct tokens, typography, composition, graphic motifs and entrance pacing. Compose the slide content for the project in the manifest. Text edits autosave in the browser when local storage is available. Download a standalone edited copy to move changes to another device. Set `editable` to false to omit text editing. Use the example manifests to see available fields and add assets with relative paths inside the project. To create a wildcard preview with local project CSS, set the opening manifest style to `custom`.
 
 ### Manifest fields added in v3
 
 | Field | Where | Meaning |
 | --- | --- | --- |
 | `backdrop` | slide | `{image, place, focus, start, height, fade, brightness, alt, scrim, opacity, at, blur}`. `place` (`right`, `left`, `top`, `top-right`, `bottom`, `full`, `ambient`) turns on the image fade; `opacity`, `at` and `blur` tune `ambient`. Older `background_image` still works; add `background_place` to fade it. |
-| `glow` | slide | Light pool name (`ember`, `rust`, `indigo`, `violet`, `plum`, `steel`, `teal`, `none`, plus `left`). Styled by presets that define glows. |
+| `glow` | slide | Light pool name (`accent`, `alt`, `ember`, `rust`, `indigo`, `violet`, `plum`, `steel`, `teal`, `none`, plus `left`). Colours come from the theme's accents. |
+| `theme` | slide | `alt` switches to the alternate surface (dark on a light theme, light on a dark one); `paper` is the older name. |
 | `layout` | slide | `cover`, `content`, `divider`, `statement`. |
 | `section_number` | slide | Short label shown in an accent chip before `section`. |
 | `number_label` | slide | Large outlined numeral on a divider. |
 | `visual_exempt` | slide | Reason a slide has no visual. Appendix only in practice. |
-| `style.accent` | deck | Six-digit hex accent; presets derive related colours from it. |
+| `style.theme` | deck | With `preset: "adaptive"`: path to `theme.json` from `make_theme.py` (fonts resolve next to it), or an inline theme object `{colors:{bg,text,accent,…}, fonts, type, shape}`. |
+| `style.accent` | deck | Six-digit hex accent for `cinematic` and catalog presets; presets derive related colours from it. |
 | `style.fonts[].subset` / `style.subset_fonts` | deck | Keep only the glyphs the deck uses (CJK fonts). Needs `fontTools`; WOFF2 also needs `brotli`. |
 | `style.bundled_fonts` | deck | `false` to skip a preset's bundled fonts. |
 | `credits` | deck | Image ledger `{file, title, creator, license, source, note}`; `fetch_image.py --manifest` writes it. |

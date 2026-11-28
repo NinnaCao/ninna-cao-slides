@@ -25,8 +25,13 @@ def previews(manifest, output, selection):
         opening.pop("notes_zh", None)
         opening["appendix"] = False
         draft["slides"] = [opening]
-        if direction != "custom":
-            original_style = draft.get("style") or {}
+        original_style = draft.get("style") or {}
+        if direction.endswith(".json"):
+            # A theme made by make_theme.py for this topic (it must sit inside the deck project).
+            theme = Path(direction).resolve()
+            draft["style"] = {"preset": "adaptive", "theme": str(theme.relative_to(manifest.parent.resolve())),
+                              "fonts": original_style.get("fonts", [])}
+        elif direction != "custom":
             draft["style"] = {"preset": direction, "fonts": original_style.get("fonts", [])}
             if original_style.get("accent"):
                 draft["style"]["accent"] = original_style["accent"]
@@ -41,8 +46,13 @@ def main():
     parser.add_argument("manifest", type=Path)
     parser.add_argument("output", type=Path)
     choices = tuple(styles()) + ("cinematic", "editorial", "light", "custom")
-    parser.add_argument("directions", nargs="+", choices=choices)
+    parser.add_argument("directions", nargs="+",
+                        help="Three of: theme.json files from make_theme.py (preferred: made from this topic), "
+                             "cinematic, editorial, light, custom, or a catalog ID.")
     args = parser.parse_args()
+    for direction in args.directions:
+        if not direction.endswith(".json") and direction not in choices:
+            parser.error(f"Unknown direction {direction!r}. Use a theme.json or one of: {', '.join(choices)}")
     if len(args.directions) != 3 or len(set(args.directions)) != 3:
         parser.error("Choose three distinct directions.")
     for report in previews(args.manifest.resolve(), args.output.resolve(), args.directions):

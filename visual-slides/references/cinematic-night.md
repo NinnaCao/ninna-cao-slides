@@ -1,8 +1,8 @@
 # Cinematic Night
 
-A dark editorial direction recorded from an approved product-marketing deck (November 2026): photographs and product renders dissolve into a warm charcoal stage, condensed headlines hit hard, typewriter labels keep order, and one hot accent carries attention. It is a strong first candidate for product, marketing, technology and strategy talks in a dim room, and for any brief that asks for this look. Choose another direction when the brand, room or tone points elsewhere; the fade and visual rules still apply.
+A dark editorial direction recorded from an approved product-marketing deck (November 2026): photographs and product renders dissolve into a warm charcoal stage, condensed headlines hit hard, typewriter labels keep order, and one hot accent carries attention. It is one recorded look, not the default: use it when the user asks for it or continues a deck made with it. For every other deck, make the look from the topic (see [themes.md](themes.md)); the fade and visual rules still apply.
 
-`style.preset: "cinematic"` in a manifest applies it, with the fonts embedded automatically. See `assets/example-cinematic-deck.json` for every layout below.
+`style.preset: "cinematic"` in a manifest applies it (the adaptive component system with the token theme `assets/themes/cinematic.css`), with the fonts embedded automatically. `style.accent` swaps the orange for a colour from the topic. See `assets/example-cinematic-deck.json` for every layout below.
 
 ## Type
 

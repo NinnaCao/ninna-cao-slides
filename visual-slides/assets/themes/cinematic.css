@@ -1,0 +1,58 @@
+/* ===========================================
+   CINEMATIC NIGHT — a Visual Slides theme (tokens for adaptive.css)
+   A dark editorial look recorded from an approved product-marketing deck: warm charcoal
+   stage, tinted light pools, condensed display type, typewriter labels, one hot accent.
+   One theme among many: use it when the topic and room call for it, not by default.
+   Fonts (bundled, OFL): Barlow Condensed 600/700/800, Manrope variable, Courier Prime.
+   =========================================== */
+:root {
+  --heading-font: "Barlow Condensed", "Noto Sans SC", "PingFang SC", "Arial Narrow", Impact, sans-serif;
+  --body-font: "Manrope", "Noto Sans SC", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  --label-font: "Courier Prime", "Noto Sans SC", "PingFang SC", "Courier New", ui-monospace, monospace;
+  --mono-font: var(--label-font);
+  --heading-weight: 700;
+  --display-weight: 800;
+  --card-title-weight: 800;
+  --presenter-weight: 780;
+  --body-weight: 500;
+  --label-weight: 700;
+  --label-case: uppercase;
+  --label-tracking: .12em;
+  --title-size: 104px;  --title-line: .94;  --title-tracking: -.025em;
+  --cover-size: 228px;  --cover-line: .84;  --cover-tracking: -.039em;
+  --divider-size: 168px; --divider-line: .86; --divider-tracking: -.03em;
+  --numeral-size: 300px;
+  --radius: 0px;
+  --stage-bg: #090a0c;
+  --alt-bg: #f0ece5;
+  --alt-text: #1b1919;
+}
+.slide {
+  --slide-bg: #0e0f13;
+  --text: #f4f0e9;
+  --muted: #cdc7c1;
+  --accent: #ff7338;
+  --accent-2: #20233a;
+  --accent-ink: color-mix(in srgb, var(--accent) 58%, #fff3ea);
+  --secondary: color-mix(in srgb, var(--accent) 35%, #ffe7d9);
+  --on-accent: #140d0a;
+  --rule: #ffffff2e;
+  --footer-text: #c6c1bd;
+  --photo-matte: #15161b;
+  --card: #1d1f29e8;
+  --card-line: #ffffff26;
+  --caption-bg: #171a22;
+  --lede: #e0d9d1;
+  --statement-lede: #f4e9de;
+  --glow-a: color-mix(in srgb, var(--accent) 26%, #120d10);
+  --glow-b: #20233a;
+}
+/* Signature light pools of this theme. */
+.slide.glow-ember  { --glow-a: color-mix(in srgb, var(--accent) 30%, #140d0f); --glow-b: #23233c; }
+.slide.glow-rust   { --glow-a: #5c2618cc; --glow-b: #261f39; }
+.slide.glow-indigo { --glow-a: #343044; --glow-b: #1e2440; }
+.slide.glow-violet { --glow-a: #4a3870; --glow-b: #25203c; }
+.slide.glow-plum   { --glow-a: #4b2528; --glow-b: #221c2a; }
+.slide.glow-steel  { --glow-a: #253c4f; --glow-b: #1d2333; }
+.slide.glow-teal   { --glow-a: #1b4447; --glow-b: #15232b; }
+.slide.theme-paper, .slide.theme-alt { --glow-a: #fae3b0aa; }

@@ -21,6 +21,8 @@ Bundled in `assets/fonts` as Latin subsets under the SIL Open Font License 1.1, 
 - Manrope (variable), The Manrope Project Authors: `Manrope-OFL.txt`.
 - Courier Prime (Regular, Bold), The Courier Prime Project Authors: `CourierPrime-OFL.txt`.
 
+The green-roofs example theme (`assets/themes/green-roofs/fonts/`) embeds Young Serif (The Young Serif Project Authors), DM Sans and DM Mono (The DM Sans / DM Mono Project Authors), each with its `*-OFL.txt`. Themes made by `scripts/make_theme.py` download OFL families from the Google Fonts repository and copy each licence beside the font.
+
 The fonts are subset to Latin characters and converted to WOFF2; otherwise unmodified. Generated presentations embed them. Keep the license notices when redistributing the font files themselves.
 
 ## Example images
@@ -39,6 +41,12 @@ The example decks use openly licensed photographs from Wikimedia Commons, conver
 - `media/workshop/whiteboard-notes.webp`: Design Thinking Workshop WMDE 1, Corinna Schuster (WMDE), CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Design_Thinking_Workshop_WMDE_1.jpg
 - `media/workshop/sketching-wireframes.webp`: Designer sketching Wireframes (Unsplash), Green Chameleon craftedbygc, CC0, https://commons.wikimedia.org/wiki/File:Designer_sketching_Wireframes_(Unsplash).jpg
 - `media/workshop/ux-testing-laptop.webp`: Project User Experience Testing (9719939867), Samuel Mann from Dunedin, New Zealand, CC BY 2.0, https://commons.wikimedia.org/wiki/File:Project_User_Experience_Testing_(9719939867).jpg
+- `media/green-roofs/city-hall-aerial.webp`: 20080708 Chicago City Hall Green Roof Edit1, TonyTheTiger; derivative work: raeky, CC BY-SA 3.0, https://commons.wikimedia.org/wiki/File:20080708_Chicago_City_Hall_Green_Roof_Edit1.jpg
+- `media/green-roofs/city-hall-meadow.webp`: Chicago-City-Hall-Green-Roof 02, Conservation Design Forum, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Chicago-City-Hall-Green-Roof_02.jpg
+- `media/green-roofs/sedum-tray.webp`: Green roof tray, Skasnl - groendakmaterialen.nl, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Green_roof_tray.jpg
+- `media/green-roofs/extensive-roof.webp`: A green roof - geograph.org.uk - 4676986, Anthony O'Neil, CC BY-SA 2.0, https://commons.wikimedia.org/wiki/File:A_green_roof_-_geograph.org.uk_-_4676986.jpg
+- `media/green-roofs/library-roof-garden.webp`: Austin Public Library August 2019 11 (Roof Garden), Michael Barera, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Austin_Public_Library_August_2019_11_(Roof_Garden).jpg
+- `media/green-roofs/rooftop-farm.webp`: Brooklyn Grange (75908), Rhododendrites, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Brooklyn_Grange_(75908).jpg
 - `media/workshop/usability-session.webp`: SFSU Wiki Ed Usability testing, Jami (Wiki Ed), CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:SFSU_Wiki_Ed_Usability_testing.jpg
 
 The decorative SVG examples in `assets/media` are neutral illustrations prepared for this skill, not documentary photos or research evidence. The package does not bundle private interview media, unpublished product designs, commercial research claims or credentials.
